@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_071409) do
+ActiveRecord::Schema.define(version: 2019_02_21_081106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_02_21_071409) do
     t.datetime "updated_at", null: false
     t.index ["buyer_profile_id"], name: "index_favourites_on_buyer_profile_id"
     t.index ["dressmaker_profile_id"], name: "index_favourites_on_dressmaker_profile_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "cost"
+    t.date "completion_date"
+    t.integer "quantity"
+    t.string "order_details"
+    t.string "status"
+    t.jsonb "payment"
+    t.bigint "user_id"
+    t.bigint "dressmaker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dressmaker_id"], name: "index_orders_on_dressmaker_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -91,6 +106,8 @@ ActiveRecord::Schema.define(version: 2019_02_21_071409) do
   add_foreign_key "dressmaker_profiles", "users"
   add_foreign_key "favourites", "buyer_profiles"
   add_foreign_key "favourites", "dressmaker_profiles"
+  add_foreign_key "orders", "users"
+  add_foreign_key "orders", "users", column: "dressmaker_id"
   add_foreign_key "photos", "dressmaker_profiles"
   add_foreign_key "user_specialities", "dressmaker_profiles"
   add_foreign_key "user_specialities", "specialities"
