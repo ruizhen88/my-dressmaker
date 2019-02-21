@@ -1,3 +1,5 @@
+// Source: https://codepen.io/mephysto/pen/ZYVKRY
+
 // Instantiate the Bootstrap carousel
 $('.multi-item-carousel').carousel({
   interval: false
