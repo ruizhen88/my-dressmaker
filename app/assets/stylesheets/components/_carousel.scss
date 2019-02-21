@@ -1,0 +1,26 @@
+.multi-item-carousel {
+  .carousel-inner {
+    .active {
+      &.left {
+        left: -33%;
+      }
+      &.right {
+        left: 33%;
+      }
+    }
+    .next {
+      left: 33%;
+    }
+    .prev {
+      left: -33%;
+    }
+    .carousel-image {
+      width: 300px;
+    }
+  }
+  .carousel-control {
+    &.left, &.right {
+      background-image: none;
+    }
+  }
+}
