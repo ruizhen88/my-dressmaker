@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def redirect_after_signup
+    :buyer_profile_path
+  end
 end
