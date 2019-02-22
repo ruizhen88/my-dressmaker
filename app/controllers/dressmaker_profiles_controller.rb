@@ -6,7 +6,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def show
-    @dressmaker = DressmakerProfile.find(params[:id])
+    @dressmaker = current_user
   end
 
   def new
@@ -47,6 +47,6 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def set_dressmaker
-    @dressmaker = DressmakerProfile.find(params[:id])
+    @dressmaker = current_user
   end
 end
