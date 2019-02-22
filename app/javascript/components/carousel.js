@@ -23,6 +23,4 @@ const initCarousel = () => {
   });
 };
 
-// do I need to export?
-
 export { initCarousel };
