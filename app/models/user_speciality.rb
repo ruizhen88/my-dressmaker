@@ -1,4 +1,4 @@
 class UserSpeciality < ApplicationRecord
-  belongs_to :DressmakerProfile
-  belongs_to :Speciality
+  belongs_to :dressmaker_profile
+  belongs_to :speciality
 end
