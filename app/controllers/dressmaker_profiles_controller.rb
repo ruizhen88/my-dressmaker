@@ -24,11 +24,9 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def edit
-    @dressmaker = DressmakerProfile.find(params[:id])
   end
 
   def update
-    @dressmaker = DressmakerProfile.find(params[:id])
     if @dressmaker.save
       redirect_to dressmaker_profile_path(@dressmaker)
     else
