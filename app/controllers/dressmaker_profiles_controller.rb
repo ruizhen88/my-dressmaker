@@ -6,11 +6,13 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def show
-    @dressmaker = DressmakerProfile.find(params[:id])
+    @dressmaker = current_user
+    authorize @dressmaker
   end
 
   def new
     @dressmaker = DressmakerProfile.new
+    authorize @dressmaker
   end
 
   def create
@@ -24,11 +26,9 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def edit
-    @dressmaker = DressmakerProfile.find(params[:id])
   end
 
   def update
-    @dressmaker = DressmakerProfile.find(params[:id])
     if @dressmaker.save
       redirect_to dressmaker_profile_path(@dressmaker)
     else
@@ -47,6 +47,6 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def set_dressmaker
-    @dressmaker = DressmakerProfile.find(params[:id])
+    @dressmaker = current_user
   end
 end

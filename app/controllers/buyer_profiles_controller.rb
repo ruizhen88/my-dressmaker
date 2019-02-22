@@ -2,14 +2,12 @@ class BuyerProfilesController < ApplicationController
 
   def show
     @user = current_user
-  end
-
-  def edit
-
+    authorize @user
   end
 
   def update
     @user = current_user
     @user.update
+    authorize @user
   end
 end
