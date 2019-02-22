@@ -7,10 +7,12 @@ class DressmakerProfilesController < ApplicationController
 
   def show
     @dressmaker = current_user
+    authorize @dressmaker
   end
 
   def new
     @dressmaker = DressmakerProfile.new
+    authorize @dressmaker
   end
 
   def create
