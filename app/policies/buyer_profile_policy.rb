@@ -1,8 +1,12 @@
 class BuyerProfilePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope
     end
+  end
+
+  def show
+    record.user == @user
   end
 
   def update?

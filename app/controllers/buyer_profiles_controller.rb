@@ -1,5 +1,4 @@
 class BuyerProfilesController < ApplicationController
-
   def show
     @user = current_user
     authorize @user
