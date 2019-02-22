@@ -6,6 +6,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def show
+    @dressmaker = current_user
   end
 
   def new
