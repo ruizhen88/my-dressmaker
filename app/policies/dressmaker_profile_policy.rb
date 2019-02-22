@@ -4,4 +4,5 @@ class DressmakerProfilePolicy < ApplicationPolicy
       scope.all
     end
   end
+
 end
