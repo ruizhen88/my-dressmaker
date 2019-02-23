@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 puts 'Cleaning database...'
 
 Photo.destroy_all
@@ -24,8 +23,6 @@ specialities.each do |speciality|
   Speciality.create!(name: speciality)
 end
 
-
-
 users = {
   Romain: {
     first_name: "Romain",
@@ -41,6 +38,7 @@ users = {
     last_name: "Higgins",
     email: "johnhiggins@outlook.ie",
     dressmaker: true,
+    street_address: "1 avenue des champs élysées, Paris",
     password: "password",
     avatar_url: "https://res.cloudinary.com/dwww7z6po/image/upload/v1550817089/28763316_174324203358901_1703058075935571968_n.jpg.jpg"
   },
@@ -67,7 +65,7 @@ users.each do |userKey, userValue|
     first_name: userValue[:first_name],
     last_name: userValue[:last_name],
     email: userValue[:email],
-    post_code: userValue[:post_code],
+    street_address: userValue[:street_address],
     password: userValue[:password],
     dressmaker: userValue[:dressmaker],
     avatar_url: userValue[:avatar_url]
@@ -104,7 +102,5 @@ users.each do |userKey, userValue|
     BuyerProfile.create(user: new_user)
   end
 end
-
-
 
 puts 'Finished!'

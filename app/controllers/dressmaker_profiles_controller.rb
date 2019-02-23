@@ -3,17 +3,21 @@ class DressmakerProfilesController < ApplicationController
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
-    # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
+    if params[:query].present?
+      @dressmakers = policy_scope(DressmakerProfile).global_search(params[:query])
+    else
+      @dressmakers = policy_scope(DressmakerProfile)
+    end
 
-    @dressmakers = policy_scope(DressmakerProfile)
+    # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
     # @dressmakers = DressmakerProfile.all
 
     @dressmakers_users = User.where.not(latitude: nil, longitude: nil) && User.where(dressmaker: true)
-
     @markers = @dressmakers_users.map do |user|
       {
         lng: user.longitude,
-        lat: user.latitude
+        lat: user.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
       }
     end
   end
