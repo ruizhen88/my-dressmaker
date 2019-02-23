@@ -32,6 +32,7 @@ users = {
     last_name: "Blanco",
     email: "romain.blanco@gmail.com",
     dressmaker: true,
+    street_address: "193 rue de Paris, Les Lilas",
     password: "password",
     avatar_url: "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814295/30603138.jpg"
   },
@@ -66,6 +67,7 @@ users.each do |userKey, userValue|
     first_name: userValue[:first_name],
     last_name: userValue[:last_name],
     email: userValue[:email],
+    post_code: userValue[:post_code],
     password: userValue[:password],
     dressmaker: userValue[:dressmaker],
     avatar_url: userValue[:avatar_url]

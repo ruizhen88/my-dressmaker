@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :orders
   has_many :purchase_orders, foreign_key: "dressmaker_id", class_name: "Order"
+
+  geocoded_by :street_address
+  after_validation :geocode, if: :will_save_change_to_street_address?
+
 end
