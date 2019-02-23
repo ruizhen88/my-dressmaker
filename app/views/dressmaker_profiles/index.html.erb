@@ -16,45 +16,62 @@
     </div><!-- /.row -->
 
     <!-- card list -->
+    <% @dressmakers.each do |dressmaker| %>
+      <div class="product">
+        <div class="product-controls">
+          <div class="dm-profile list-inline">
+            <li>
+              <div class="fav-and-av">
+                <i class="fas fa-heart"></i><br>
+                <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
+              </div>
+            </li>
+            <li><h3><%= dressmaker.user.first_name %><%= dressmaker.user.last_name %></h3><p>dressmaker.bio</p></li>
+          </div>
+          <div class="dm-portfolio">
+            <%= render "shared/carousel" %>
+          </div>
+        </div>
+      </div><!-- /.product -->
+    <% end %>
+
+  </div><!-- /.list-container -->
+
+  <div class="map-container">
+    <h1>Map Here</h1>
+  </div><!-- /.map-container -->
+
+</div><!-- /.index-body -->
+
+
+
+<!-- different versions of favorite icon position
+  On right corner
     <div class="product">
       <div class="product-controls">
         <div class="dm-profile list-inline">
-          <li><%= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
+          <li><%#= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
           <li><h3>Name</h3><p>Description</p></li>
           <div class="fav">
             <i class="fas fa-heart"></i>
           </div>
         </div>
         <div class="dm-portfolio">
-          <%= render "shared/carousel" %>
-        </div>
-      </div><!-- /.product-controls -->
-    </div><!-- /.product -->
-    <div class="product">
-      <div class="product-controls">
-        <div class="dm-profile list-inline">
-          <li>
-            <div class="fav-and-av">
-              <i class="fas fa-heart"></i><br>
-              <%= image_tag "blue_dress.jpg", class: "avatar-large" %>
-            </div>
-          </li>
-          <li><h3>Name</h3><p>Description</p></li>
-        </div>
-        <div class="dm-portfolio">
-          <%= render "shared/carousel" %>
+          <%#= render "shared/carousel" %>
         </div>
       </div>
-    </div><!-- /.product -->
+    </div>
+
+  On left
     <div class="product">
       <div class="product-controls">
         <div class="dm-profile list-inline">
           <li><i class="far fa-heart"></i></li>
-          <li><%= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
+          <li><%#= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
           <li><h3>Name</h3><p>Description</p></li>
         </div>
         <div class="dm-portfolio">
-          <%= render "shared/carousel" %>
+          <%#= render "shared/carousel" %>
         </div>
       </div>
     </div><!-- /.product -->

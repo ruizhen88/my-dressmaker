@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 puts 'Cleaning database...'
 
 Photo.destroy_all
@@ -23,8 +22,6 @@ IMAGES = ["https://res.cloudinary.com/dwww7z6po/image/upload/v1550816886/2876452
 specialities.each do |speciality|
   Speciality.create!(name: speciality)
 end
-
-
 
 users = {
   Romain: {
@@ -78,30 +75,27 @@ users.each do |userKey, userValue|
 
     dressmaker_bio = ["Passionate dressmaker I have done that all my life", "The best dressmaker in all Ireland"]
 
-      new_dm = DressmakerProfile.new(
-      bio: dressmaker_bio.sample,
-      user: new_user
-      )
-      new_dm.save
+    new_dm = DressmakerProfile.new(
+    bio: dressmaker_bio.sample,
+    user: new_user
+    )
+    new_dm.save
 
-      3.times do
-        # speciality_ids = (1..Speciality.all.count - 1).to_a
-        UserSpeciality.create!(
-          speciality: Speciality.order("RANDOM()").first,
-          dressmaker_profile: new_dm
-          )
-
-      end
-
-        4.times do
-          Photo.create!(
-          remote_url_url: IMAGES.sample,
-          dressmaker_profile: new_dm
-          )
-        end
+    3.times do
+      # speciality_ids = (1..Speciality.all.count - 1).to_a
+      UserSpeciality.create!(
+        speciality: Speciality.order("RANDOM()").first,
+        dressmaker_profile: new_dm
+        )
     end
+
+    4.times do
+      Photo.create!(
+      remote_url_url: IMAGES.sample,
+      dressmaker_profile: new_dm
+      )
+    end
+  end
 end
-
-
 
 puts 'Finished!'
