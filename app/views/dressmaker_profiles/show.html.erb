@@ -1,7 +1,15 @@
-<h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
+<div class="container">
+  <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
 
-<p>Bio: <%= @dressmaker.bio %></p>
+  <p>
+    Bio: <%= @dressmaker.bio %> <br>
+    Facebook: <%= @dressmaker.fb_url %>
+  </p>
+  <% if current_user == @dressmaker.user %>
+    <%= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %> <br>
+  <% end %>
 
+  <%= image_tag @dressmaker.user.avatar_url %>
 
-<%= image_tag @dressmaker.user.avatar_url %>
+</div>
 

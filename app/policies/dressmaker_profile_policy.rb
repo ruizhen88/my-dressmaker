@@ -6,7 +6,7 @@ class DressmakerProfilePolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    record.user == user
   end
 
   def create?
