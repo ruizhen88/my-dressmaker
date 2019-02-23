@@ -10,7 +10,9 @@
     <%= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %> <br>
   <% end %>
 
-  <%= image_tag @dressmaker.user.avatar_url %>
+  <% if @dressmaker.user.avatar_url.present? %>
+    <%= image_tag @dressmaker.user.avatar_url %>
+  <% end %>
 
 </div>
 
