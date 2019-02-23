@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     new_dressmaker = DressmakerProfile.new
     new_dressmaker.user = current_user
     if new_dressmaker.save
-      dressmaker_profile_path(new_dressmaker)
+      edit_dressmaker_profile_path(new_dressmaker)
     else
       render 'new_user_registration'
     end
@@ -69,7 +69,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_buyer
     new_buyer = BuyerProfile.new
     new_buyer.user = current_user
-    buyer_profile_path(current_user)
     if new_buyer.save
       buyer_profile_path(new_buyer)
     else
