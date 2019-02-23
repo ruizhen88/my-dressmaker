@@ -15,7 +15,6 @@ class DressmakerProfilesController < ApplicationController
         lat: user.latitude
       }
     end
-
   end
 
   def show
