@@ -1,4 +1,5 @@
 class DressmakerProfilesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
@@ -24,7 +25,6 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def new
-    @dressmaker = DressmakerProfile.new
     authorize @dressmaker
   end
 
