@@ -1,5 +1,67 @@
-<h2>
-  <% @dressmakers.each do |dressmaker| %>
-    <%= dressmaker.first_name %>
-  <% end %>
-</h2>
+<div class="index-body">
+  <div class="list-container">
+    <h1>Dressmaker results</h1>
+
+    <!-- search bar -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-inline">
+          <!-- Replaced form with search function -->
+          <%= form_tag dressmaker_profiles_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris..." %>
+            <%= submit_tag "Go!", class: "btn btn-danger" %>
+          <% end %>
+        </div><!-- /.form-inline -->
+      </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+
+    <!-- card list -->
+    <div class="product">
+      <div class="product-controls">
+        <div class="dm-profile list-inline">
+          <li><%= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
+          <li><h3>Name</h3><p>Description</p></li>
+          <div class="fav">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+        <div class="dm-portfolio">
+          <%= render "shared/carousel" %>
+        </div>
+      </div><!-- /.product-controls -->
+    </div><!-- /.product -->
+    <div class="product">
+      <div class="product-controls">
+        <div class="dm-profile list-inline">
+          <li>
+            <div class="fav-and-av">
+              <i class="fas fa-heart"></i><br>
+              <%= image_tag "blue_dress.jpg", class: "avatar-large" %>
+            </div>
+          </li>
+          <li><h3>Name</h3><p>Description</p></li>
+        </div>
+        <div class="dm-portfolio">
+          <%= render "shared/carousel" %>
+        </div>
+      </div>
+    </div><!-- /.product -->
+    <div class="product">
+      <div class="product-controls">
+        <div class="dm-profile list-inline">
+          <li><i class="far fa-heart"></i></li>
+          <li><%= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
+          <li><h3>Name</h3><p>Description</p></li>
+        </div>
+        <div class="dm-portfolio">
+          <%= render "shared/carousel" %>
+        </div>
+      </div>
+    </div><!-- /.product -->
+  </div><!-- /.list-container -->
+
+  <div class="map-container">
+    <h1>Map Here</h1>
+  </div><!-- /.map-container -->
+
+</div><!-- /.index-body -->

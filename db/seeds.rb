@@ -93,7 +93,7 @@ users.each do |userKey, userValue|
 
         4.times do
           Photo.create!(
-          url: IMAGES.sample,
+          remote_url_url: IMAGES.sample,
           dressmaker_profile: new_dm
           )
         end

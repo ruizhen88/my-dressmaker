@@ -1,0 +1,36 @@
+.index-body {
+  display: flex;
+  width: cover;
+}
+
+.list-container {
+  flex: 1 0 auto;
+}
+
+.map-container {
+  flex: 0 0 30%;
+}
+
+.dm-profile {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  position: relative;
+}
+
+.fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.fa-heart {
+  font-size: 24px;
+}
+
+.fav-and-av {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
