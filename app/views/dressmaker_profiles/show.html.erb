@@ -1,3 +1,7 @@
-<h1><%= "#{current_user.email}'s Profile" %></h1>
+<h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
 
+<p>Bio: <%= @dressmaker.bio %></p>
+
+
+<%= image_tag @dressmaker.user.avatar_url %>
 

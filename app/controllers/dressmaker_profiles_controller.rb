@@ -16,12 +16,10 @@ class DressmakerProfilesController < ApplicationController
         lat: user.latitude
       }
     end
-
   end
 
   def show
-    @dressmaker = current_user
-    authorize @dressmaker
+    skip_authorization
   end
 
   def edit

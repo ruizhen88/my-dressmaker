@@ -78,28 +78,30 @@ users.each do |userKey, userValue|
 
     dressmaker_bio = ["Passionate dressmaker I have done that all my life", "The best dressmaker in all Ireland"]
 
-      new_dm = DressmakerProfile.new(
-      bio: dressmaker_bio.sample,
-      user: new_user
-      )
-      new_dm.save
+    new_dm = DressmakerProfile.new(
+    bio: dressmaker_bio.sample,
+    user: new_user
+    )
+    new_dm.save
 
-      3.times do
-        # speciality_ids = (1..Speciality.all.count - 1).to_a
-        UserSpeciality.create!(
-          speciality: Speciality.order("RANDOM()").first,
-          dressmaker_profile: new_dm
-          )
+    3.times do
+      # speciality_ids = (1..Speciality.all.count - 1).to_a
+      UserSpeciality.create!(
+        speciality: Speciality.order("RANDOM()").first,
+        dressmaker_profile: new_dm
+        )
 
-      end
-
-        4.times do
-          Photo.create!(
-          remote_url_url: IMAGES.sample,
-          dressmaker_profile: new_dm
-          )
-        end
     end
+
+    4.times do
+      Photo.create!(
+      remote_url_url: IMAGES.sample,
+      dressmaker_profile: new_dm
+      )
+    end
+  else
+    BuyerProfile.create(user: new_user)
+  end
 end
 
 

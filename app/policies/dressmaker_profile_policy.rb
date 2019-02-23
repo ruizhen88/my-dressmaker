@@ -5,12 +5,8 @@ class DressmakerProfilePolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    return true
-  end
-
   def edit?
-    return true
+    true
   end
 
   def create?
