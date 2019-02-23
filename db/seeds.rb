@@ -78,7 +78,8 @@ users.each do |userKey, userValue|
 
     new_dm = DressmakerProfile.new(
     bio: dressmaker_bio.sample,
-    user: new_user
+    user: new_user,
+    account_status: "active"
     )
     new_dm.save
 
@@ -88,6 +89,7 @@ users.each do |userKey, userValue|
         speciality: Speciality.order("RANDOM()").first,
         dressmaker_profile: new_dm
         )
+
     end
 
     4.times do
@@ -96,6 +98,8 @@ users.each do |userKey, userValue|
       dressmaker_profile: new_dm
       )
     end
+  else
+    BuyerProfile.create(user: new_user)
   end
 end
 

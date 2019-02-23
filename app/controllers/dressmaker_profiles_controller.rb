@@ -23,8 +23,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def show
-    @dressmaker = current_user
-    authorize @dressmaker
+    skip_authorization
   end
 
   def edit
