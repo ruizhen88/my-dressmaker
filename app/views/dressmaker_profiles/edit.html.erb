@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Dressmaker Profile Creation</h1>
+
+  <p> <%= "Hi #{}, tell us about yourself..." %></p>
+
+  <%= simple_form_for @dressmaker do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :bio, placeholder: "Tell us about yourself..." %>
+
+    <%= f.input :fb_url, label: "Facebook profile:" %>
+
+    <%= f.input :insta_url %>
+
+
+    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+
+
+  <% end %>
+</div>
+
+

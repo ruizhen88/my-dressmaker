@@ -1,7 +1,7 @@
 class BuyerProfilesController < ApplicationController
   def show
-    @user = current_user
-    authorize @user
+    @buyer = BuyerProfile.find(params[:id])
+    authorize @buyer
   end
 
   def update

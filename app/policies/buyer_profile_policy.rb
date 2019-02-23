@@ -5,8 +5,8 @@ class BuyerProfilePolicy < ApplicationPolicy
     end
   end
 
-  def show
-    record.user == @user
+  def show?
+    record.user == user
   end
 
   def update?

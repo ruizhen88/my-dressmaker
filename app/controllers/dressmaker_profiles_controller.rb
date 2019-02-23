@@ -14,27 +14,30 @@ class DressmakerProfilesController < ApplicationController
     authorize @dressmaker
   end
 
-  def new
-    @dressmaker = DressmakerProfile.new
+  # def new
+  #   @dressmaker = DressmakerProfile.new
+  #   authorize @dressmaker
+  # end
+
+  # def create
+  #   @dressmaker = DressmakerProfile.new(dressmaker_params)
+  #   authorize @dressmaker
+  #   if @dressmaker.save
+  #     redirect_to dressmaker_profile_path(@dressmaker)
+  #   else
+  #     render 'new'
+  #   end
+  # end
+
+  def edit
     authorize @dressmaker
   end
 
-  def create
-    @dressmaker = DressmakerProfile.new(dressmaker_params)
-
-    if @dressmaker.save
-      redirect_to dressmaker_profile_path(@dressmaker)
-    else
-      render 'new'
-    end
-  end
-
-  def edit
-  end
-
   def update
-    if @dressmaker.save
-      redirect_to dressmaker_profile_path(@dressmaker)
+    authorize @dressmaker
+    if @dressmaker.update(dressmaker_params)
+      redirect_to dressmaker_profile_path
+
     else
       render 'edit'
     end
@@ -47,10 +50,10 @@ class DressmakerProfilesController < ApplicationController
   private
 
   def dressmaker_params
-    params.require(:dressmaker).permit(:bio, :fb_url, :inst_url)
+    params.require(:dressmaker_profile).permit(:bio, :fb_url, :insta_url)
   end
 
   def set_dressmaker
-    @dressmaker = current_user
+    @dressmaker = DressmakerProfile.find(params[:id])
   end
 end
