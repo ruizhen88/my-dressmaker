@@ -4,8 +4,19 @@ class DressmakerProfilesController < ApplicationController
 
   def index
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
+
     @dressmakers = policy_scope(DressmakerProfile)
     # @dressmakers = DressmakerProfile.all
+
+    @dressmakers_users = User.where.not(latitude: nil, longitude: nil) && User.where(dressmaker: true)
+
+    @markers = @dressmakers_users.map do |user|
+      {
+        lng: user.longitude,
+        lat: user.latitude
+      }
+    end
+
   end
 
   def show
