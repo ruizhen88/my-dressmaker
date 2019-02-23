@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     new_dressmaker = DressmakerProfile.new
     new_dressmaker.user = current_user
     if new_dressmaker.save
-      dressmaker_profile_path(new_dressmaker)
+      edit_dressmaker_profile_path(new_dressmaker)
     else
       render 'new_user_registration'
     end
