@@ -20,9 +20,12 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
+gem "geocoder"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development, :test do
