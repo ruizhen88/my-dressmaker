@@ -1,10 +1,9 @@
 class DressmakerProfilesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
-    @users = User.where(dressmaker: true)
-
     @dressmakers = policy_scope(DressmakerProfile)
     # @dressmakers = DressmakerProfile.all
   end
@@ -13,21 +12,6 @@ class DressmakerProfilesController < ApplicationController
     @dressmaker = current_user
     authorize @dressmaker
   end
-
-  # def new
-  #   @dressmaker = DressmakerProfile.new
-  #   authorize @dressmaker
-  # end
-
-  # def create
-  #   @dressmaker = DressmakerProfile.new(dressmaker_params)
-  #   authorize @dressmaker
-  #   if @dressmaker.save
-  #     redirect_to dressmaker_profile_path(@dressmaker)
-  #   else
-  #     render 'new'
-  #   end
-  # end
 
   def edit
     authorize @dressmaker
