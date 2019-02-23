@@ -69,7 +69,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_buyer
     new_buyer = BuyerProfile.new
     new_buyer.user = current_user
-    buyer_profile_path(current_user)
     if new_buyer.save
       buyer_profile_path(new_buyer)
     else
