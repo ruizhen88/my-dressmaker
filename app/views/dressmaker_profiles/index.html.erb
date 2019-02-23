@@ -21,6 +21,7 @@
         <div class="dm-profile list-inline">
           <li><%= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
           <li><h3>Name</h3><p>Description</p></li>
+          <%=  %>
           <div class="fav">
             <i class="fas fa-heart"></i>
           </div>
@@ -63,8 +64,6 @@
   <div class="map-container">
     <div
       id="map"
-      style="width: 100%;
-      height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
