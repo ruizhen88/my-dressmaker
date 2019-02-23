@@ -6,22 +6,29 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
-  def after_sign_in_path_for(resource)
-    if resource.dressmaker
-      dressmaker_profile_path(current_user)
-    else
-      buyer_profile_path(current_user)
-    end
-  end
-
-  before_action :authenticate_user!
-
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # def user_not_authorized
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
+
+  protected
+
+  def after_sign_up_path_for(resource)
+    if resource.dressmaker
+      new_dressmaker = DressmakerProfile.new
+      new_dressmaker.user = current_user
+      # raise
+      if new_dressmaker.save
+        dressmaker_profile_path(new_dressmaker)
+      else
+        render 'new_user_registration'
+      end
+    else
+      buyer_profile_path(current_user)
+    end
+  end
 
   private
 
