@@ -2,7 +2,11 @@ class DressmakerProfilesController < ApplicationController
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
-    @dressmakers = DressmakerProfile.all
+    if params[:query].present?
+      @dressmakers = policy_scope(DressmakerProfile).global_search(params[:query])
+    else
+      @dressmakers = policy_scope(DressmakerProfile)
+    end
   end
 
   def show
