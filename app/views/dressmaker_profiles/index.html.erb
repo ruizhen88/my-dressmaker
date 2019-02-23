@@ -38,47 +38,6 @@
   </div><!-- /.list-container -->
 
   <div class="map-container">
-    <h1>Map Here</h1>
-  </div><!-- /.map-container -->
-
-</div><!-- /.index-body -->
-
-
-
-<!-- different versions of favorite icon position
-  On right corner
-    <div class="product">
-      <div class="product-controls">
-        <div class="dm-profile list-inline">
-          <li><%#= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
-          <li><h3>Name</h3><p>Description</p></li>
-          <%=  %>
-          <div class="fav">
-            <i class="fas fa-heart"></i>
-          </div>
-        </div>
-        <div class="dm-portfolio">
-          <%#= render "shared/carousel" %>
-        </div>
-      </div>
-    </div>
-
-  On left
-    <div class="product">
-      <div class="product-controls">
-        <div class="dm-profile list-inline">
-          <li><i class="far fa-heart"></i></li>
-          <li><%#= image_tag "blue_dress.jpg", class: "avatar-large" %></li>
-          <li><h3>Name</h3><p>Description</p></li>
-        </div>
-        <div class="dm-portfolio">
-          <%#= render "shared/carousel" %>
-        </div>
-      </div>
-    </div><!-- /.product -->
-  </div><!-- /.list-container -->
-
-  <div class="map-container">
     <div
       id="map"
       data-markers="<%= @markers.to_json %>"
