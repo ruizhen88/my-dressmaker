@@ -2,7 +2,11 @@ class DressmakerProfilesController < ApplicationController
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
-    @dressmakers = DressmakerProfile.all
+    # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
+    @users = User.where(dressmaker: true)
+
+    @dressmakers = policy_scope(DressmakerProfile)
+    # @dressmakers = DressmakerProfile.all
   end
 
   def show
