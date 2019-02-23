@@ -80,7 +80,8 @@ users.each do |userKey, userValue|
 
     new_dm = DressmakerProfile.new(
     bio: dressmaker_bio.sample,
-    user: new_user
+    user: new_user,
+    account_status: "active"
     )
     new_dm.save
 

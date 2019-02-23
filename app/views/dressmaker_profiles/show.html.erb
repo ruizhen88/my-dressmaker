@@ -6,6 +6,7 @@
     Facebook: <%= @dressmaker.fb_url %>
   </p>
   <% if current_user == @dressmaker.user %>
+    <p> Account Status: <%= @dressmaker.account_status %></p>
     <%= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %> <br>
   <% end %>
 
