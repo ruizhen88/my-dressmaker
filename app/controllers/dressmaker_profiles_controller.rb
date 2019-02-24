@@ -3,6 +3,9 @@ class DressmakerProfilesController < ApplicationController
   before_action :set_dressmaker, only: %i[show edit update]
 
   def index
+    # for dropdown filter
+    @specialities = Speciality.all
+
     if params[:query].present?
       @dressmakers = policy_scope(DressmakerProfile).global_search(params[:query])
     else
