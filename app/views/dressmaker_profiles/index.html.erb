@@ -8,7 +8,7 @@
           <!-- Replaced form with search function -->
           <%= form_tag dressmaker_profiles_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris...", size: "30" %>
-            <%= collection_select :dressmaker_profile, :speciality_id, Speciality.all, :id, :name, {:prompt => 'All'}, class: "search-dropdown" %>
+            <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'All'}, class: "search-dropdown" %>
             <%= submit_tag "Search", class: "btn btn-danger" %>
           <% end %>
         </div><!-- /.form-inline -->
