@@ -10,7 +10,15 @@ class DressmakerProfile < ApplicationRecord
   pg_search_scope :global_search,
     associated_against: {
       user: [:first_name, :last_name],
-      specialities: [:name]},
+      specialities: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+  pg_search_scope :speciality_search,
+    associated_against: {
+      specialities: [:name]
+    },
     using: {
       tsearch: { prefix: true }
     }

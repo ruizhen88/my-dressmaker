@@ -1,32 +1,19 @@
 <div class="index-body">
   <div class="list-container">
-    <h1>Dressmaker results</h1>
 
     <!-- search bar -->
     <div class="row">
       <div class="col-lg-12">
-        <div class="form-inline">
+        <div class="form-inline" style="margin: 10px 0 0 10px">
           <!-- Replaced form with search function -->
           <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris..." %>
-            <%= submit_tag "Go!", class: "btn btn-danger" %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris...", size: "30" %>
+            <%= collection_select :dressmaker_profile, :speciality_id, Speciality.all, :id, :name, {:prompt => 'All'}, class: "search-dropdown" %>
+            <%= submit_tag "Search", class: "btn btn-danger" %>
           <% end %>
         </div><!-- /.form-inline -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row -->
-
-    <!-- dropdown filter -->
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Speciality
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @specialities.each do |speciality| %>
-          <li><%= link_to speciality.name, dressmaker_profiles_path %></li>
-        <% end %>
-      </ul>
-    </div>
 
     <!-- card list -->
     <% @dressmakers.each do |dressmaker| %>
@@ -39,7 +26,7 @@
                 <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
               </div>
             </li>
-            <li><h3><%= dressmaker.user.first_name %><%= dressmaker.user.last_name %></h3><p>dressmaker.bio</p></li>
+            <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= dressmaker.bio %></p></li>
           </div>
           <div class="dm-portfolio">
             <!-- Bootstrap Carousel -->
@@ -50,6 +37,8 @@
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
               </ol>
               <!-- Indicators -->
               <!-- Wrapper for slides -->
