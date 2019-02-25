@@ -31,15 +31,13 @@
   margin: 0 10px;
 }
 .product-controls a {
-  padding: 0 20px;
-  font-size: 17px;
-  color: lightblue;
+  text-decoration: none;
 }
 .product-controls a:hover {
   color: #D3473C !important
 }
 .product-controls-hidden a {
-  color: blue !important;
+  // color: blue !important;
   font-size: 15px;
   transition: all 0.15s ease;
   border-color: transparent;

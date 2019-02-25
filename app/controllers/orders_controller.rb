@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = policy_scope(Order).where(user: current_user).or(Order.where(dressmaker: current_user))
-    authorize @orders
+    @orders = policy_scope(Order)
+    # @orders = policy_scope(Order).where(user: current_user).or(Order.where(dressmaker: current_user))
+    # authorize @orders
   end
 
 
@@ -13,11 +14,11 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    authorize @order
     @fabrics = ["Linen", "Cotton", "Silk"]
     # @order.user = current_user
     # @order.dressmaker = DressmakerProfile.find(params[:dressmaker_id]).user
     # @order.dressmaker_id = DressmakerProfile.find(params[:dressmaker_id])
-    authorize @order
     # @order.dressmaker = DressmakerProfile.find(params[:id])
   end
 
@@ -47,6 +48,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:cost, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id)
+    params.require(:order).permit(:cost, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric)
   end
 end

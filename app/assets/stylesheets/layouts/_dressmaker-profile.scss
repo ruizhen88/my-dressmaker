@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bio {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.portfolio {
+  display: flex;
+}
+
+.photos {
+  width: 75vw;
+}
+
+.portfolio-photo {
+  width: auto;
+  height: 30vh;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.reviews {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.review {
+  background-color: white;
+  height: 12.25vh;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+}
