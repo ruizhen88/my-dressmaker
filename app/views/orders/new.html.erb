@@ -1,20 +1,23 @@
 <div class="container">
-  <h1>Order Creation</h1>
+  <h1>Start a new project</h1>
 
-  <p> <%= "Hi #{current_user.first_name}, please confirm request details" %></p>
+  <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
 
   <%= simple_form_for @order do |f| %>
     <%= f.error_notification %>
 
-    <%= f.input :cost, label: "Cost:" %>
-    <%= f.input :order_details, placeholder: "Order details..." %>
-    <%= f.input :completion_date, label: "some date..." %>
-    <%= f.input :quantity, label: "Quantity" %>
+    <%= f.input :cost, label: "My budget is:" %>
+    <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>
+    <%= f.input :dimension_chest, label: "Chest dimension:" %>
+    <%= f.input :dimension_waist, label: "Waist dimension:" %>
+    <%= f.input :dimension_hips, label: "Hips dimension:" %>
+    <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
+    <%= f.input :order_details, label: "I will be wearing this dress for:" %>
 
     <%#= hidden_field_tag(:dressmaker_id, params[:dressmaker_id]) %>
 
     <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    <%= f.button :button, "Send", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
 
