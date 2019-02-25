@@ -12,6 +12,8 @@
 
     <%= f.input :insta_url %>
 
+    <%= f.input :account_status, collection: ["Active", "Inactive"] %>
+
 
     <%= f.button :submit, class: "btn-primary" %>
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>

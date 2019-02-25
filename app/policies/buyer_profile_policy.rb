@@ -6,10 +6,16 @@ class BuyerProfilePolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    user_is_buyer
   end
 
   def update?
+    user_is_buyer
+  end
+
+  private
+
+  def user_is_buyer
     record.user == user
   end
 end
