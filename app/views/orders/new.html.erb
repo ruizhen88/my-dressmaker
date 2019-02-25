@@ -11,13 +11,14 @@
     <%= f.input :dimension_chest, label: "Chest dimension:" %>
     <%= f.input :dimension_waist, label: "Waist dimension:" %>
     <%= f.input :dimension_hips, label: "Hips dimension:" %>
+    <%= f.input :dimension_length, label: "Length dimension:" %>
     <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
     <%= f.input :order_details, label: "I will be wearing this dress for:" %>
 
     <%#= hidden_field_tag(:dressmaker_id, params[:dressmaker_id]) %>
 
-    <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Send", type: "reset", class: "btn-outline-secondary" %>
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
+    <%#= f.button :button, "Send", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
 

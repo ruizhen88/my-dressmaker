@@ -47,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:cost, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id)
+    params.require(:order).permit(:cost, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric)
   end
 end
