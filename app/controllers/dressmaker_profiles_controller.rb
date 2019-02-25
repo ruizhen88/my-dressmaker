@@ -12,8 +12,9 @@ class DressmakerProfilesController < ApplicationController
       @dressmakers = policy_scope(DressmakerProfile)
     end
 
-    if params[:speciality_id].present?
-      @dressmakers = @dressmakers.speciality_search(params[:speciality])
+    if params[:dressmaker_profile].present? && params[:dressmaker_profile][:speciality_name].present?
+      # raise
+      @dressmakers = @dressmakers.global_search(params[:dressmaker_profile][:speciality_name])
     end
 
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
