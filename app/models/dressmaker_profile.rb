@@ -1,5 +1,5 @@
 class DressmakerProfile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   has_many :user_specialities
   has_many :specialities, through: :user_specialities
   has_many :photos

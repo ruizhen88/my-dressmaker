@@ -16,7 +16,7 @@
     </div><!-- /.row -->
 
     <!-- card list -->
-    <% @dressmakers.each do |dressmaker| %>
+    <% @dressmakers.each_with_index do |dressmaker, index| %>
       <div class="product">
         <div class="product-controls">
           <div class="dm-profile list-inline">
@@ -30,15 +30,15 @@
           </div>
           <div class="dm-portfolio">
             <!-- Bootstrap Carousel -->
-            <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+            <div id="carousel-example-generic-#{index}" class="carousel slide multi-item-carousel" data-ride="carousel">
               <!-- auto slider (data-ride) does not work, need to figure out -->
               <!-- Indicators -->
               <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                <li data-target="#carousel-example-generic-#{index}" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic-#{index}" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic-#{index}" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic-#{index}" data-slide-to="3"></li>
+                <li data-target="#carousel-example-generic-#{index}" data-slide-to="4"></li>
               </ol>
               <!-- Indicators -->
               <!-- Wrapper for slides -->
