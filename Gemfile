@@ -5,7 +5,7 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'pundit'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+gem 'pg'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'pg_search'
 gem "geocoder"
 
 group :development do

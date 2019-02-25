@@ -1,2 +1,14 @@
-<h1><%= "#{@buyer.user.first_name}'s Profile" %></h1>
-<% #raise %>
+<div class="container">
+  <h1><%= "#{@buyer.user.first_name}'s Profile" %></h1>
+  <p>
+    Size: <%= @buyer.size %> <br>
+    Style: <%= @buyer.style %>
+  </p>
+  <% if current_user == @buyer.user %>
+    <%= link_to 'Edit', edit_buyer_profile_path(@buyer) %> <br>
+  <% end %>
+
+  <%= image_tag @buyer.user.avatar_url %>
+</div>
+
+

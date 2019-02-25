@@ -10,6 +10,9 @@
 
     <% if user_signed_in? %>
 
+    <!-- temp user email display -->
+    <%= current_user.email %>
+
       <!-- Links when logged in -->
       <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
