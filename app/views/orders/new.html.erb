@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Order Creation</h1>
+
+  <p> <%= "Hi #{current_user.first_name}, please confirm request details" %></p>
+
+  <%= simple_form_for @order do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :cost, label: "Cost:" %>
+    <%= f.input :order_details, placeholder: "Order details..." %>
+    <%= f.input :completion_date, label: "some date..." %>
+    <%= f.input :quantity, label: "Quantity" %>
+
+    <%#= hidden_field_tag(:dressmaker_id, params[:dressmaker_id]) %>
+
+    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+</div>
+
+

@@ -26,6 +26,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def show
+    session[:dressmaker_id] = params[:id]
     skip_authorization
   end
 
