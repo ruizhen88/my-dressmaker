@@ -1,3 +1,8 @@
 <h1><%= "#{current_user.email}'s Profile" %></h1>
 
+<% if user_signed_in? %>
 
+  <%= link_to "Choose dressmaker..", new_order_path(dressmaker_id: @dressmaker.id) %>
+<% else %>
+  <%= link_to "Please sign to book order", new_user_registration %>
+<% end %>
