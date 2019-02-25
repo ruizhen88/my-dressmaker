@@ -5,12 +5,8 @@ class DressmakerProfilePolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    return true
-  end
-
   def edit?
-    return true
+    record.user == user
   end
 
   def create?

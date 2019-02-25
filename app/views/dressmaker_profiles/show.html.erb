@@ -1,3 +1,18 @@
-<h1><%= "#{current_user.email}'s Profile" %></h1>
+<div class="container">
+  <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
 
+  <p>
+    Bio: <%= @dressmaker.bio %> <br>
+    Facebook: <%= @dressmaker.fb_url %>
+  </p>
+  <% if current_user == @dressmaker.user %>
+    <p> Account Status: <%= @dressmaker.account_status %></p>
+    <%= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %> <br>
+  <% end %>
+
+  <% if @dressmaker.user.avatar_url.present? %>
+    <%= image_tag @dressmaker.user.avatar_url %>
+  <% end %>
+
+</div>
 

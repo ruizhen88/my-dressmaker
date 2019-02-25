@@ -38,6 +38,7 @@ users = {
     last_name: "Higgins",
     email: "johnhiggins@outlook.ie",
     dressmaker: true,
+    street_address: "1 avenue des champs élysées, Paris",
     password: "password",
     avatar_url: "https://res.cloudinary.com/dwww7z6po/image/upload/v1550817089/28763316_174324203358901_1703058075935571968_n.jpg.jpg"
   },
@@ -64,7 +65,7 @@ users.each do |userKey, userValue|
     first_name: userValue[:first_name],
     last_name: userValue[:last_name],
     email: userValue[:email],
-    post_code: userValue[:post_code],
+    street_address: userValue[:street_address],
     password: userValue[:password],
     dressmaker: userValue[:dressmaker],
     avatar_url: userValue[:avatar_url]
@@ -77,7 +78,8 @@ users.each do |userKey, userValue|
 
     new_dm = DressmakerProfile.new(
     bio: dressmaker_bio.sample,
-    user: new_user
+    user: new_user,
+    account_status: "active"
     )
     new_dm.save
 
@@ -87,6 +89,7 @@ users.each do |userKey, userValue|
         speciality: Speciality.order("RANDOM()").first,
         dressmaker_profile: new_dm
         )
+
     end
 
     4.times do
@@ -95,6 +98,8 @@ users.each do |userKey, userValue|
       dressmaker_profile: new_dm
       )
     end
+  else
+    BuyerProfile.create(user: new_user)
   end
 end
 

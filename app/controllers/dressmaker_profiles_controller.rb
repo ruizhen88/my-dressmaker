@@ -19,14 +19,14 @@ class DressmakerProfilesController < ApplicationController
     @markers = @dressmakers_users.map do |user|
       {
         lng: user.longitude,
-        lat: user.latitude
+        lat: user.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
       }
     end
   end
 
   def show
-    @dressmaker = current_user
-    authorize @dressmaker
+    skip_authorization
   end
 
   def edit
