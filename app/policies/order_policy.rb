@@ -5,6 +5,10 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def show?
     record.user == user || record.dressmaker == user
   end

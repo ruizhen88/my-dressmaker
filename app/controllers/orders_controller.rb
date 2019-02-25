@@ -1,5 +1,11 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders = policy_scope(Order).where(user: current_user).or(Order.where(dressmaker: current_user))
+    authorize @orders
+  end
+
+
   def show
     @order = Order.find(params[:id])
     authorize @order
