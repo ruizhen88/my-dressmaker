@@ -1,10 +1,15 @@
 <% image_arr =
-    %w(
-      https://res.cloudinary.com/dwww7z6po/image/upload/v1550814169/31255954_234537540432611_7018967264590299136_n.jpg.jpg
-    ) %>
+  [
+    "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814169/31255954_234537540432611_7018967264590299136_n.jpg.jpg",
+    "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814141/31386514_168887910488487_4107042805849784320_n.jpg.jpg",
+    "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814917/30077926_167795500601822_8016042294564093952_n.jpg.jpg",
+    "https://res.cloudinary.com/dwww7z6po/image/upload/v1551080420/nsmnn4tpiekkuese2r9i.jpg",
+    "https://res.cloudinary.com/dwww7z6po/image/upload/v1551062472/su1cl7ctrytz5lkivfs7.jpg"
+  ]
+%>
 
 
-<div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('shutterstock_548837830.jpg') %>);
+<div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dwww7z6po/image/upload/v1550886875/sew-nahutensilien-handarbeiten-meter-tailors-chalk.jpg') %>);
 " >
   <div class="profile-banner-content">
     <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
@@ -31,16 +36,33 @@
   </div>
 
   <div class="portfolio">
-    <div class="row">
-      <div>
+
+
+
+      <div class="photos">
         <% 3.times do %>
-          <%= image_tag image_arr.sample, class: "portfolio-photo"%>
+          <% 3.times do %>
+            <%= image_tag image_arr.sample, class: "portfolio-photo"%>
+          <% end %>
         <% end %>
       </div>
-      <div class="">
 
+
+
+
+      <div class="reviews">
+        Reviews:
+        <% 3.times do %>
+          <div class="review">
+            <p>Yo that dress was dope - Eli J</p>
+          </div>
+
+          <div class="review">
+            <p>The dress was magnifique - Sonia</p>
+          </div>
+          <% end %>
       </div>
-    </div>
+
   </div>
 </div>
 
