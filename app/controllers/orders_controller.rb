@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @fabrics = ["Linen", "Cotton", "Silk"]
     # @order.user = current_user
     # @order.dressmaker = DressmakerProfile.find(params[:dressmaker_id]).user
     # @order.dressmaker_id = DressmakerProfile.find(params[:dressmaker_id])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_23_040701) do
+ActiveRecord::Schema.define(version: 2019_02_25_075924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(version: 2019_02_23_040701) do
     t.bigint "dressmaker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "dimension_chest"
+    t.float "dimension_waist"
+    t.float "dimension_hips"
+    t.float "dimension_length"
+    t.string "colour"
+    t.string "fabric"
     t.index ["dressmaker_id"], name: "index_orders_on_dressmaker_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
