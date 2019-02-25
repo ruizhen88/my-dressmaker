@@ -43,7 +43,7 @@ end
 users = []
 
 CSV.foreach(filepath, csv_options) do |row|
-  if $. <= 10
+  if $. <= 5
 
     new_user = User.create(
       first_name: "#{row['Prénom']}",
@@ -52,7 +52,7 @@ CSV.foreach(filepath, csv_options) do |row|
       dressmaker: true,
       street_address: "#{row['Ville ']} ",
       password: "password",
-      avatar_url: "#{row['Avatar']}"
+      avatar_url: "https://res.cloudinary.com/dwww7z6po/image/upload/v1550816401/29089358_421990581574361_8492057583018835968_n.jpg.jpg"
     )
     users << new_user
  end
@@ -118,7 +118,7 @@ users.each do |new_user|
 
     end
 
-    4.times do
+    3.times do
       Photo.create!(
       remote_url_url: IMAGES.sample,
       dressmaker_profile: new_dm
