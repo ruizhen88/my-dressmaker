@@ -1,18 +1,46 @@
+<% image_arr =
+    %w(
+      https://res.cloudinary.com/dwww7z6po/image/upload/v1550814169/31255954_234537540432611_7018967264590299136_n.jpg.jpg
+    ) %>
+
+
+<div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('shutterstock_548837830.jpg') %>);
+" >
+  <div class="profile-banner-content">
+    <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
+    <%# if current_user == @dressmaker.user %>
+      <!-- <div class="btn-primary">
+        <a><%#= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %></a>
+      </div>
+    <%# end %> -->
+    <div>
+      <% if @dressmaker.user.avatar_url.present? %>
+        <%= image_tag @dressmaker.user.avatar_url, class: "avatar-profile"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
+  <div class="bio">
+    <p>Bio: <%= @dressmaker.bio %> <br></p>
 
-  <p>
-    Bio: <%= @dressmaker.bio %> <br>
-    Facebook: <%= @dressmaker.fb_url %>
-  </p>
-  <% if current_user == @dressmaker.user %>
-    <p> Account Status: <%= @dressmaker.account_status %></p>
-    <%= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %> <br>
-  <% end %>
+    <div class="btn-primary">
+      <a><%= link_to 'Message', edit_dressmaker_profile_path(@dressmaker) %></a>
+    </div>
+  </div>
 
-  <% if @dressmaker.user.avatar_url.present? %>
-    <%= image_tag @dressmaker.user.avatar_url %>
-  <% end %>
+  <div class="portfolio">
+    <div class="row">
+      <div>
+        <% 3.times do %>
+          <%= image_tag image_arr.sample, class: "portfolio-photo"%>
+        <% end %>
+      </div>
+      <div class="">
 
+      </div>
+    </div>
+  </div>
 </div>
 
