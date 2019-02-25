@@ -15,12 +15,5 @@ class DressmakerProfile < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  pg_search_scope :speciality_search,
-    associated_against: {
-      specialities: [:name]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
   # add weight
 end

@@ -1,24 +1,23 @@
 <div class="container">
-  <h1>Start a new project</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Start a new project</h1>
 
-  <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
+      <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
 
-  <%= simple_form_for @order do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for @order do |f| %>
+        <%= f.error_notification %>
 
-    <%= f.input :cost, label: "My budget is:" %>
-    <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>
-    <%= f.input :dimension_chest, label: "Chest dimension:" %>
-    <%= f.input :dimension_waist, label: "Waist dimension:" %>
-    <%= f.input :dimension_hips, label: "Hips dimension:" %>
-    <%= f.input :dimension_length, label: "Length dimension:" %>
-    <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
-    <%= f.input :quantity, label: "Quantity" %>
-    <%= f.input :order_details, label: "I will be wearing this dress for:" %>
+        <%= f.input :cost, label: "My budget is:" %>
+        <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>
+        <%= f.input :dimension_chest, label: "Chest dimension:" %>
+        <%= f.input :dimension_waist, label: "Waist dimension:" %>
+        <%= f.input :dimension_hips, label: "Hips dimension:" %>
+        <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
+        <%= f.input :order_details, label: "I will be wearing this dress for:" %>
 
-    <%#= hidden_field_tag(:dressmaker_id, params[:dressmaker_id]) %>
-
-    <%= f.submit 'Submit', class: "btn btn-primary" %>
-    <%#= f.button :button, "Send", type: "reset", class: "btn-outline-secondary" %>
-  <% end %>
+        <%= f.submit "Send", class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
