@@ -14,9 +14,18 @@
     <%= image_tag @dressmaker.user.avatar_url %>
   <% end %>
 
-  <% if user_signed_in? %>
-    <%= link_to "Choose dressmaker..", new_order_path(dressmaker_id: @dressmaker.id) %>
-  <% else %>
-    <%= link_to "Please sign to book order", new_user_registration %>
-  <% end %>
+  <%# if user_signed_in? %>
+    <%#= link_to "Choose dressmaker..", new_order_path(dressmaker_id: @dressmaker.id) %>
+  <%# else %>
+    <%#= link_to "Please sign to book order", new_user_registration %>
+  <%# end %>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to 'Message', new_order_path(dressmaker_id: @dressmaker.id), :class => "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Log in to message", new_user_session_path, :class => "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'Back', dressmaker_profiles_path, :class => "btn"%>
+  </div>
 </div>
+

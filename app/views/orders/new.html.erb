@@ -16,11 +16,8 @@
         <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
         <%= f.input :order_details, label: "I will be wearing this dress for:" %>
 
-        <%#= hidden_field_tag(:dressmaker_id, params[:dressmaker_id]) %>
-
         <%= f.submit "Send", class: "btn-primary" %>
       <% end %>
     </div>
   </div>
 </div>
-
