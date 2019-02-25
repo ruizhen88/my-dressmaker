@@ -8,7 +8,6 @@
   ]
 %>
 
-
 <div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dwww7z6po/image/upload/v1550886875/sew-nahutensilien-handarbeiten-meter-tailors-chalk.jpg') %>);
 " >
   <div class="profile-banner-content">
@@ -31,13 +30,15 @@
     <p>Bio: <%= @dressmaker.bio %> <br></p>
 
     <div class="btn-primary">
-      <a><%= link_to 'Message', edit_dressmaker_profile_path(@dressmaker) %></a>
+      <% if user_signed_in? %>
+          <%= link_to "Choose dressmaker..", new_order_path(dressmaker_id: @dressmaker.id) %>
+        <% else %>
+          <%= link_to "Sign in", new_user_registration_path %>
+        <% end %>
     </div>
   </div>
 
   <div class="portfolio">
-
-
 
       <div class="photos">
         <% 3.times do %>
@@ -47,22 +48,19 @@
         <% end %>
       </div>
 
-
-
-
       <div class="reviews">
         Reviews:
         <% 3.times do %>
           <div class="review">
-            <p>Yo that dress was dope - Eli J</p>
+            <p>Yo that dress was dope<br>- Eli J</p>
           </div>
 
           <div class="review">
-            <p>The dress was magnifique - Sonia</p>
+            <p>The dress was magnifique<br>- Sonia</p>
           </div>
           <% end %>
       </div>
-
   </div>
 </div>
+
 

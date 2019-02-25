@@ -1,4 +1,4 @@
 class Favourite < ApplicationRecord
-  belongs_to :DressmakerProfile
-  belongs_to :BuyerProfile
+  belongs_to :DressmakerProfile, dependent: :destroy
+  belongs_to :BuyerProfile, dependent: :destroy
 end

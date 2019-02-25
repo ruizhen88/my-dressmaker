@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :users
-  belongs_to :orders
+  belongs_to :users, dependent: :destroy
+  belongs_to :orders, dependent: :destroy
 
   validates :content, presence: true
 end

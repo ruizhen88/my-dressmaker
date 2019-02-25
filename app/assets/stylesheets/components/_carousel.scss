@@ -1,4 +1,7 @@
 .multi-item-carousel {
+  .carousel-indicators .active{
+    margin: 0 10px;
+  }
   .carousel-inner {
     .item {
       transition: 500ms ease-in-out left;
@@ -28,6 +31,7 @@
     .carousel-image {
       width: 200px;
       height: 200px;
+      border-radius: 10px;
     }
   }
   .carousel-control {
