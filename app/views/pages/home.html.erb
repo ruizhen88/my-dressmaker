@@ -8,7 +8,7 @@
         <div class="form-inline" >
           <%= form_tag dressmaker_profiles_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
-            <%= submit_tag "Go!", class: "btn btn-primary" %>
+            <%= submit_tag "Go!", class: "btn btn-primary btn-lg" %>
           <% end %>
           <!-- Replaced form with search function -->
         </div><!-- /.form-inline -->
@@ -68,7 +68,7 @@
   <div class="home-button">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <a href="/dressmaker_profiles"class="btn btn-primary"> Find a dressmaker </a>
+        <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Find a dressmaker </a>
       </div>
     </div>
   </div>

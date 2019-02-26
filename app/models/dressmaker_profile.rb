@@ -9,7 +9,7 @@ class DressmakerProfile < ApplicationRecord
   include PgSearch
   pg_search_scope :global_search,
     associated_against: {
-      user: [:first_name, :last_name],
+      user: [:first_name, :last_name, :street_address],
       specialities: [:name]
     },
     using: {
