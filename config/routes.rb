@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [ :index, :show, :new, :create, :edit, :update ] do
     resources :messages, only: [ :index, :new, :create ]
     resources :reviews, only: [ :new, :create ]
+    resources :payments, only: [:new, :create]
   end
 
   resources :buyer_profiles
