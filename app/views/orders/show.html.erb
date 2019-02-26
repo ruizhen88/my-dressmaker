@@ -1,10 +1,12 @@
 
-<div class="container">
-  <div class="form">
-    <h1 class="text-center">Summary of your request</h1>
+<div class="main-form-container">
+  <div class="form-container">
+    <div class="form-titles">
+      <h1 class="text-center">Summary of your request</h1>
 
-    <p class="text-center"> <%= "Hi #{current_user.first_name}, please review your request before submitting it to the dressmaker" %></p>
-    <div>
+      <p class="text-center"> <%= "Hi #{current_user.first_name}, please review your request before submitting it to the dressmaker" %></p>
+    </div>
+    <div class="form-details">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -15,7 +17,7 @@
         <tbody>
           <tr>
             <th scope="row">Status</th>
-            <td><%= @order.status %></td>
+            <td><strong><%= @order.status %></strong></td>
           </tr>
           <tr>
             <th scope="row">Customer Name</th>
@@ -47,7 +49,9 @@
           </tr>
         </tbody>
       </table>
+      <%= image_tag "dress-dimension.png", class: "dimensions-img" %>
     </div>
+
 
     <div class="btn-group center-block">
       <button type="button" class="btn btn-primary" id="confirm">
