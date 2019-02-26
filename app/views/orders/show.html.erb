@@ -1,66 +1,67 @@
 
 <div class="container">
-  <h1 class="text-center">Summary of your request</h1>
+  <div class="form">
+    <h1 class="text-center">Summary of your request</h1>
 
-  <p class="text-center"> <%= "Hi #{current_user.first_name}, please review your request before submitting it to the dressmaker" %></p>
-  <div>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Item</th>
-          <th scope="col">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Status</th>
-          <td><%= @order.status %></td>
-        </tr>
-        <tr>
-          <th scope="row">Customer Name</th>
-          <td><%= @order.user.first_name %> <%= @order.user.last_name %></td>
-        </tr>
-        <tr>
-          <th scope="row">Dressmaker Name</th>
-          <td><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></td>
-        </tr>
-        <tr>
-          <th scope="row">Expected Completion Date</th>
-          <td><%= @order.completion_date %></td>
-        </tr>
-        <tr>
-          <th scope="row">Order Details</th>
-          <td><%= @order.order_details %></td>
-        </tr>
-        <tr>
-          <th scope="row">Measures</th>
-          <td>Chest: <%= @order.dimension_chest %> Waist: <%= @order.dimension_waist %> Hips: <%= @order.dimension_hips %> Length: <%= @order.dimension_length %></td>
-        </tr>
-        <tr>
-          <th scope="row">Fabric</th>
-          <td><%= @order.fabric %></td>
-        </tr>
-        <tr>
-          <th scope="row">Price</th>
-          <td><%= @order.cost %></td>
-        </tr>
-      </tbody>
-    </table>
+    <p class="text-center"> <%= "Hi #{current_user.first_name}, please review your request before submitting it to the dressmaker" %></p>
+    <div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" id="table-item">Item</th>
+            <th scope="col" id="table-value">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Status</th>
+            <td><%= @order.status %></td>
+          </tr>
+          <tr>
+            <th scope="row">Customer Name</th>
+            <td><%= @order.user.first_name %> <%= @order.user.last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Dressmaker Name</th>
+            <td><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Expected Completion Date</th>
+            <td><%= @order.completion_date %></td>
+          </tr>
+          <tr>
+            <th scope="row">Order Details</th>
+            <td><%= @order.order_details %></td>
+          </tr>
+            <th scope="row">Fabric</th>
+            <td><%= @order.fabric %></td>
+          </tr>
+          <tr>
+            <th scope="row">Price</th>
+            <td><%= @order.cost %></td>
+          <tr>
+            <th rowspan="4">Measures (cm)</th>
+            <td rowspan="4"> Chest: <%= @order.dimension_chest %> <br> Waist: <%= @order.dimension_waist %> <br>Hips: <%= @order.dimension_hips %> <br> Length: <%= @order.dimension_length %> </td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="btn-group center-block">
+      <button type="button" class="btn btn-primary" id="confirm">
+        <% if user_signed_in? %>
+          <%= link_to "Confirm", new_order_message_path(@order) %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </button>
+
+      <button type="button" class="btn btn-primary" id="return">
+        <%= link_to "Return", order_path(@order) %>
+      </button>
+    </div>
   </div>
-
-  <div class="btn-group center-block">
-    <button type="button" class="btn btn-primary">
-      <% if user_signed_in? %>
-        <%= link_to "Confirm", new_order_message_path(@order) %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </button>
-
-    <button type="button" class="btn btn-primary">
-      <%= link_to "Return", order_path(@order) %>
-    </button>
-  </div>
-
 </div>
 
