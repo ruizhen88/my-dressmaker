@@ -8,27 +8,23 @@ class DressmakerProfilesController < ApplicationController
 
     if params[:query].present?
       @dressmakers = policy_scope(DressmakerProfile).global_search(params[:query])
+      @dressmakers_users = @dressmakers.collect(&:user)
+      pin_markers(@dressmakers_users)
     else
       @dressmakers = policy_scope(DressmakerProfile)
+      @dressmakers_users = @dressmakers.collect(&:user)
+      pin_markers(@dressmakers_users)
     end
 
     if params[:dressmaker_profile].present? && params[:dressmaker_profile][:speciality_name].present?
-      # raise
       @dressmakers = @dressmakers.global_search(params[:dressmaker_profile][:speciality_name])
+      @dressmakers_users = @dressmakers.collect(&:user)
+      pin_markers(@dressmakers_users)
     end
-
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
     # @dressmakers = DressmakerProfile.all
-
-    @dressmakers_users = User.where.not(latitude: nil, longitude: nil) && User.where(dressmaker: true)
-    @markers = @dressmakers_users.map do |user|
-      {
-        lng: user.longitude,
-        lat: user.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { user: user }),
-      }
-    end
   end
+
 
   def show
     session[:dressmaker_id] = params[:id]
@@ -56,6 +52,21 @@ class DressmakerProfilesController < ApplicationController
   end
 
   private
+
+  def pin_markers(users)
+    @dressmakers_users = []
+    users.each do |user|
+      @dressmakers_users << user if user.latitude.present? && user.longitude.present?
+    end
+    @dressmakers_users
+    @markers = @dressmakers_users.map do |user|
+      {
+        lng: user.longitude,
+        lat: user.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
+      }
+    end
+  end
 
   def dressmaker_params
     params.require(:dressmaker_profile).permit(:bio, :fb_url, :insta_url)

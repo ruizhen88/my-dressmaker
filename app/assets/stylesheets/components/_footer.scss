@@ -27,6 +27,7 @@
 }
 .content {
   min-height: calc(100vh - 70px);
+  max-width: 100vw;
 }
 html, body {
   height: 100%;
