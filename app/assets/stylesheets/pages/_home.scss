@@ -2,21 +2,11 @@
 
 .container{
   width: 1200px;
+  overflow: hidden;
 
 
 }
-.main-title h1 {
-  font-size: 34px;
-  margin-bottom: 10px;
 
-}
-
-.titles h2 {
-  font-size: 24px;
-  font-weight: bold;
-  padding: 30px;
-
-}
 
 .home-content p {
   font-size: 16px;
@@ -29,11 +19,7 @@
 
 }
 
-.home-button a {
-  color: black !important;
-  padding: 30px;
 
-}
 
 .home-card {
   padding: 30px;
