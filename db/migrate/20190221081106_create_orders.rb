@@ -1,7 +1,6 @@
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
-      t.integer :cost
       t.date :completion_date
       t.integer :quantity
       t.string :order_details
