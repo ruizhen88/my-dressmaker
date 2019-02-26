@@ -11,7 +11,7 @@
 <div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dwww7z6po/image/upload/v1550886875/sew-nahutensilien-handarbeiten-meter-tailors-chalk.jpg') %>);
 " >
   <div class="profile-banner-content">
-    <h1><%= "#{@dressmaker.user.first_name}'s Profile" %></h1>
+    <h1><%= "#{@dressmaker.user.first_name.capitalize}'s Profile" %></h1>
     <%# if current_user == @dressmaker.user %>
       <!-- <div class="btn-primary">
         <a><%#= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %></a>
@@ -23,6 +23,20 @@
       <% end %>
     </div>
   </div>
+
+  <div class="rating">
+    <% 5.times do %><i class="fas fa-star"></i><% end %>
+  </div>
+
+  <div class="specialites">
+    <%= image_tag 'icons/icones1.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones2.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones3.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones4.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones5.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones6.png', class: "specialites-image"%>
+  </div>
+
 </div>
 
 <div class="container">
@@ -43,23 +57,34 @@
 
       <div class="photos">
         <% 3.times do %>
-          <% 3.times do %>
-            <%= image_tag image_arr.sample, class: "portfolio-photo"%>
-          <% end %>
+          <div class="row">
+            <% 3.times do %>
+              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                <%= image_tag image_arr.sample, class: "portfolio-photo"%>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
 
       <div class="reviews">
-        Reviews:
         <% 3.times do %>
           <div class="review">
-            <p>Yo that dress was dope<br>- Eli J</p>
-          </div>
+            <div class="reviewer">
+              <%= image_tag "eli.png", class: "avatar-small"%>
+              <p>Eli J</p>
+              <% 5.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
 
-          <div class="review">
-            <p>The dress was magnifique<br>- Sonia</p>
+            <p>
+              The dress was amazing. I was so happy with the result. The attention to detail was siblime. My<span class="dots">...</span><span class="more">dressmaker was so helpful and I would highly recomment her. Thank you so much. Merci beaucoup!</span>
+            </p>
+
+            <button class="myBtn">Read more</button>
           </div>
-          <% end %>
+        <% end %>
       </div>
   </div>
 </div>
