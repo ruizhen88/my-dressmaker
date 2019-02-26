@@ -32,9 +32,9 @@
 
     <div class="btn-primary">
       <% if user_signed_in? %>
-          <%= link_to "Choose dressmaker..", new_order_path(dressmaker_id: @dressmaker.id) %>
+          <%= link_to "Message", new_order_path(dressmaker_id: @dressmaker.id) %>
         <% else %>
-          <%= link_to "Sign in", new_user_registration_path %>
+          <%= link_to "Sign in", new_user_session_path %>
         <% end %>
     </div>
   </div>
