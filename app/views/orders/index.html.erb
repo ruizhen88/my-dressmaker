@@ -1,12 +1,39 @@
-<ul>
-  <% @orders.each do |order| %>
-  <li>
-    <%= order.status %>
-    <%= order.order_details %>
-    <%= order.quantity %>
-    <%= order.completion_date %>
-    <%= order.user.first_name %>
-    <%= order.dressmaker.first_name %>
-  </li>
-  <% end %>
-</ul>
+
+<div class="main-form-container">
+  <div class="form-container">
+    <div class="form-titles">
+      <h1 class="text-center">My Orders</h1>
+    </div>
+    <div class="form-details">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" id="table-item">#</th>
+            <th scope="col" id="table-value">DM Name</th>
+            <th scope="col" id="table-value">Order #</th>
+            <th scope="col" id="table-value">Description</th>
+            <th scope="col" id="table-value">Date</th>
+            <th scope="col" id="table-value">Total Price</th>
+            <th scope="col" id="table-value">Status</th>
+            <th scope="col" id="table-value">#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <th scope="row">#</th>
+            <td><%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %></td>
+            <td>#</td>
+            <td><%= order.order_details %></td>
+            <td><%= order.completion_date %></td>
+            <td><%= order.cost %></td>
+            <td><%= order.status %></td>
+            <td><%= link_to "Review", new_order_review_path(order) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
