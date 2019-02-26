@@ -17,7 +17,7 @@
 
 .photos {
   width: 75vw;
-  background-color: green;
+  // background-color: green;
 }
 
 .row {
@@ -28,7 +28,7 @@
 .photo-container {
   display: flex;
   justify-content: center;
-  background-color: orange;
+  // background-color: orange;
 }
 
 .portfolio-photo {
@@ -43,15 +43,29 @@
   width: 25vw;
   display: flex;
   flex-direction: column;
-  background-color: red;
+  // background-color: red;
 
 }
 
 .review {
   background-color: white;
-  height: 12.25vh;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 10px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 2px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+    p {
+      margin: 10px;
+    }
+    i {
+      justify-self: flex-end;
+    }
+}
+
+.more {
+  display: none;
 }

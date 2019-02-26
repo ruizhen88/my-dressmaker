@@ -23,6 +23,20 @@
       <% end %>
     </div>
   </div>
+
+  <div class="rating">
+    <% 5.times do %><i class="fas fa-star"></i><% end %>
+  </div>
+
+  <div class="specialites">
+    <%= image_tag 'icons/icones1.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones2.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones3.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones4.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones5.png', class: "specialites-image"%>
+    <%= image_tag 'icons/icones6.png', class: "specialites-image"%>
+  </div>
+
 </div>
 
 <div class="container">
@@ -54,14 +68,21 @@
       </div>
 
       <div class="reviews">
-        Reviews:
         <% 3.times do %>
           <div class="review">
-            <p>Yo that dress was dope<br>- Eli J</p>
-          </div>
+            <div class="reviewer">
+              <%= image_tag "eli.png", class: "avatar-small"%>
+              <p>Eli J</p>
+              <% 5.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
 
-          <div class="review">
-            <p>The dress was magnifique<br>- Sonia</p>
+            <p>
+              The dress was amazing. I was so happy with the result. The attention to detail was siblime. My<span class="dots">...</span><span class="more">dressmaker was so helpful and I would highly recomment her. Thank you so much. Merci beaucoup!</span>
+            </p>
+
+            <button class="myBtn">Read more</button>
           </div>
         <% end %>
       </div>
