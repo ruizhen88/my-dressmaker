@@ -43,9 +43,13 @@
 
       <div class="photos">
         <% 3.times do %>
-          <% 3.times do %>
-            <%= image_tag image_arr.sample, class: "portfolio-photo"%>
-          <% end %>
+          <div class="row">
+            <% 3.times do %>
+              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                <%= image_tag image_arr.sample, class: "portfolio-photo"%>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
 
@@ -59,7 +63,7 @@
           <div class="review">
             <p>The dress was magnifique<br>- Sonia</p>
           </div>
-          <% end %>
+        <% end %>
       </div>
   </div>
 </div>
