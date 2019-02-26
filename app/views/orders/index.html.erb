@@ -9,7 +9,13 @@
         <thead>
           <tr>
             <th scope="col" class="text-center" id="table-item">#</th>
-            <th scope="col" class="text-center" id="table-value">DM Name</th>
+            <th scope="col" class="text-center" id="table-value">
+              <% if current_user.dressmaker %>
+                Customer
+              <% else %>
+                Dressmaker
+              <% end %>
+            </th>
             <th scope="col" class="text-center" id="table-value">Order #</th>
             <th scope="col" class="text-center" id="table-value">Description</th>
             <th scope="col" class="text-center" id="table-value">Date</th>
@@ -22,7 +28,13 @@
           <% @orders.each do |order| %>
           <tr>
             <th scope="row" class="text-center"><%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
-            <td class="text-center"><%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %></td>
+            <td class="text-center">
+              <% if current_user.dressmaker %>
+                <%= order.user.first_name %> <%= order.user.last_name %>
+              <% else %>
+                <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
+              <% end %>
+            </td>
             <td class="text-center">#</td>
             <td class="text-center"><%= order.order_details %></td>
             <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
