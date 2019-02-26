@@ -4,31 +4,31 @@
     <div class="form-titles">
       <h1 class="text-center">My Orders</h1>
     </div>
-    <div class="form-details">
+    <div class="form-details text-center">
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col" id="table-item">#</th>
-            <th scope="col" id="table-value">DM Name</th>
-            <th scope="col" id="table-value">Order #</th>
-            <th scope="col" id="table-value">Description</th>
-            <th scope="col" id="table-value">Date</th>
-            <th scope="col" id="table-value">Total Price</th>
-            <th scope="col" id="table-value">Status</th>
-            <th scope="col" id="table-value">#</th>
+            <th scope="col" class="text-center" id="table-item">#</th>
+            <th scope="col" class="text-center" id="table-value">DM Name</th>
+            <th scope="col" class="text-center" id="table-value">Order #</th>
+            <th scope="col" class="text-center" id="table-value">Description</th>
+            <th scope="col" class="text-center" id="table-value">Date</th>
+            <th scope="col" class="text-center" id="table-value">Total Price</th>
+            <th scope="col" class="text-center" id="table-value">Status</th>
+            <th scope="col" class="text-center" id="table-value">#</th>
           </tr>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <th scope="row">#</th>
-            <td><%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %></td>
-            <td>#</td>
-            <td><%= order.order_details %></td>
-            <td><%= order.completion_date %></td>
-            <td><%= order.cost %></td>
-            <td><%= order.status %></td>
-            <td><%= link_to "Review", new_order_review_path(order) %></td>
+            <th scope="row" class="text-center"><%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
+            <td class="text-center"><%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %></td>
+            <td class="text-center">#</td>
+            <td class="text-center"><%= order.order_details %></td>
+            <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
+            <td class="text-center"><%= order.cost %></td>
+            <td class="text-center"><%= order.status %></td>
+            <td class="text-center"><%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %> <%= link_to "View", order_path(order), class: "btn btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>
@@ -36,4 +36,3 @@
     </div>
   </div>
 </div>
-
