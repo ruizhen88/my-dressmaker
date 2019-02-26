@@ -3,7 +3,6 @@
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814169/31255954_234537540432611_7018967264590299136_n.jpg.jpg",
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814141/31386514_168887910488487_4107042805849784320_n.jpg.jpg",
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814917/30077926_167795500601822_8016042294564093952_n.jpg.jpg",
-    "https://res.cloudinary.com/dwww7z6po/image/upload/v1551080420/nsmnn4tpiekkuese2r9i.jpg",
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1551062472/su1cl7ctrytz5lkivfs7.jpg"
   ]
 %>
@@ -28,13 +27,10 @@
     <% 5.times do %><i class="fas fa-star"></i><% end %>
   </div>
 
-  <div class="specialites">
-    <%= image_tag 'icons/icones1.png', class: "specialites-image"%>
-    <%= image_tag 'icons/icones2.png', class: "specialites-image"%>
-    <%= image_tag 'icons/icones3.png', class: "specialites-image"%>
-    <%= image_tag 'icons/icones4.png', class: "specialites-image"%>
-    <%= image_tag 'icons/icones5.png', class: "specialites-image"%>
-    <%= image_tag 'icons/icones6.png', class: "specialites-image"%>
+  <div class="specialites" >
+    <%= image_tag 'icons/embroidery.svg', class: "specialites-image"%>
+    <%= image_tag 'icons/knitting.svg', class: "specialites-image"%>
+    <%= image_tag 'icons/icones3.svg', class: "specialites-image"%>
   </div>
 
 </div>
@@ -44,11 +40,11 @@
   <div class="bio">
     <p>Bio: <%= @dressmaker.bio %> <br></p>
 
-    <div class="btn-primary">
+    <div class="btn btn-primary ">
       <% if user_signed_in? %>
           <%= link_to "Message", new_order_path(dressmaker_id: @dressmaker.id) %>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path %>
+          <%= link_to "Sign in to send message", new_user_session_path %>
         <% end %>
     </div>
   </div>
@@ -72,17 +68,17 @@
           <div class="review">
             <div class="reviewer">
               <%= image_tag "eli.png", class: "avatar-small"%>
-              <p>Eli J</p>
+              <p><strong>Eli J</strong></p>
               <% 5.times do %>
                 <i class="fas fa-star"></i>
               <% end %>
             </div>
 
-            <p>
-              The dress was amazing. I was so happy with the result. The attention to detail was siblime. My<span class="dots">...</span><span class="more">dressmaker was so helpful and I would highly recomment her. Thank you so much. Merci beaucoup!</span>
+            <p><small>
+              The dress was amazing. I was so happy with the result. The attention to detail was siblime. My<span class="dots">...</span><span class="more">dressmaker was so helpful and I would highly recomment her. Thank you so much. Merci beaucoup!</span></small>
             </p>
 
-            <button class="myBtn">Read more</button>
+            <button class="btn btn-link myBtn"><small>Read more</small></button>
           </div>
         <% end %>
       </div>
