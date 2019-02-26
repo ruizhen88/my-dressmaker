@@ -1,29 +1,30 @@
 
-<div class="banner" style="background-image: url(<%= cl_image_path('shutterstock_548837830.jpg', :quality=>'auto:good') %>);
-" >
+<div class="banner" style="background-image: linear-gradient(transparent,rgba(50,0,0,0.5)), url(<%= image_path "homepage_banner.jpg" %>);" >
   <div class="banner-content">
-    <h1>MY DRESSMAKER</h1>
+    <h1>FIND YOUR DRESSMAKER</h1>
+    <p> Custom made clothes from all over the world </p>
     <div class="row">
       <div class="col-lg-12">
-        <div class="form-inline">
-          <!-- Replaced form with search function -->
+        <div class="form-inline" >
           <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris..." %>
-            <%= submit_tag "Go!", class: "btn btn-danger" %>
+            <%= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
+            <%= submit_tag "Go!", class: "btn btn-primary" %>
           <% end %>
+          <!-- Replaced form with search function -->
         </div><!-- /.form-inline -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row -->
-    <p> Custom made clothes from all over the world </p>
 <!--  <a class="btn btn-danger btn-lg">Browse scooters</a> -->
   </div>
 </div>
 
 <div class="container">
-  <div class="main-title">
+  <div class="main-title" style="background-size: 400px 73px">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h1> How does it work ?</h1>
+        <h1>
+         How does it work ? </h1>
+
       </div>
     </div>
   </div>
@@ -67,15 +68,148 @@
   <div class="home-button">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <div class="btn btn-primary">
-          <a href="/dressmaker_profiles"> Find a dressmaker </a>
-        </div>
+        <a href="/dressmaker_profiles"class="btn btn-primary"> Find a dressmaker </a>
       </div>
     </div>
   </div>
+
+
+<!-- Meet our dressmakers -->
+
+  <div class="col-sm-12 main-title text-center" style="background-size: 500px 73px">
+    <h1> Meet our dressmakers </h1>
+  </div>
+
+  <div class="product">
+    <div class="product-controls">
+      <div class="dm-profile list-inline">
+        <li>
+          <div class="fav-and-av">
+            <i class="fas fa-heart"></i><br>
+            <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
+          </div>
+        </li>
+        <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
+      </div>
+      <div class="dm-portfolio">
+        <!-- Bootstrap Carousel -->
+        <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+            <!-- auto slider (data-ride) does not work, need to figure out -->
+            <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+          </ol>
+            <!-- Indicators -->
+            <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio2.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+           <div class="item">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio3.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+        </div>
+            <!-- Wrapper for slides -->
+            <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+            <!-- Controls -->
+        </div>
+          <!-- Bootstrap Carousel -->
+      </div>
+    </div>
+  </div><!-- /.product -->
+    <div class="product">
+    <div class="product-controls">
+      <div class="dm-profile list-inline">
+        <li>
+          <div class="fav-and-av">
+            <i class="fas fa-heart"></i><br>
+            <%= image_tag "home-profile/profile2.jpg", crop: :fill, class: "avatar-large" %>
+          </div>
+        </li>
+        <li><h3> Marie Blachere </h3><p> I'm 36, a mother of 2 boys and I love knitting. I spend most of my time knitting when I have free time. </p></li>
+      </div>
+      <div class="dm-portfolio">
+        <!-- Bootstrap Carousel -->
+        <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+            <!-- auto slider (data-ride) does not work, need to figure out -->
+            <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+          </ol>
+            <!-- Indicators -->
+            <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio5.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio6.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4">
+              <%= image_tag "home-profile/portfolio7.jpg", class: "d-block w-100 carousel-image" %>
+            </div>
+          </div>
+        </div>
+            <!-- Wrapper for slides -->
+            <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+            <!-- Controls -->
+        </div>
+          <!-- Bootstrap Carousel -->
+      </div>
+    </div>
+  </div><!-- /.product -->
+<!-- End meet our dressmakers -->
+
+<!--  Get inspired  section -->
+
+  <div class="col-sm-12 main-title text-center" style="background-size: 400px 73px">
+    <h1> Get inspired </h1>
+  </div>
   <div class="home-card">
     <div class="col-xs-12 col-sm-4">
-       <div class="card" style="background-image: url(<%= cl_image_path('29089358_421990581574361_8492057583018835968_n.jpg.jpg', :quality=>'auto:good') %>);" >
+       <div class="card" style="background-image: url(<%= image_path('children_cat.jpg') %>);" >
+        <div class="card-description text-center">
+          <h2>Children</h2>
+        </div>
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 ">
+       <div class="card" style="background-image: url(<%= image_path('wedding_cat.jpg') %>);" >
         <div class="card-description text-center">
           <h2>Wedding</h2>
         </div>
@@ -83,22 +217,15 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 ">
-       <div class="card" style="background-image: url(<%= cl_image_path('shutterstock_364944452_-_LD.jpg', :quality=>'auto:good') %>);" >
+      <div class="card" style="background-image: url(<%= image_path('party_cat.jpg') %>);" >
         <div class="card-description text-center">
-          <h2>Casual</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 ">
-      <div class="card" style="background-image: url(<%= cl_image_path('28753457_377216956087397_8699422108763029504_n.jpg.jpg', :quality=>'auto:good') %>);" >
-        <div class="card-description text-center">
-          <h2>Children</h2>
+          <h2>Party</h2>
         </div>
         <a class="card-link" href="#" ></a>
       </div>
     </div>
   </div>
+<!--  End get inspired  section -->
 </div>
 
 
