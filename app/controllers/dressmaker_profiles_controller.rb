@@ -32,6 +32,8 @@ class DressmakerProfilesController < ApplicationController
 
   def show
     session[:dressmaker_id] = params[:id]
+    @order = Order.new
+    @fabrics = ["Linen", "Cotton", "Silk"]
     skip_authorization
   end
 

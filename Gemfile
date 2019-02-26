@@ -10,8 +10,10 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 
+gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap'
 gem 'font-awesome-sass', '~> 5.5.0'
 gem 'sassc-rails'
 gem 'simple_form'
@@ -21,6 +23,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem "geocoder"
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
