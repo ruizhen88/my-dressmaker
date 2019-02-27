@@ -2,28 +2,28 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
       <div class="modal-body">
-        <h1>Start a new project</h1>
-        <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
-        <%= simple_form_for @order, validate: true do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :cost, label: "My budget is:" %>
-          <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>
-          <%= f.input :dimension_chest, label: "Chest dimension:" %>
-          <%= f.input :dimension_waist, label: "Waist dimension:" %>
-          <%= f.input :dimension_hips, label: "Hips dimension:" %>
-          <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
-          <%= f.input :quantity, label: "Quantity" %>
-          <%= f.input :order_details, label: "I will be wearing this dress for:" %>
-      </div>
-        <div class="modal-footer">
-          <%= f.submit "Create Order", class: "btn-primary", confirm: {data: "you sure?"} %>
+        <div class="form-details">
+          <h1>Start a new project</h1>
+          <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
+          <%= simple_form_for @order, validate: true do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :cost, label: "My budget is:" %>
+            <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>
+            <%= f.input :dimension_chest, label: "Chest dimension:" %>
+            <%= f.input :dimension_waist, label: "Waist dimension:" %>
+            <%= f.input :dimension_hips, label: "Hips dimension:" %>
+            <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
+            <%= f.input :quantity, label: "Quantity" %>
+            <%= f.submit "Create Order", class: "btn-primary", data: { confirm: "you sure?"} %>
+          <% end %>
+          <div class="dimension">
+            <%= image_tag "dress-dimension.png", class: "dimensions-img" %>
+          </div>
         </div>
-        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
     </div>
   </div>
 </div>
