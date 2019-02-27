@@ -29,14 +29,14 @@ $border-radius-small: 2px;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: $red;
+  color: $dark-flamingo;
 }
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: $red;
+  border-color: $dark-flamingo;
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
