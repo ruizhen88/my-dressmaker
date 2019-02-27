@@ -17,7 +17,7 @@
         <div class="form-inline" style="margin: 5px 0 0 10px">
           <!-- Replaced form with search function -->
           <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control input-sm", placeholder: "Try Paris...", size: "30" %>
+            <%= text_field_tag :query, params[:query], class: "form-control input-sm", placeholder: "Try children or wedding ", size: "30" %>
             <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'All'}, class: "search-dropdown" %>
             <%= submit_tag "Search", class: "btn btn-primary btn-sm" %>
           <% end %>
@@ -37,7 +37,9 @@
                   <%#= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
                 </div>
               </li>
-              <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= dressmaker.bio %></p></li>
+              <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
+
+
             </div>
             <div class="dm-portfolio">
               <!-- Bootstrap Carousel -->
