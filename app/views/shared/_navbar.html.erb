@@ -10,23 +10,23 @@
 
     <% if user_signed_in? %>
 
-    <!-- temp user email display -->
-    <%= current_user.email %>
+
 
       <!-- Links when logged in -->
       <%= link_to "Orders", orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <!--     <li>
+            <li>
               <%= link_to  do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
-            </li> -->
+            </li>
             <li>
               <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
