@@ -5,7 +5,7 @@
       <div class="modal-body">
         <div class="form-details">
           <h1>Start a new project</h1>
-          <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
+          <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" if user_signed_in? %></p>
           <%= simple_form_for @order, validate: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :price, label: "My budget is:", validate: true %>
