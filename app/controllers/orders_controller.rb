@@ -30,10 +30,10 @@ class OrdersController < ApplicationController
     authorize @order
 
     if @order.save
-      default_message = Message.new(content: 'order created')
-      default_message.order = @order
-      default_message.user = @order.user
-      default_message.save
+      first_message = Message.new(content: "Hi #{@order.dressmaker.first_name}, please check my request!")
+      first_message.order = @order
+      first_message.user = @order.user
+      first_message.save
 
       redirect_to order_messages_path(@order)
     else

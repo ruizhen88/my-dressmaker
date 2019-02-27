@@ -26,7 +26,7 @@
     </div><!-- /.row -->
 
     <!-- card list -->
-    <% @dressmakers.each do |dressmaker| %>
+    <% @dressmakers.each_with_index do |dressmaker, index| %>
       <%= link_to dressmaker_profile_path(dressmaker) do %>
         <div class="product">
           <div class="product-controls">
@@ -38,8 +38,6 @@
                 </div>
               </li>
               <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
-
-
             </div>
             <div class="dm-portfolio">
               <!-- Bootstrap Carousel -->
@@ -47,11 +45,11 @@
                 <!-- auto slider (data-ride) does not work, need to figure out -->
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
                 </ol>
                 <!-- Indicators -->
                 <!-- Wrapper for slides -->
