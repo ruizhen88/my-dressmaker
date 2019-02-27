@@ -1,10 +1,10 @@
-import 'jquery';
+// import 'jquery';
+// import 'bootstrap';
 
-const initValidate = () => {
-  $(document).on('shown.bs.modal', function() {
-    console.log('shown')
-    $('form[data-client-side-validations]').enableClientSideValidations();
-  })
-}
+// const initValidate = () => {
+//   $(document).on('shown.bs.modal', function() {
+//     $('form[data-client-side-validations]').enableClientSideValidations();
+//   })
+// }
 
-export { initValidate }
+// export { initValidate }
