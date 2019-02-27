@@ -43,11 +43,18 @@ class OrdersController < ApplicationController
   end
 
   def edit
-
+    @order = Order.find(params[:id])
+    authorize @order
   end
 
   def update
-
+    @order = Order.find(params[:id])
+    authorize @order
+    if @order.update(order_params)
+      redirect_to order_messages_path(@order)
+    else
+      render 'edit'
+    end
   end
 
   private

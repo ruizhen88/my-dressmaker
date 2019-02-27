@@ -4,12 +4,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
 import { initCarousel } from '../components/carousel';
-import { showMore } from '../components/showMore';
+import { showMore } from '../components/show_more';
 import { initMapbox } from '../plugins/init_mapbox';
+import { editOrder } from '../components/edit_order';
 // import { initValidate } from '../plugins/initValidate'
 
 initCarousel();
 initMapbox();
+editOrder();
 
 // initValidate();
 // document.getElementById('new_order').enableClientSideValidations();

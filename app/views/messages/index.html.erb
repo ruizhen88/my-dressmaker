@@ -8,7 +8,7 @@
       <thead>
         <tr>
           <th scope="col" id="table-item">Item</th>
-          <th scope="col" id="table-value">Value</th>
+<!--           <th scope="col" id="table-value"><%#= @order.order_reference %></th> -->
         </tr>
       </thead>
       <tbody>
@@ -23,6 +23,7 @@
         <tr>
           <th scope="row">Details</th>
           <td><%= @order.order_details %></td>
+          <td><button>edit</button></td>
         </tr>
         <tr>
           <th scope="row">Fabric</th>
@@ -55,7 +56,7 @@
       <%= f.submit "Send", class: "form-control btn btn-danger msg-btn" %>
     <% end %>
 
-    <% @messages.reverse.each do |message| %>
+    <% @order.messages.reverse.each do |message| %>
       <!-- if sender(user_id) of a message is current user, displays the message on right -->
       <% if message.user == current_user %>
         <div class="past-msg-right">
