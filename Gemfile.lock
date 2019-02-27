@@ -273,7 +273,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
-  bootstrap-sass (~> 3.3)
+  bootstrap-sass (~> 3.4.1)
   carrierwave (~> 1.2)
   client_side_validations
   client_side_validations-simple_form
