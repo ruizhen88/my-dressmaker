@@ -1,9 +1,9 @@
 <div class="msg-page">
   <div class="msg-profile-container">
     <div class="msg-avatar">
-      <%= image_tag "eli.png", class: "avatar-large" %>
+      <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
     </div>
-    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+    <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -55,16 +55,20 @@
       <%= f.submit "Send", class: "form-control btn btn-danger msg-btn" %>
     <% end %>
 
-    <% @messages.each do |message| %>
+    <% @messages.reverse.each do |message| %>
       <!-- if sender(user_id) of a message is current user, displays the message on right -->
       <% if message.user == current_user %>
         <div class="past-msg-right">
-          <div class="msg-box"><%= message.content %></div>
-          <%= image_tag "eli.png", class: "avatar-small" %>
+          <div class="msg-content">
+            <div class="msg-box"><%= message.content %></div>
+            <p><%= message.created_at %></p>
+          </div>
+          <%= cl_image_tag current_user.avatar_url, crop: :fill, class: "avatar-small" %>
         </div>
       <% else %>
         <div class="past-msg">
-          <%= image_tag "eli.png", class: "avatar-small" %>
+          <!-- should change depeding on user/dm -->
+          <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
           <div class="msg-box"><%= message.content %></div>
         </div>
       <% end %>
