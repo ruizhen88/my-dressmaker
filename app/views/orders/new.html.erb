@@ -5,7 +5,7 @@
 
       <p> <%= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p>
 
-      <%= simple_form_for @order do |f| %>
+      <%= simple_form_for @order, validate: true do |f| %>
         <%= f.error_notification %>
 
         <%= f.input :cost, label: "My budget is:" %>
