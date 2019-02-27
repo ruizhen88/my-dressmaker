@@ -17,26 +17,28 @@
       return this.wrappers[name] || this.wrappers["default"];
     },
     wrappers: {
-      "default": {
+       "default": {
         add: function(element, settings, message) {
-          var errorElement, wrapper;
-          wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')));
-          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
+          var errorElement, wrapperElement;
+          wrapperElement = element.parent();
+          errorElement = wrapperElement.find(settings.error_tag + ".invalid-feedback");
           if (!errorElement.length) {
             errorElement = $("<" + settings.error_tag + "/>", {
-              "class": settings.error_class,
+              "class": 'invalid-feedback',
               text: message
             });
-            wrapper.append(errorElement);
+            wrapperElement.append(errorElement);
           }
-          wrapper.addClass(settings.wrapper_error_class);
+          wrapperElement.addClass(settings.wrapper_error_class);
+          element.addClass('is-invalid');
           return errorElement.text(message);
         },
         remove: function(element, settings) {
-          var errorElement, wrapper;
-          wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')) + "." + settings.wrapper_error_class);
-          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
-          wrapper.removeClass(settings.wrapper_error_class);
+          var errorElement, wrapperElement;
+          wrapperElement = element.parent();
+          errorElement = wrapperElement.find(settings.error_tag + ".invalid-feedback");
+          wrapperElement.removeClass(settings.wrapper_error_class);
+          element.removeClass('is-invalid');
           return errorElement.remove();
         }
       }

@@ -40,7 +40,7 @@
           </tr>
           <tr>
             <th scope="row">Price</th>
-            <td><%= @order.price %></td>
+            <td><%= humanized_money_with_symbol(@order.price) %></td>
           <tr>
             <th rowspan="4">Measures (cm)</th>
             <td rowspan="4"> Chest: <%= @order.dimension_chest %> <br> Waist: <%= @order.dimension_waist %> <br>Hips: <%= @order.dimension_hips %> <br> Length: <%= @order.dimension_length %> </td>
@@ -65,7 +65,32 @@
       <button type="button" class="btn btn-primary" id="return">
         <%= link_to "Return", order_path(@order) %>
       </button>
+
+      <% if !current_user.dressmaker %>
+
+        <%= form_tag order_payments_path(@order) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="My Order"
+            data-email="<%= current_user.email %>"
+            data-description="<%= @order.order_details %>"
+            data-amount="<%= @order.price_cents %>"
+            data-currency="<%= @order.price.currency %>">
+          </script>
+
+          <script>
+            // Hide default stripe button, be careful there if you
+            // have more than 1 button of that class
+            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+          </script>
+
+          <button type="submit" class="btn btn-primary">Pay</button>
+
+        <% end %>
+      <% end %>
+
     </div>
   </div>
 </div>
+
 
