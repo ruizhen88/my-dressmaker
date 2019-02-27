@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_053433) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "cost"
     t.date "completion_date"
     t.integer "quantity"
     t.string "order_details"
