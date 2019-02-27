@@ -1,15 +1,27 @@
 .msg-page {
-  display: flex;
+  display: inline-flex;
   height: calc(100vh - 70px);
 }
-.msg-profile-column {
-  flex: 0 0 30%;
+.msg-profile-container {
+  flex: 0 0 auto;
   text-align: center;
   background-color: #edefed;
   padding: 50px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.msg-profile-container table {
+  font-size: 12px;
+  text-align: left;
+  margin: 20px;
+}
+.msg-profile-container h3 {
+  margin: 0;
 }
 .msg-container {
-  flex: 1 1 auto;
+  flex: 1 0 70%;
   padding: 40px;
   height: calc(100vh - 70px);
   overflow: scroll;
