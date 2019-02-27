@@ -38,7 +38,7 @@
             <td class="text-center">#</td>
             <td class="text-center"><%= order.order_details %></td>
             <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
-            <td class="text-center"><%= order.cost %></td>
+            <td class="text-center"><%= order.price %></td>
             <td class="text-center"><%= order.status %></td>
             <td class="text-center"><%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %> <%= link_to "View", order_path(order), class: "btn btn-primary" %></td>
           </tr>
