@@ -43,6 +43,8 @@ end
 users = []
 
 CSV.foreach(filepath, csv_options) do |row|
+
+
   if $. <= 5
 
     new_user = User.create(

@@ -1,0 +1,36 @@
+<div class="msg-page">
+  <div class="msg-profile-column">
+    <%= image_tag "eli.png", class: "avatar-large" %>
+    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+    <p>Editable Request Summary Here</p>
+    <button class="btn btn-danger">View Order</button>
+    <!-- alert: Are you sure? -->
+    <button class="btn btn-danger">Confirm</button>
+  </div>
+
+  <div class="msg-container">
+    <h3> Contact your dressmkaer </h3>
+
+    <%= form_for [@order, @message], html: {class: "form-group form-inline"} do |f| %>
+      <%= f.text_area :content, cols: 80, rows: 5, class: "form-control" %>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+      <%= f.submit "Send", class: "form-control btn btn-danger msg-btn" %>
+    <% end %>
+
+    <% @messages.each do |message| %>
+      <!-- if sender(user_id) of a message is current user, displays the message on right -->
+      <% if message.user == current_user %>
+        <div class="past-msg-right">
+          <div class="msg-box"><%= message.content %></div>
+          <%= image_tag "eli.png", class: "avatar-small" %>
+        </div>
+      <% else %>
+        <div class="past-msg">
+          <%= image_tag "eli.png", class: "avatar-small" %>
+          <div class="msg-box"><%= message.content %></div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

@@ -23,8 +23,11 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem "geocoder"
+
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem 'money-rails'
+gem 'stripe'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

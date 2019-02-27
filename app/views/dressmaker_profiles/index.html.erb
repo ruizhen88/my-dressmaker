@@ -1,15 +1,25 @@
 <div class="index-body">
   <div class="list-container">
 
+    <div class="main-title" style="background-size: 400px 73px">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h1>
+             Results </h1>
+
+          </div>
+        </div>
+      </div>
+
     <!-- search bar -->
     <div class="row">
-      <div class="col-lg-12">
-        <div class="form-inline" style="margin: 10px 0 0 10px">
+      <div class="col-lg-12 text-center">
+        <div class="form-inline" style="margin: 5px 0 0 10px">
           <!-- Replaced form with search function -->
           <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try Paris...", size: "30" %>
+            <%= text_field_tag :query, params[:query], class: "form-control input-sm", placeholder: "Try Paris...", size: "30" %>
             <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'All'}, class: "search-dropdown" %>
-            <%= submit_tag "Search", class: "btn btn-danger" %>
+            <%= submit_tag "Search", class: "btn btn-primary btn-sm" %>
           <% end %>
         </div><!-- /.form-inline -->
       </div><!-- /.col-lg-12 -->
