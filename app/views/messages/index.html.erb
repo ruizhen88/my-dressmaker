@@ -43,7 +43,7 @@
       </tbody>
     </table>
     <!-- Add alert: Are you sure? -->
-    <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-danger") %>
+    <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-primary") %>
   </div>
 
   <div class="msg-container">
@@ -52,7 +52,7 @@
     <%= form_for [@order, @message], html: {class: "form-group form-inline"} do |f| %>
       <%= f.text_area :content, cols: 80, rows: 5, class: "form-control" %>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-      <%= f.submit "Send", class: "form-control btn btn-danger msg-btn" %>
+      <%= f.submit "Send", class: "form-control btn btn-primary msg-btn" %>
     <% end %>
 
     <% @messages.reverse.each do |message| %>
