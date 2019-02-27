@@ -294,7 +294,7 @@ DEPENDENCIES
   pundit
   rails (= 5.2.2)
   redis
-  sassc-rails
+  sassc-rails (>= 2.1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

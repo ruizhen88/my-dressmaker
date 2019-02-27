@@ -4,3 +4,5 @@
 //= require rails.validations.simple_form
 //= require bootstrap
 //= require_tree .
+
+$('.dropdown-toggle').dropdown();
