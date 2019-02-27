@@ -56,7 +56,7 @@
     <div class="btn-group center-block">
       <button type="button" class="btn btn-primary" id="confirm">
         <% if user_signed_in? %>
-          <%= link_to "Confirm", new_order_message_path(@order) %>
+          <%= link_to "Confirm", order_messages_path(@order) %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path %>
         <% end %>

@@ -30,7 +30,12 @@ class OrdersController < ApplicationController
     authorize @order
 
     if @order.save
-      redirect_to order_path(@order)
+      default_message = Message.new(content: 'order created')
+      default_message.order = @order
+      default_message.user = @order.user
+      default_message.save
+
+      redirect_to order_messages_path(@order)
     else
       render :new
     end
@@ -48,6 +53,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:cost, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric)
+    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric)
   end
 end

@@ -6,19 +6,19 @@ class MessagesController < ApplicationController
   end
 
   def index
-    # Message Policy only allows those related to the order can access the page,
-    @messages = policy_scope(Message)
-    # no need to specify either sender or recipient
-    # current user should always be a sender of the instance
+    # current user should always be a sender of the message instance
     # recipient will always be the other one linked to the order
-
     # if current_user.dressmaker, recipient is the order's customer (@order.user)
     # if current user is a customer, recipient is the order's dm (@order.dressmaker)
 
+    # Message Policy only allows those related to the order can access the page,
+    @messages = policy_scope(Message)
+
     # display a new form on index page
     @message = Message.new
-
     authorize @messages
+
+    # raise
   end
 
   def new
