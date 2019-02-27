@@ -8,7 +8,7 @@
           <!-- <p> <%#= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" %></p> -->
           <%= simple_form_for @order, validate: true do |f| %>
             <%= f.error_notification %>
-            <%= f.input :cost, label: "My budget is:", validate: true %>
+            <%= f.input :price, label: "My budget is:", validate: true %>
             <%= f.input :completion_date, label: "I want it delivered before" %>
             <%= f.input :dimension_chest, label: "Chest dimension:" %>
             <%= f.input :dimension_waist, label: "Waist dimension:" %>

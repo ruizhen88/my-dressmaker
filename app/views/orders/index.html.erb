@@ -27,7 +27,7 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <th scope="row" class="text-center"><%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
+            <th scope="row" class="text-center"><%#= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
             <td class="text-center">
               <% if current_user.dressmaker %>
                 <%= order.user.first_name %> <%= order.user.last_name %>
