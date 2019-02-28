@@ -7,7 +7,7 @@
 
       <%= simple_form_for @order, validate: true do |f| %>
         <%= f.error_notification %>
-
+        <%= raise %>
         <%= f.input :price, label: "My budget is:" %>
 
         <%= f.input :completion_date, label: "I want it delivered before", class: "form-inline" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_053433) do
+ActiveRecord::Schema.define(version: 2019_02_27_073148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_053433) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "cost"
     t.date "completion_date"
     t.integer "quantity"
     t.string "order_details"
@@ -72,6 +73,9 @@ ActiveRecord::Schema.define(version: 2019_02_26_053433) do
     t.string "fabric"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
+    t.string "order_reference"
+    t.boolean "buyer_confirmation"
+    t.boolean "dressmaker_confirmation"
     t.index ["dressmaker_id"], name: "index_orders_on_dressmaker_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

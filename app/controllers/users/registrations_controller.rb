@@ -52,8 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    super(resource)
-    resource.dressmaker ? new_dressmaker : new_buyer
+    resource.dressmaker ? new_dressmaker : new_buyer(resource)
   end
 
   def new_dressmaker
@@ -66,11 +65,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def new_buyer
+  def new_buyer(resource)
     new_buyer = BuyerProfile.new
     new_buyer.user = current_user
     if new_buyer.save
-      root_path
+      after_sign_in_path_for(resource) if is_navigational_format?
     else
       render 'new_user_registration'
     end

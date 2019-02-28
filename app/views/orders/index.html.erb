@@ -16,7 +16,7 @@
                 Dressmaker
               <% end %>
             </th>
-            <th scope="col" class="text-center" id="table-value">Order #</th>
+            <th scope="col" class="text-center" id="table-value">Order Ref</th>
             <th scope="col" class="text-center" id="table-value">Description</th>
             <th scope="col" class="text-center" id="table-value">Date</th>
             <th scope="col" class="text-center" id="table-value">Total Price</th>
@@ -35,7 +35,7 @@
                 <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
               <% end %>
             </td>
-            <td class="text-center">#</td>
+            <td class="text-center"><%= order.order_reference %></td>
             <td class="text-center"><%= order.order_details %></td>
             <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
             <td class="text-center"><%= order.price %></td>

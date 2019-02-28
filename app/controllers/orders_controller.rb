@@ -27,6 +27,9 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.dressmaker = DressmakerProfile.find(session[:dressmaker_id]).user
     @order.status = "Pending"
+    @order.order_reference = order_reference(@order)
+    @order.buyer_confirmation = false
+    @order.dressmaker_confirmation = false
     authorize @order
 
     if @order.save
@@ -60,6 +63,12 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric)
+    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric, :order_reference)
+  end
+
+  def order_reference(order)
+    letters = ('A'..'Z').to_a.sample(3).join
+    numbers = (1..9).to_a.sample(3).join
+    return 'DM' + Time.now.year.to_s + letters + numbers
   end
 end

@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_many :messages
 
   validates :price, :completion_date, :quantity, :order_details, :status, presence: true
+  validates :order_reference, uniqueness: true
   validates_numericality_of :price, :quantity
 
   monetize :price_cents

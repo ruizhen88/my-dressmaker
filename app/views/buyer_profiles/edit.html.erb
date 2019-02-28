@@ -1,16 +1,20 @@
+
 <div class="container">
-  <h1><%= "Edit #{@buyer.user.first_name}'s Profile" %></h1>
+  <div class="signup-form-container">
+      <div class="form-container">
+        <h1><%= "Edit #{@buyer.user.first_name}'s Profile" %></h1>
 
-  <%= simple_form_for @buyer do |f| %>
-    <%= f.error_notification %>
+        <%= simple_form_for @buyer do |f| %>
+          <%= f.error_notification %>
 
-    <%= f.input :style, label: "Style:" %>
+          <%= f.input :style, label: "Style:" %>
 
-    <%= f.input :size, label: "Size:" %>
+          <%= f.input :size, label: "Size:" %>
 
-    <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+          <%= f.button :submit, class: "btn-primary" %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 
-  <% end %>
-</div>
-
+        <% end %>
+      </div>
+    </div>
+  </div>
