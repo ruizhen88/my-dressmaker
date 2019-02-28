@@ -1,23 +1,39 @@
 const editOrder = () => {
-  $('.multi-item-carousel').carousel({
-    interval: false
+
+  $('#edit').click(function(){
+    $('#save').toggleClass('hidden');
+    $('#edit').hide();
+    $('td').each(function(){
+      var content = $(this).html();
+      $(this).html('<textarea rows="1">' + content + '</textarea>');
+    });
+
+    $('.info').fadeIn('fast');
   });
 
-  // for every slide in carousel, copy the next slide's item in the slide.
-  // Do the same for the next, next item.
-  $('.multi-item-carousel .item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-      next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
+  $('#save').click(function(){
+    $('#save').toggleClass('hidden');
+    $('.msg-profile-container textarea').each(function(){
+      var content = $(this).val();//.replace(/\n/g,"<br>");
+      // console.log(content);
+      $(this).parent().html(content);
+      // $(this).contents().unwrap();
+    });
 
-    if (next.next().length>0) {
-      next.next().children(':first-child').clone().appendTo($(this));
-    } else {
-      $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-    }
+    $('#edit').show();
   });
+
+  // send ajax request to controller
+  // $.ajax({
+  //     type: "POST",
+  //     dataType: "script",
+  //     url: '/resources/35',
+  //     contentType: 'application/json',
+  //     data: JSON.stringify({ resource:{pos_y:45,pos_x:50}, _method:'put' })
+  // }).done(function( msg )
+  //         {
+  //             alert( "Data Saved" );
+  //         });
 };
 
 export { editOrder };
