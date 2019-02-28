@@ -16,6 +16,7 @@ class MessagesController < ApplicationController
 
     # display a new form on index page
     @message = Message.new
+
     authorize @messages
 
     # raise

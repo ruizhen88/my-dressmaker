@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   def redirect_after_signup
     :buyer_profile_path
   end
+
+  def inbox
+    @orders = Order.where(user: current_user)
+  end
 end

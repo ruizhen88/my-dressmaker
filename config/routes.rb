@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :buyer_profiles
   resources :dressmaker_profiles
 
+  get 'inbox', to: 'pages#inbox', as: 'inbox'
+
   resources :favourites, only: [ :new, :create, :destroy ]
 end
