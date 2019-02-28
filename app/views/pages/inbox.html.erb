@@ -45,7 +45,7 @@
                     <%# end %>
                     <%= order.messages.last.content unless order.messages.last.nil? %>
                     <br>
-                    <small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %></small>
+                    <small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %> ago</small>
                   <% end %>
                 </td>
                 <td class="text-center"><%= order.status %></td>

@@ -29,7 +29,9 @@
       <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
     <% end %>
 
-    <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+    <% if @review_total > 0 %>
+      <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+    <% end %>
     (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
 
   </div>
