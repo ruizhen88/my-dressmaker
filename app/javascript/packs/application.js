@@ -17,6 +17,6 @@ editOrder();
 // document.getElementById('new_order').enableClientSideValidations();
 
 
-// const myBtn = document.querySelector('.myBtn');
-// myBtn.addEventListener('click', showMore)
+const myBtn = document.querySelector('.myBtn');
+myBtn.addEventListener('click', showMore)
 

@@ -1,0 +1,20 @@
+<!-- Modal -->
+<div class="modal fade" id="myReviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- <button type="button" class="close" data-dismiss="modal">x</button> -->
+        <div class="form-details">
+          <h1>Leave a review</h1>
+          <%= simple_form_for [order, Review.new], validate: true, remote: true do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :content, label: "Review" %>
+            <%= f.input :rating, label: "Rating" %>
+            <%= f.submit "Submit", class: "btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

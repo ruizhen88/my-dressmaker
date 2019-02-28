@@ -26,22 +26,31 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-          <tr>
-            <th scope="row" class="text-center"><%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
-            <td class="text-center">
-              <% if current_user.dressmaker %>
-                <%= order.user.first_name %> <%= order.user.last_name %>
-              <% else %>
-                <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
-              <% end %>
-            </td>
-            <td class="text-center"><%= order.order_reference %></td>
-            <td class="text-center"><%= order.order_details %></td>
-            <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
-            <td class="text-center"><%= order.price %></td>
-            <td class="text-center"><%= order.status %></td>
-            <td class="text-center"><%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %> <%= link_to "View", order_path(order), class: "btn btn-primary" %></td>
-          </tr>
+            <tr>
+              <th scope="row" class="text-center"><%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %></th>
+              <td class="text-center">
+                <% if current_user.dressmaker %>
+                  <%= order.user.first_name %> <%= order.user.last_name %>
+                <% else %>
+                  <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
+                <% end %>
+              </td>
+              <td class="text-center"><%= order.order_reference %></td>
+              <td class="text-center"><%= order.order_details %></td>
+              <td class="text-center"><%= order.completion_date.strftime("%b %d, %Y") %></td>
+              <td class="text-center"><%= order.price %></td>
+              <td class="text-center"><%= order.status %></td>
+
+              <td class="text-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myReviewModal">
+                  Review
+                </button>
+                <!-- Modal -->
+                <%= render 'reviews/new', order: order %>
+                <%= link_to "View", order_path(order), class: "btn btn-primary" %>
+              </td>
+
+            </tr>
           <% end %>
         </tbody>
       </table>

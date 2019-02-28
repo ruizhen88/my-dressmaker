@@ -19,9 +19,9 @@ class PaymentsController < ApplicationController
       currency:     @order.price.currency
     )
 
-    @order.update(payment: charge.to_json, status: 'paid')
+    @order.update(payment: charge.to_json, status: 'Paid')
 
-   # ------ Paiment email method
+    # ------ Paiment email method
     # UserMailer.buyer_order_validation(customer.email, @order).deliver_now
     # UserMailer.dm_order_validation(@order.dressmaker.email, @order).deliver_now
 
@@ -35,6 +35,6 @@ class PaymentsController < ApplicationController
   private
 
   def set_order
-    @order = current_user.orders.where(status: 'Pending').find(params[:order_id])
+    @order = current_user.orders.where(status: 'Awaiting Payment').find(params[:order_id])
   end
 end
