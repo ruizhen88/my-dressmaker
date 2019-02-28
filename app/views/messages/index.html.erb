@@ -14,24 +14,20 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Status</th>
-          <td><%= @order.status %></td>
-        </tr>
-        <tr>
           <th scope="row">Expected Date</th>
-          <td><%= @order.completion_date %></td>
+          <td id="order-date"><%= @order.completion_date %></td>
         </tr>
         <tr>
           <th scope="row">Details</th>
-          <td><%= @order.order_details %></td>
+          <td id="order-details"><%= @order.order_details %></td>
         </tr>
         <tr>
           <th scope="row">Fabric</th>
-          <td><%= @order.fabric %></td>
+          <td id="order-fabric"><%= @order.fabric %></td>
         </tr>
         <tr>
           <th scope="row">Measures (cm)</th>
-          <td> Chest: <%= @order.dimension_chest %> /
+          <td id="order-measures"> Chest: <%= @order.dimension_chest %> /
             Waist: <%= @order.dimension_waist %> /
             Hips: <%= @order.dimension_hips %> /
             Length: <%= @order.dimension_length %>
@@ -39,7 +35,7 @@
         </tr>
         <tr>
           <th scope="row">Price</th>
-          <td><%= @order.price %></td>
+          <td id="order-price"><%= @order.price %></td>
         </tr>
       </tbody>
     </table>
@@ -47,9 +43,7 @@
     <!-- Add alert: Are you sure? -->
     <div class="msg-btn-group">
       <button class="btn btn-danger msg-btn" id="edit">Edit</button>
-      <button class="btn btn-success msg-btn hidden" action="/orders/<%= @order.id %>" id="save" data-method="patch" data-remote="true">Save</button>
-
-      <%= button_to "Save", order_path(@order), method: :patch, class: "btn btn-success msg-btn hidden", id: "save", remote: true %>
+      <button class="btn btn-success msg-btn hidden" id="save" data-order-id="<%= @order.id %>">Save</button>
       <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-danger msg-btn") %>
     </div>
   </div>

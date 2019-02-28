@@ -53,10 +53,35 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     authorize @order
-    if @order.update(order_params)
-      redirect_to order_messages_path(@order)
-    else
-      render 'edit'
+
+    respond_to do |format|
+      if @order.update(order_params)
+        format.html { redirect_to order_messages_path(@order) }
+
+        # save changed details into an array to show them in message notification
+        change_details = []
+        order_params.each do |key, value|
+          change_details << "#{key}: #{value}"
+        end
+
+        # in response to json request
+        format.json {
+          # create message notification
+          change_noti = Message.new(content:
+            "A new change has been made. Please check the details: \n
+            #{change_details.join(',')}", order: @order, user: current_user)
+          # send response back to js if change is saved and message is sent
+          if change_noti.save
+            # need to pass in a json format in order to send back to js
+            render json: {
+              status: 'ok'
+            }
+          end
+        }
+
+      else
+        redirect_to order_messages_path(@order)
+      end
     end
   end
 

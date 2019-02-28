@@ -20,4 +20,8 @@ class OrderPolicy < ApplicationPolicy
   def create?
     record.user == user || record.dressmaker == user
   end
+
+  def update?
+    record.user == user || record.dressmaker == user
+  end
 end
