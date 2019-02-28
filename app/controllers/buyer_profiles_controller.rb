@@ -1,5 +1,4 @@
 class BuyerProfilesController < ApplicationController
-  # after_create :send_welcome_email
 
   def show
     @buyer = BuyerProfile.find(params[:buyer_id])
@@ -15,7 +14,6 @@ class BuyerProfilesController < ApplicationController
     @buyer = BuyerProfile.new(buyer_params)
 
     if @buyer.update
-      UserMailer.welcome_buyer(current_user).deliver_now
       redirect_to buyer_profile_path(new_buyer)
     else
       render 'new'
@@ -48,7 +46,5 @@ class BuyerProfilesController < ApplicationController
     @buyer = BuyerProfile.find(params[:id])
   end
 
-  # def send_welcome_email
-  #   UserMailer.welcome(self).deliver_now
-  # end
+
 end

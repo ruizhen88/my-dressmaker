@@ -22,4 +22,15 @@ class UserMailer < ApplicationMailer
     # This will render a view in `app/views/user_mailer`!
   end
 
+  def buyer_order_validation(email, order)
+    @email = email
+    @order = order
+    mail(to: @email, subject: " Order #{order.status}")
+  end
+
+  def dm_order_validation(email, order)
+    @email = email
+    @order = order
+    mail(to: @email, subject: " Order #{order.status}")
+  end
 end

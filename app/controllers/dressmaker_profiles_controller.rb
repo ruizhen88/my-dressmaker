@@ -41,7 +41,6 @@ class DressmakerProfilesController < ApplicationController
   def update
     authorize @dressmaker
     if @dressmaker.update(dressmaker_params)
-      UserMailer.welcome_dm(current_user).deliver_now
       redirect_to dressmaker_profile_path
     else
       render 'edit'
@@ -77,7 +76,5 @@ class DressmakerProfilesController < ApplicationController
     @dressmaker = DressmakerProfile.find(params[:id])
   end
 
-  # def send_welcome_email
-  #   UserMailer.welcome(self).deliver_now
-  # end
+
 end
