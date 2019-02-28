@@ -1,0 +1,50 @@
+
+<%= @order.user.first_name %>
+
+<p>Your order has been validated you find a summary below
+</p>
+
+<p>See ya!</p>
+
+<table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" id="table-item">Item</th>
+            <th scope="col" id="table-value">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Status</th>
+            <td><strong><%= @order.status %></strong></td>
+          </tr>
+          <tr>
+            <th scope="row">Customer Name</th>
+            <td><%= @order.user.first_name %> <%= @order.user.last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Dressmaker Name</th>
+            <td><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Expected Completion Date</th>
+            <td><%= @order.completion_date %></td>
+          </tr>
+          <tr>
+            <th scope="row">Order Details</th>
+            <td><%= @order.order_details %></td>
+          </tr>
+            <th scope="row">Fabric</th>
+            <td><%= @order.fabric %></td>
+          </tr>
+          <tr>
+            <th scope="row">Price</th>
+            <td><%= humanized_money_with_symbol(@order.price) %></td>
+          <tr>
+            <th rowspan="4">Measures (cm)</th>
+            <td rowspan="4"> Chest: <%= @order.dimension_chest %> <br> Waist: <%= @order.dimension_waist %> <br>Hips: <%= @order.dimension_hips %> <br> Length: <%= @order.dimension_length %> </td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>

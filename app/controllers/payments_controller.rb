@@ -20,6 +20,8 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, status: 'paid')
+    UserMailer.buyer_order_validation(customer.email, @order).deliver_now
+    UserMailer.dm_order_validation(@order.dressmaker.email, @order).deliver_now
     redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
