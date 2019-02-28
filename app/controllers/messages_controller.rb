@@ -13,6 +13,8 @@ class MessagesController < ApplicationController
 
     # Message Policy only allows those related to the order can access the page,
     @messages = policy_scope(Message)
+    # unread = @messages.where(read: false)
+    # unread.map! { |msg| msg.read = true unless msg.user == current_user }
 
     # display a new form on index page
     @message = Message.new

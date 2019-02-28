@@ -40,6 +40,9 @@
                 </td>
                 <td class="message-cell text-center ">
                   <%= link_to order_messages_path(order), class: "message-cell" do %>
+                    <%# if order.messages.where(read: false).exists? %>
+                      <!-- do something -->
+                    <%# end %>
                     <%= order.messages.last.content unless order.messages.last.nil? %>
                     <br>
                     <small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %></small>
