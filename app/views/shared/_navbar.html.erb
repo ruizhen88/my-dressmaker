@@ -13,8 +13,12 @@
 
 
       <!-- Links when logged in -->
+      <% if (Message.last.read == false && Message.last.user != current_user) %>
+        <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link navbar-unread" %>
+      <% else %>
+        <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
       <%= link_to "Orders", orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
 
       <!-- Avatar with dropdown menu -->

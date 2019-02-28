@@ -1,4 +1,5 @@
 class BuyerProfilesController < ApplicationController
+
   def show
     @buyer = BuyerProfile.find(params[:buyer_id])
     authorize @buyer
@@ -44,4 +45,6 @@ class BuyerProfilesController < ApplicationController
   def set_buyer
     @buyer = BuyerProfile.find(params[:id])
   end
+
+
 end

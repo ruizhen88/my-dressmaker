@@ -2,6 +2,7 @@ class DressmakerProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_dressmaker, only: %i[show edit update]
 
+
   def index
     # for dropdown filter
     @specialities = Speciality.all
@@ -42,7 +43,6 @@ class DressmakerProfilesController < ApplicationController
     authorize @dressmaker
     if @dressmaker.update(dressmaker_params)
       redirect_to dressmaker_profile_path
-
     else
       render 'edit'
     end
@@ -76,4 +76,6 @@ class DressmakerProfilesController < ApplicationController
   def set_dressmaker
     @dressmaker = DressmakerProfile.find(params[:id])
   end
+
+
 end

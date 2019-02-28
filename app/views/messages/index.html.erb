@@ -1,20 +1,21 @@
 <div class="msg-page">
   <div class="msg-profile-container">
+    <p>Your dressmaker</p>
+    <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
     <div class="msg-avatar">
       <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
     </div>
-    <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
     <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col" id="table-item">Item</th>
-          <th scope="col" id="table-value">Value</th>
+          <th scope="col" id="table-value"><%= @order.order_reference %></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">Status</th>
-          <td><strong><%= @order.status %></strong></td>
+          <td><%= @order.status %></td>
         </tr>
         <tr>
           <th scope="row">Expected Date</th>
@@ -42,8 +43,15 @@
         </tr>
       </tbody>
     </table>
+
     <!-- Add alert: Are you sure? -->
-    <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-primary") %>
+    <div class="msg-btn-group">
+      <button class="btn btn-danger msg-btn" id="edit">Edit</button>
+      <button class="btn btn-success msg-btn hidden" action="/orders/<%= @order.id %>" id="save" data-method="patch" data-remote="true">Save</button>
+
+      <%= button_to "Save", order_path(@order), method: :patch, class: "btn btn-success msg-btn hidden", id: "save", remote: true %>
+      <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-danger msg-btn") %>
+    </div>
   </div>
 
   <div class="msg-container">
@@ -55,7 +63,7 @@
       <%= f.submit "Send", class: "form-control btn btn-primary msg-btn" %>
     <% end %>
 
-    <% @messages.reverse.each do |message| %>
+    <% @order.messages.reverse.each do |message| %>
       <!-- if sender(user_id) of a message is current user, displays the message on right -->
       <% if message.user == current_user %>
         <div class="past-msg-right">
@@ -69,7 +77,10 @@
         <div class="past-msg">
           <!-- should change depeding on user/dm -->
           <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
-          <div class="msg-box"><%= message.content %></div>
+          <div class="msg-content">
+            <div class="msg-box"><%= message.content %></div>
+            <p><%= message.created_at %></p>
+          </div>
         </div>
       <% end %>
     <% end %>
