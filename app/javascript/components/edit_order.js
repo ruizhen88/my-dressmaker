@@ -7,11 +7,12 @@ const editOrder = () => {
       var content = $(this).html();
       $(this).html('<textarea rows="1">' + content + '</textarea>');
     });
-
     $('.info').fadeIn('fast');
   });
 
   $('#save').click(function(){
+    const orderId = $(this).data('order-id')
+
     $('#save').toggleClass('hidden');
     $('.msg-profile-container textarea').each(function(){
       var content = $(this).val();//.replace(/\n/g,"<br>");
@@ -19,21 +20,43 @@ const editOrder = () => {
       $(this).parent().html(content);
       // $(this).contents().unwrap();
     });
-
     $('#edit').show();
-  });
 
-  // send ajax request to controller
-  // $.ajax({
-  //     type: "POST",
-  //     dataType: "script",
-  //     url: '/resources/35',
-  //     contentType: 'application/json',
-  //     data: JSON.stringify({ resource:{pos_y:45,pos_x:50}, _method:'put' })
-  // }).done(function( msg )
-  //         {
-  //             alert( "Data Saved" );
-  //         });
+    // gather all the order data into json
+    const order = {
+      order: {
+        completion_date: $('#order-date').text(),
+        order_details: $('#order-details').text(),
+        price: $('#order-price').text()
+      }
+      // $() equals to document.querySelector
+    };
+
+    // send ajax request to controller
+    const patchOrder = (order) => {
+      // console.log('order sent')
+      // console.log(order)
+      const url = `/orders/${orderId}.json`;
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json",
+          // authenticity token
+          'X-CSRF-Token': Rails.csrfToken()
+        },
+        body: JSON.stringify(order)
+      }).then(response => response.json())
+        .then((data) => {
+          if(data.status === 'ok') {
+            alert('Your change is successfully saved!')
+            // create a fake HTML message box with new change
+          }
+        });
+    };
+
+    patchOrder(order);
+  });
+  // end of save.click
 };
 
 export { editOrder };
