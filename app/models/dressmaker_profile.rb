@@ -17,9 +17,9 @@ class DressmakerProfile < ApplicationRecord
       tsearch: { prefix: true }
     }
   # add weight
-  private
 
-# ------ Welcome email method
+  # ------ Welcome email method
+  # private
   # def send_welcome_email
   #   UserMailer.welcome_dm(user).deliver_now
   # end
