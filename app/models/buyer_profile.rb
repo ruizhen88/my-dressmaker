@@ -4,9 +4,9 @@ class BuyerProfile < ApplicationRecord
 
   # validates :size, :style, presence: true
 
-  private
-
 # ------ Welcome email method
+  # private
+
   # def send_welcome_email
   #   UserMailer.welcome_buyer(user).deliver_now
   # end
