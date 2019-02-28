@@ -24,7 +24,14 @@
   </div>
 
   <div class="rating">
-    <% 5.times do %><i class="fas fa-star"></i><% end %>
+    <% @review_total = 0 %>
+    <% @reviews.each do |review| %>
+      <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
+    <% end %>
+
+    <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+    (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
+
   </div>
 
   <div class="specialites" >
@@ -69,22 +76,22 @@
       </div>
 
       <div class="reviews">
-        <% 3.times do %>
-          <div class="review">
-            <div class="reviewer">
-              <%= image_tag "eli.png", class: "avatar-small"%>
-              <p><strong>Eli J</strong></p>
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
+        <% @reviews.each do |review| %>
+          <% if review.order.dressmaker == @dressmaker.user %>
+            <div class="review">
+              <div class="reviewer">
+                <%= image_tag "eli.png", class: "avatar-small"%>
+                <p><strong><%= review.order.user.first_name %></strong></p>
+                <% review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+              </div>
+
+              <p><%= review.content %></p>
+
+              <!-- <button class="btn btn-link myBtn"><small>Read more</small></button> -->
             </div>
-
-            <p><small>
-              The dress was amazing. I was so happy with the result. The attention to detail was siblime. My<span class="dots">...</span><span class="more">dressmaker was so helpful and I would highly recomment her. Thank you so much. Merci beaucoup!</span></small>
-            </p>
-
-            <button class="btn btn-link myBtn"><small>Read more</small></button>
-          </div>
+          <% end %>
         <% end %>
       </div>
   </div>

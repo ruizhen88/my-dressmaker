@@ -3,12 +3,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review.order = @order
     skip_authorization
   end
 
   def create
     @review = Review.new(review_params)
     @review.order = @order
+    @review.save
     skip_authorization
   end
 
