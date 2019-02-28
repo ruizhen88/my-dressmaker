@@ -3,7 +3,6 @@ class DressmakerProfile < ApplicationRecord
   has_many :user_specialities
   has_many :specialities, through: :user_specialities
   has_many :photos
-
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }
 
   include PgSearch
@@ -16,4 +15,7 @@ class DressmakerProfile < ApplicationRecord
       tsearch: { prefix: true }
     }
   # add weight
+
+
+
 end
