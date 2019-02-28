@@ -21,6 +21,8 @@ filepath    = 'db/dressmakers_v2.csv'
 # end
 
 
+#Skip email sending method when seeding :
+# https://stackoverflow.com/questions/2846314/ruby-on-rails-skipping-validate-on-create-statement-for-seeds/3622206
 
 
 
@@ -45,6 +47,7 @@ users = []
 
 CSV.foreach(filepath, csv_options) do |row|
   new_user = User.create(
+
     first_name: "#{row['first_name']}",
     last_name: "#{row['last_name']}",
     email: "#{row['email']}",
