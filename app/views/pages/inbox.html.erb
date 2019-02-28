@@ -1,0 +1,59 @@
+
+<div class="main-form-container">
+  <div class="form-container">
+    <div class="form-titles">
+      <h1 class="text-center">My Inbox</h1>
+    </div>
+    <div class="form-details text-center">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center" id="table-item">Avatar</th>
+            <th scope="col" class="text-center" id="table-value">
+              <% if current_user.dressmaker %>
+                Customer
+              <% else %>
+                Dressmaker
+              <% end %>
+            </th>
+            <th scope="col" class="text-center" id="table-value">Message</th>
+            <th scope="col" class="text-center" id="table-value">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <%#= link_to order_messages_path(order) do %>
+                <th scope="row" class="text-center">
+                  <% if current_user.dressmaker %>
+                    <%= cl_image_tag order.user.avatar_url, crop: :fill, class: "avatar-large" %>
+                  <% else %>
+                    <%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
+                  <% end %>
+                </th>
+                <td class="text-center">
+                  <% if current_user.dressmaker %>
+                    <%= order.user.first_name %> <%= order.user.last_name %>
+                  <% else %>
+                    <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
+                  <% end %>
+                </td>
+                <td class="message-cell text-center ">
+                  <%= link_to order_messages_path(order), class: "message-cell" do %>
+                    <%# if order.messages.where(read: false).exists? %>
+                      <!-- do something -->
+                    <%# end %>
+                    <%= order.messages.last.content unless order.messages.last.nil? %>
+                    <br>
+                    <small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %></small>
+                  <% end %>
+                </td>
+                <td class="text-center"><%= order.status %></td>
+              <% end %>
+            </tr>
+          <%# end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
