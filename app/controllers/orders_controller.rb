@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
+    order_confirmation_check(@order) if params[:order_conf]
+
     authorize @order
   end
 
@@ -88,12 +91,18 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric, :order_reference)
+    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric, :order_reference, :order_conf)
   end
 
   def order_reference(order)
     letters = ('A'..'Z').to_a.sample(3).join
     numbers = (1..9).to_a.sample(3).join
     return 'DM' + Time.now.year.to_s + letters + numbers
+  end
+
+  def order_confirmation_check(order)
+    order.update(buyer_confirmation: true) if current_user.dressmaker == false
+    order.update(dressmaker_confirmation: true) if current_user.dressmaker == true
+    order.update(status: "Awaiting Payment") if order.buyer_confirmation && order.dressmaker_confirmation
   end
 end

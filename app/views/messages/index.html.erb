@@ -44,7 +44,7 @@
     <div class="msg-btn-group">
       <button class="btn btn-danger msg-btn" id="edit">Edit</button>
       <button class="btn btn-success msg-btn hidden" id="save" data-order-id="<%= @order.id %>">Save</button>
-      <%= button_to("Confirm", order_path(@order), method: :get, :class => "btn btn-danger msg-btn") %>
+      <%= button_to("Confirm", order_path(@order), params: { order_conf: true }, method: :get, :class => "btn btn-danger msg-btn") %>
     </div>
   </div>
 
