@@ -14,7 +14,9 @@
 
       <!-- Links when logged in -->
       <% if !current_user.messages.last.nil? && (Message.last.read == false && Message.last.user != current_user) %>
-        <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link navbar-unread" %>
+        <%= link_to inbox_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span>Inbox <i class="fa fa-circle navbar-unread"></i></span>
+        <% end %>
       <% else %>
         <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>

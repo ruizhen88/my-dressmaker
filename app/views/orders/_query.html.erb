@@ -5,15 +5,15 @@
       <div class="modal-body">
         <div class="form-details">
           <h1>Start a new project</h1>
-          <!-- <p> <%#= "Hi #{current_user.first_name}, here are a few questions to help your dressmaker make the dress you want!" if user_signed_in? %></p> -->
+          <p> <%= "Hi #{current_user.first_name}, please provide a few details to help the dressmaker" if user_signed_in? %></p>
           <%= simple_form_for @order, validate: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :price, label: "My budget is:", validate: true %>
-            <%= f.input :completion_date, label: "I want it delivered before" %>
-            <%= f.input :dimension_chest, label: "Chest dimension:" %>
-            <%= f.input :dimension_waist, label: "Waist dimension:" %>
-            <%= f.input :dimension_hips, label: "Hips dimension:" %>
-            <%= f.input :dimension_length, label: "Length dimension" %>
+            <%= f.input :completion_date, as: :date, label: "I want it delivered before" %>
+            <%= f.input :dimension_chest, label: "Chest dimension (cm):" %>
+            <%= f.input :dimension_waist, label: "Waist dimension (cm):" %>
+            <%= f.input :dimension_hips, label: "Hips dimension (cm):" %>
+            <%= f.input :dimension_length, label: "Length dimension (cm):" %>
             <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
             <%= f.input :quantity, label: "Quantity" %>
             <%= f.input :order_details, label: "Description" %>
