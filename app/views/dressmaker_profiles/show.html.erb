@@ -1,7 +1,9 @@
 <div class="banner profile-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dwww7z6po/image/upload/v1550886875/sew-nahutensilien-handarbeiten-meter-tailors-chalk.jpg') %>);
 " >
   <div class="profile-banner-content">
-    <h1><%= "#{@dressmaker.user.first_name.capitalize}'s Profile" %></h1>
+    <div>
+      <h1><%= "#{@dressmaker.user.first_name.capitalize}'s Profile" %></h1>
+    </div>
     <%# if current_user == @dressmaker.user %>
       <!-- <div class="btn-primary">
         <a><%#= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %></a>
@@ -18,14 +20,20 @@
     </div>
 
     <div class="rating">
-      <% @review_total = 0 %>
-      <% @reviews.each do |review| %>
-        <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
-      <% end %>
+      <!-- to uncomment after demo day -->
+      <%# @review_total = 0 %>
+      <%# @reviews.each do |review| %>
+        <%# @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
+      <%# end %>
 
-      <% if @review_total > 0 %>
-        <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
-        (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
+      <%# if @review_total > 0 %>
+        <%# (@review_total / @reviews.count).times do %><!-- <i class="fas fa-star"></i> --><%# end %>
+        <%#= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>
+      <%# end %>
+
+      <!-- delete after demo day -->
+      <% 5.times do %>
+        <i class="fas fa-star"></i>
       <% end %>
     </div>
 
@@ -135,8 +143,8 @@
         </div>
         <p><small>Highly recommend. Thank you so much!</small></p>
       </div>
-    </div>
   </div>
+
 </div>
 
 <!-- Modal -->

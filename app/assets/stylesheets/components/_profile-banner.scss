@@ -16,13 +16,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+    img {
+
+    }
 }
 
 .profile-banner h1 {
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 .profile-banner p {
   font-size: 25px;
@@ -34,15 +38,18 @@
 }
 
 .rating {
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   // position: absolute;
   // bottom: 10px;
   // right: 10px;
     i {
+      padding: 2px;
       font-size: x-large;
     }
 }
 
 .specialites {
+  align-self: center;
   // position: absolute;
   // bottom: 10px;
   // left: 10px;
@@ -50,6 +57,6 @@
 
 .specialites-image {
   // height: 50px;
-  // padding: 10px;
-  width: 50px;
+  margin: 10px;
+  width: 30px;
 }
