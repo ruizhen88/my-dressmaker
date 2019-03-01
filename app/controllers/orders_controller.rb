@@ -117,8 +117,8 @@ class OrdersController < ApplicationController
     end
     if order.buyer_confirmation && order.dressmaker_confirmation
       order.update(status: "Awaiting Payment")
-      payment_message_link = order_path(@order)
-      payment_message = Message.new(content: %Q[Order confirmed, please <a href=\"/orders/"#{order.id}"\">click here</a> to proceed with payment.])
+      # payment_message_link = redirect_to 'click here', order_path(@order)
+      payment_message = Message.new(content: "Order confirmed, please view order to proceed with payment.")
       payment_message.order = @order
       payment_message.user = @order.dressmaker
       payment_message.save

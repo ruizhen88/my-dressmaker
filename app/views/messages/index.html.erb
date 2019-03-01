@@ -10,7 +10,7 @@
       <tbody>
         <tr>
           <th scope="row">Expected Date</th>
-          <td id="order-date"><%= @order.completion_date %></td>
+          <td id="order-date"><%= @order.completion_date.strftime("%b %d, %Y") %></td>
         </tr>
         <tr>
           <th scope="row">Details</th>
