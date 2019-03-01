@@ -16,34 +16,40 @@
         <a><%#= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %></a>
       </div>
     <%# end %> -->
+
     <div>
       <% if @dressmaker.user.avatar_url.present? %>
         <%= image_tag @dressmaker.user.avatar_url, class: "avatar-profile"%>
+        <%#= cl_image_tag(@dressmaker.user.avatar_url, :width=>150, :height=>150, :radius=>"max", :crop=>"crop", :gravity=>"face")
+        %>
+        <%#= cl_image_tag(@dressmaker.user.avatar_url, width: 150, height: 150, crop: "crop", gravity: "face") %>
       <% end %>
     </div>
+
+    <div class="rating">
+      <% @review_total = 0 %>
+      <% @reviews.each do |review| %>
+        <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
+      <% end %>
+
+      <% if @review_total > 0 %>
+        <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+        (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
+      <% end %>
+    </div>
+
   </div>
 
-  <div class="rating">
-    <% @review_total = 0 %>
-    <% @reviews.each do |review| %>
-      <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
-    <% end %>
 
-    <% if @review_total > 0 %>
-      <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
-      (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
-    <% end %>
+</div>
 
-  </div>
+<div class="container">
 
   <div class="specialites" >
     <%= image_tag 'icons/embroidery.svg', class: "specialites-image"%>
     <%= image_tag 'icons/knitting.svg', class: "specialites-image"%>
     <%= image_tag 'icons/icones3.svg', class: "specialites-image"%>
   </div>
-</div>
-
-<div class="container">
 
   <div class="bio text-center">
     <p><small><%= @dressmaker.bio %> <br></small></p>
@@ -131,7 +137,7 @@
       <div class="review">
         <div class="reviewer">
           <%= image_tag "avatars/5.png", class: "avatar-small"%>
-          <p><strong>Amy</strong></p>
+          <p><strong>Francesca</strong></p>
           <% 5.times do %>
             <i class="fas fa-star"></i>
           <% end %>
