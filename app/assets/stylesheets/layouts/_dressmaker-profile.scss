@@ -45,9 +45,11 @@
   width: 25vw;
   display: flex;
   flex-direction: column;
+
   // background-color: red;
 
 }
+
 
 .review {
   // background-color: white;
@@ -65,6 +67,9 @@
     }
     i {
       justify-self: flex-end;
+    }
+    .fas{
+      color: $flamingo;
     }
 }
 
