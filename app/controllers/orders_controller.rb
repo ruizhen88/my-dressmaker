@@ -90,7 +90,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :completion_date, :quantity, :order_details, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :fabric, :order_reference, :order_conf)
+    params.require(:order).permit(:completion_date, :quantity, :order_details, :fabric, :status, :payment, :dressmaker_id, :dimension_chest, :dimension_waist, :dimension_hips, :dimension_length, :price, :order_reference, :order_conf)
   end
 
   def order_reference(order)
