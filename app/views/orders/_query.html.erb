@@ -9,7 +9,7 @@
           <%= simple_form_for @order, validate: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :price, label: "My budget is:", validate: true %>
-            <%= f.input :completion_date, as: :date, label: "I want it delivered before" %>
+            <%= f.input :completion_date, as: :date, label: "I want it delivered before", html5: true, class: "form-control" %>
             <%= f.input :dimension_chest, label: "Chest dimension (cm):" %>
             <%= f.input :dimension_waist, label: "Waist dimension (cm):" %>
             <%= f.input :dimension_hips, label: "Hips dimension (cm):" %>
