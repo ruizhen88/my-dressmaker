@@ -2,7 +2,7 @@
   display: inline-flex;
   height: calc(100vh - 70px);
 }
-.msg-profile-container {
+.msg-order-container {
   flex: 0 0 auto;
   text-align: center;
   background-color: #edefed;
@@ -13,15 +13,15 @@
   justify-content: space-around;
   overflow: scroll;
 }
-.msg-profile-container table {
+.msg-order-container table {
   font-size: 14px;
   text-align: center;
   margin: 20px;
 }
-.msg-profile-container h3 {
+.msg-order-container h3 {
   margin-top: 0;
 }
-.msg-profile-container p {
+.msg-order-container p {
   margin: 0;
 }
 .msg-btn-group {
@@ -36,6 +36,15 @@
   padding: 40px;
   height: calc(100vh - 70px);
   overflow: scroll;
+}
+.msg-profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.msg-profile-txt h3, p {
+  margin: 0 15px;
 }
 .msg-btn {
   margin: 10px;
@@ -53,9 +62,8 @@
   height: auto;
   vertical-align: top;
 }
-.msg-container h3 {
-  margin: 25px 10px 0 0;
-  display: inline-block;
+.msg-container form {
+  margin: 20px 0;
 }
 .past-msg {
   display: flex;
@@ -88,4 +96,8 @@
 }
 .past-msg-right .msg-box {
   background-color: #edefed;
+}
+.divider {
+  border-top: 1px solid #D3D3D3;
+  text-align: center;
 }
