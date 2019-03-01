@@ -1,4 +1,4 @@
-<% image_arr =
+<%# image_arr =
   [
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814169/31255954_234537540432611_7018967264590299136_n.jpg.jpg",
     "https://res.cloudinary.com/dwww7z6po/image/upload/v1550814141/31386514_168887910488487_4107042805849784320_n.jpg.jpg",
@@ -31,8 +31,8 @@
 
     <% if @review_total > 0 %>
       <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+      (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
     <% end %>
-    (<%= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>)
 
   </div>
 
@@ -66,36 +66,79 @@
   <div class="portfolio">
 
       <div class="photos">
-        <% 3.times do %>
           <div class="row">
-            <% 3.times do %>
-              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                <%= image_tag image_arr.sample, class: "portfolio-photo"%>
-              </div>
-            <% end %>
-          </div>
+        <% @photos.each do |photo| %>
+            <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+              <%= cl_image_tag photo.url, class: "portfolio-photo"%>
+            </div>
         <% end %>
+          </div>
       </div>
 
       <div class="reviews">
-        <% @reviews.each do |review| %>
-          <% if review.order.dressmaker == @dressmaker.user %>
+        <!-- Uncomment after demo day as this is working code
+        <%# @reviews.each do |review| %>
+          <%# if review.order.dressmaker == @dressmaker.user %>
             <div class="review">
               <div class="reviewer">
-                <%= image_tag "eli.png", class: "avatar-small"%>
-                <p><strong><%= review.order.user.first_name %></strong></p>
-                <% review.rating.times do %>
+                <%#= image_tag "eli.png", class: "avatar-small"%>
+                <p><strong><%#= review.order.user.first_name %></strong></p>
+                <%# review.rating.times do %>
                   <i class="fas fa-star"></i>
-                <% end %>
+                <%# end %>
               </div>
 
-              <p><%= review.content %></p>
+              <p><%#= review.content %></p>
 
-              <!-- <button class="btn btn-link myBtn"><small>Read more</small></button> -->
+              <button class="btn btn-link myBtn"><small>Read more</small></button>
             </div>
+          <%# end %>
+        <%# end %> -->
+
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/1.png", class: "avatar-small"%>
+            <p><strong>Amy</strong></p>
+            <% 5.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>The dress was amazing. So happy with the outcome</small></p>
+        </div>
+
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/2.png", class: "avatar-small"%>
+            <p><strong>Laura</strong></p>
+            <% 5.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>Love my dress so much. Amazing job.</small></p>
+        </div>
+
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/4.png", class: "avatar-small"%>
+            <p><strong>Natasha</strong></p>
+            <% 4.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>Dress is beautiful. Thank you!</small></p>
+        </div>
+
+      <div class="review">
+        <div class="reviewer">
+          <%= image_tag "avatars/5.png", class: "avatar-small"%>
+          <p><strong>Amy</strong></p>
+          <% 5.times do %>
+            <i class="fas fa-star"></i>
           <% end %>
-        <% end %>
+        </div>
+        <p><small>Highly recommend. Thank you so much!</small></p>
       </div>
+    </div>
   </div>
 </div>
 
