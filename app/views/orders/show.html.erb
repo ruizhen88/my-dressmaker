@@ -2,9 +2,29 @@
 <div class="main-form-container">
   <div class="form-container">
     <div class="form-titles">
-      <h1 class="text-center">Summary of your request</h1>
+      <h1 class="text-center">
+        <% if @order.status == "Pending" %>
+          Order Request
+        <% elsif @order.status == "Awaiting Payment" %>
+          Order Quote
+        <% else %>
+          Purchased Order
+        <% end %>
+      </h1>
 
-      <p class="text-center"> <%= "Hi #{current_user.first_name}, please review your request before submitting it to the dressmaker" %></p>
+      <p class="text-center">
+        <% if @order.status == "Pending" && !current_user.dressmaker %>
+          <%= "Hi #{current_user.first_name}, please confirm the details of your request with #{@order.dressmaker.first_name} via our chat. Once confirmed the payment option will be available" %>
+        <% elsif @order.status == "Pending" && current_user.dressmaker %>
+          <%= "Hi #{current_user.first_name}, please confirm the details of your request with #{@order.user.first_name} via our chat. Once confirmed the payment option will be available" %>
+        <% elsif @order.status == "Awaiting Payment" && !current_user.dressmaker %>
+          <%= "Hi #{current_user.first_name}, please confirm payment" %>
+        <% elsif @order.status == "Awaiting Payment" && current_user.dressmaker %>
+          <%= "Hi #{current_user.first_name}, currently awaiting payment from #{@order.user.first_name}" %>
+        <% else %>
+          Order completed.
+        <% end %>
+      </p>
     </div>
     <div class="form-details">
       <table class="table table-hover">
@@ -29,7 +49,7 @@
           </tr>
           <tr>
             <th scope="row">Expected Completion Date</th>
-            <td><%= @order.completion_date %></td>
+            <td><%= @order.completion_date.strftime("%b %d, %Y") %></td>
           </tr>
           <tr>
             <th scope="row">Order Details</th>
@@ -54,20 +74,19 @@
 
 
     <div class="btn-group center-block">
-      <button type="button" class="btn btn-primary" id="confirm">
-        <% if user_signed_in? %>
-          <%= link_to "Confirm", order_messages_path(@order) %>
-        <% else %>
-          <%= link_to "Sign in", new_user_session_path %>
-        <% end %>
-      </button>
+      <!-- <button type="button" class="btn btn-primary" id="confirm">
+        <%# if user_signed_in? %>
+          <%#= link_to "Confirm", order_messages_path(@order) %>
+        <%# else %>
+          <%#= link_to "Sign in", new_user_session_path %>
+        <%# end %>
+      </button> -->
 
       <button type="button" class="btn btn-primary" id="return">
-        <%= link_to "Return", order_path(@order) %>
+        <%= link_to "Return", order_messages_path(@order) %>
       </button>
 
       <% if !current_user.dressmaker && @order.status == 'Awaiting Payment' %>
-
         <%= form_tag order_payments_path(@order) do %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
