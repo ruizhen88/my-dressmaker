@@ -18,7 +18,7 @@
           <!-- Replaced form with search function -->
           <%= form_tag dressmaker_profiles_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control input-sm", placeholder: "Try children or wedding ", size: "30" %>
-            <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'All'}, class: "search-dropdown" %>
+            <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'Speciality'}, class: "dropdown" %>
             <%= submit_tag "Search", class: "btn btn-primary btn-sm" %>
           <% end %>
         </div><!-- /.form-inline -->

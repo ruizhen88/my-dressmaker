@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   after_action :verify_authorized
   before_action do
     @order = Order.find(params[:order_id])
+    @fabrics = ["Linen", "Cotton", "Silk"]
   end
 
   def index

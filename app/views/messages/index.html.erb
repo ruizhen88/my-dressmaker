@@ -1,47 +1,57 @@
 <div class="msg-page">
-  <div class="msg-profile-container">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col" id="table-item">Item</th>
-          <th scope="col" id="table-value"><%= @order.order_reference %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Expected Date</th>
-          <td id="order-date"><%= @order.completion_date %></td>
-        </tr>
-        <tr>
-          <th scope="row">Details</th>
-          <td id="order-details"><%= @order.order_details %></td>
-        </tr>
-        <tr>
-          <th scope="row">Fabric</th>
-          <td id="order-fabric"><%= @order.fabric %></td>
-        </tr>
-        <tr>
-          <th scope="row">Chest (cm)</th>
-          <td id="order-chest"><%= @order.dimension_chest %></td>
-        </tr>
-        <tr>
-          <th scope="row">Waist (cm)</th>
-          <td id="order-waist"><%= @order.dimension_waist %></td>
-        </tr>
-        <tr>
-          <th scope="row">Hips (cm)</th>
-          <td id="order-hips"><%= @order.dimension_hips %></td>
-        </tr>
-        <tr>
-          <th scope="row">Length (cm)</th>
-          <td id="order-length"><%= @order.dimension_length %></td>
-        </tr>
-        <tr>
-          <th scope="row">Price</th>
-          <td id="order-price"><%= @order.price %></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="msg-order-container">
+    <h4>Order Details <%= link_to @order.order_reference, order_path(@order) %></h4>
+    <div class="msg-order">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th scope="row">Due Date</th>
+            <td id="order-date"><%= @order.completion_date %></td>
+          </tr>
+          <tr>
+            <th scope="row">Details</th>
+            <td id="order-details"><%= @order.order_details %></td>
+          </tr>
+          <tr>
+            <th scope="row">Fabric</th>
+            <td id="order-fabric">
+              <div class="dropdown">
+                <div class="btn-group">
+                  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Small button <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Linen</a></li>
+                    <li><a href="#">Cotton</a></li>
+                    <li><a href="#">Silk</a></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Chest (cm)</th>
+            <td id="order-chest"><%= @order.dimension_chest %></td>
+          </tr>
+          <tr>
+            <th scope="row">Waist (cm)</th>
+            <td id="order-waist"><%= @order.dimension_waist %></td>
+          </tr>
+          <tr>
+            <th scope="row">Hips (cm)</th>
+            <td id="order-hips"><%= @order.dimension_hips %></td>
+          </tr>
+          <tr>
+            <th scope="row">Length (cm)</th>
+            <td id="order-length"><%= @order.dimension_length %></td>
+          </tr>
+          <tr>
+            <th scope="row">Price</th>
+            <td id="order-price"><%= @order.price %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Add alert: Are you sure? -->
     <div class="msg-btn-group">
@@ -52,15 +62,20 @@
   </div>
 
   <div class="msg-container">
-    <h3>Contact <%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
-    <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
+    <div class="msg-profile">
+      <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
+      <div class="msg-profile-txt">
+        <p>Contact your dressmaker</p>
+        <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
+      </div>
+    </div>
 
     <%= form_for [@order, @message], html: {class: "form-group form-inline"} do |f| %>
       <%= f.text_area :content, cols: 95, rows: 5, class: "form-control" %>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
       <%= f.submit "Send", class: "form-control btn btn-primary msg-btn" %>
     <% end %>
-
+    <div class="divider"><br></div>
     <% @order.messages.reverse.each do |message| %>
       <!-- if sender(user_id) of a message is current user, displays the message on right -->
       <% if message.user == current_user %>
