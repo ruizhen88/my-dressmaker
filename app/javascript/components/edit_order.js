@@ -1,3 +1,4 @@
+// jQuery: $() equals to document.querySelector
 const editOrder = () => {
 
   $('#edit').click(function(){
@@ -10,9 +11,8 @@ const editOrder = () => {
     $('.info').fadeIn('fast');
   });
 
+  // actions triggered upon click "save"
   $('#save').click(function(){
-    const orderId = $(this).data('order-id')
-
     $('#save').toggleClass('hidden');
     $('.msg-profile-container textarea').each(function(){
       var content = $(this).val();//.replace(/\n/g,"<br>");
@@ -27,12 +27,16 @@ const editOrder = () => {
       order: {
         completion_date: $('#order-date').text(),
         order_details: $('#order-details').text(),
+        dimension_chest: $('#order-chest').text(),
+        dimension_waist: $('#order-waist').text(),
+        dimension_hips: $('#order-hips').text(),
+        dimension_length: $('#order-length').text(),
         price: $('#order-price').text()
       }
-      // $() equals to document.querySelector
     };
 
     // send ajax request to controller
+    const orderId = $(this).data('order-id')
     const patchOrder = (order) => {
       // console.log('order sent')
       // console.log(order)
@@ -49,6 +53,7 @@ const editOrder = () => {
         .then((data) => {
           if(data.status === 'ok') {
             alert('Your change is successfully saved!')
+            location.reload();
             // create a fake HTML message box with new change
           }
         });

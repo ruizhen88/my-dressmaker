@@ -2,7 +2,6 @@ class DressmakerProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_dressmaker, only: %i[show edit update]
 
-
   def index
     # for dropdown filter
     @specialities = Speciality.all
@@ -25,7 +24,6 @@ class DressmakerProfilesController < ApplicationController
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
     # @dressmakers = DressmakerProfile.all
   end
-
 
   def show
     session[:dressmaker_id] = params[:id]
@@ -76,6 +74,5 @@ class DressmakerProfilesController < ApplicationController
   def set_dressmaker
     @dressmaker = DressmakerProfile.find(params[:id])
   end
-
 
 end

@@ -64,15 +64,14 @@ class OrdersController < ApplicationController
         # save changed details into an array to show them in message notification
         change_details = []
         order_params.each do |key, value|
-          change_details << "#{key}: #{value}"
+          change_details << "#{key.capitalize}: #{value}"
         end
 
         # in response to json request
         format.json {
           # create message notification
           change_noti = Message.new(content:
-            "A new change has been made. Please check the details: \n
-            #{change_details.join(',')}", order: @order, user: current_user)
+            "A new change has been made. Please check the details: <br><br> #{change_details.join('<br>')}", order: @order, user: current_user)
           # send response back to js if change is saved and message is sent
           if change_noti.save
             # need to pass in a json format in order to send back to js
