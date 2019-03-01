@@ -100,8 +100,28 @@ class OrdersController < ApplicationController
   end
 
   def order_confirmation_check(order)
-    order.update(buyer_confirmation: true) if current_user.dressmaker == false
-    order.update(dressmaker_confirmation: true) if current_user.dressmaker == true
-    order.update(status: "Awaiting Payment") if order.buyer_confirmation && order.dressmaker_confirmation
+    # when user confirms order
+    if current_user.dressmaker == false
+      order.update(buyer_confirmation: true)
+      confirm_message = Message.new(content: "#{current_user.first_name.capitalize} has just confirmed order details. Please respond within 24 hours.")
+      confirm_message.order = @order
+      confirm_message.user = @order.user
+      confirm_message.save
+    # when dressmaker confirms order
+    elsif current_user.dressmaker == true
+      order.update(dressmaker_confirmation: true)
+      confirm_message = Message.new(content: "#{current_user.first_name.capitalize} has just confirmed order details. Please respond within 24 hours.")
+      confirm_message.order = @order
+      confirm_message.user = @order.dressmaker
+      confirm_message.save
+    end
+    if order.buyer_confirmation && order.dressmaker_confirmation
+      order.update(status: "Awaiting Payment")
+      payment_message_link = order_path(@order)
+      payment_message = Message.new(content: %Q[Order confirmed, please <a href=\"/orders/"#{order.id}"\">click here</a> to proceed with payment.])
+      payment_message.order = @order
+      payment_message.user = @order.dressmaker
+      payment_message.save
+    end
   end
 end

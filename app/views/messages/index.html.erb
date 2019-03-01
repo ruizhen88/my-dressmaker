@@ -76,7 +76,7 @@
           <!-- should change depeding on user/dm -->
           <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
           <div class="msg-content">
-            <div class="msg-box"><%= message.content %></div>
+            <div class="msg-box"><%= message.content.html_safe %></div>
             <p><%= message.created_at %></p>
           </div>
         </div>
