@@ -13,7 +13,7 @@
 
 
       <!-- Links when logged in -->
-      <% if Message.last != nil && (Message.last.read == false && Message.last.user != current_user) %>
+      <% if !current_user.messages.last.nil? && (Message.last.read == false && Message.last.user != current_user) %>
         <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link navbar-unread" %>
       <% else %>
         <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
