@@ -1,4 +1,7 @@
-#message-cell {
-  display: flex;
-  flex-direction: columns;
+.inbox-align {
+  vertical-align: middle !important;
+}
+
+#inbox-message {
+  width: 900px;
 }

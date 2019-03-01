@@ -8,47 +8,40 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col" class="text-center" id="table-item">Avatar</th>
-            <th scope="col" class="text-center" id="table-value">
-              <% if current_user.dressmaker %>
-                Customer
-              <% else %>
-                Dressmaker
-              <% end %>
-            </th>
-            <th scope="col" class="text-center" id="table-value">Message</th>
-            <th scope="col" class="text-center" id="table-value">Status</th>
+            <th scope="col" class="text-center" id="table-item"></th>
+            <th scope="col" class="text-center" id="table-value"></th>
+            <th scope="col" class="text-center" id="table-value"></th>
+            <th scope="col" class="text-center" id="table-value"></th>
+            <th scope="col" class="text-center" id="table-value"></th>
+            <th scope="col" class="text-center" id="table-value"></th>
           </tr>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
             <tr>
               <%#= link_to order_messages_path(order) do %>
-                <th scope="row" class="text-center">
+                <th scope="row" class="text-center inbox-align">
                   <% if current_user.dressmaker %>
                     <%= cl_image_tag order.user.avatar_url, crop: :fill, class: "avatar-large" %>
                   <% else %>
                     <%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
                   <% end %>
                 </th>
-                <td class="text-center">
+                <td class="text-center inbox-align">
                   <% if current_user.dressmaker %>
                     <%= order.user.first_name %> <%= order.user.last_name %>
                   <% else %>
                     <%= order.dressmaker.first_name %> <%= order.dressmaker.last_name %>
                   <% end %>
                 </td>
-                <td class="message-cell text-center ">
-                  <%= link_to order_messages_path(order), class: "message-cell" do %>
-                    <%# if order.messages.where(read: false).exists? %>
-                      <!-- do something -->
-                    <%# end %>
+                <td id="inbox-message" class="text-center inbox-align">
                     <%= order.messages.last.content unless order.messages.last.nil? %>
-                    <br>
-                    <small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %> ago</small>
-                  <% end %>
                 </td>
-                <td class="text-center"><%= order.status %></td>
+                <td class="text-center inbox-align"><small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %> ago</small></td>
+                <td class="text-center inbox-align"><%= order.status %></td>
+                <td class="text-center inbox-align">
+                  <%= link_to "View", order_messages_path(order), class: "btn btn-primary" %>
+                </td>
               <% end %>
             </tr>
           <%# end %>
