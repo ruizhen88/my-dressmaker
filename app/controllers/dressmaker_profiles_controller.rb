@@ -30,6 +30,7 @@ class DressmakerProfilesController < ApplicationController
     @order = Order.new
     @reviews = Review.all
     @fabrics = ["Linen", "Cotton", "Silk"]
+    @photos = Photo.all # need to change so that only pictures associated to a dressmaker profile are shown
     skip_authorization
   end
 
@@ -74,5 +75,4 @@ class DressmakerProfilesController < ApplicationController
   def set_dressmaker
     @dressmaker = DressmakerProfile.find(params[:id])
   end
-
 end

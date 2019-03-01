@@ -38,3 +38,5 @@ class PaymentsController < ApplicationController
     @order = current_user.orders.where(status: 'Awaiting Payment').find(params[:order_id])
   end
 end
+
+

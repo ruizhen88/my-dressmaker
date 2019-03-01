@@ -55,6 +55,7 @@ CSV.foreach(filepath, csv_options) do |row|
     street_address: "#{row['city']} ",
     password: "password",
     avatar_url: "#{row['avatar']}"
+    # new_user.remote_avatar_url_url = row['avatar']
   )
   # users << new_user
 
