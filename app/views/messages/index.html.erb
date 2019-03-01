@@ -14,20 +14,7 @@
           </tr>
           <tr>
             <th scope="row">Fabric</th>
-            <td id="order-fabric">
-              <div class="dropdown">
-                <div class="btn-group">
-                  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Small button <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Linen</a></li>
-                    <li><a href="#">Cotton</a></li>
-                    <li><a href="#">Silk</a></li>
-                  </ul>
-                </div>
-              </div>
-            </td>
+            <td id="order-fabric"><%= @order.fabric %></td>
           </tr>
           <tr>
             <th scope="row">Chest (cm)</th>
@@ -84,7 +71,7 @@
             <div class="msg-box"><%= message.content.html_safe %></div>
             <p><%= message.created_at %></p>
           </div>
-          <%= cl_image_tag current_user.avatar_url, crop: :fill, class: "avatar-small" %>
+          <%= image_tag "eli.png", class: "avatar-small"%>
         </div>
       <% else %>
         <div class="past-msg">
