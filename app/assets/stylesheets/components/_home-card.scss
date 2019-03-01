@@ -5,7 +5,7 @@
   background-size: cover !important;
   background-position: center;
   background-color: grey;
-  color: black;
+  color: white;
   position: relative;
   border-radius: 4px;
   margin-bottom: 30px;
@@ -27,12 +27,15 @@
   text-transform: uppercase;
 }
 .card-description {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 40px;
+  text-shadow: 2px 2px 4px light-grey;
 }
 .card-description p {
   font-size: 14px;
