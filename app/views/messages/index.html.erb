@@ -1,10 +1,5 @@
 <div class="msg-page">
   <div class="msg-profile-container">
-    <p>Your dressmaker</p>
-    <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
-    <div class="msg-avatar">
-      <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
-    </div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -26,12 +21,20 @@
           <td id="order-fabric"><%= @order.fabric %></td>
         </tr>
         <tr>
-          <th scope="row">Measures (cm)</th>
-          <td id="order-measures"> Chest: <%= @order.dimension_chest %> /
-            Waist: <%= @order.dimension_waist %> /
-            Hips: <%= @order.dimension_hips %> /
-            Length: <%= @order.dimension_length %>
-          </td>
+          <th scope="row">Chest (cm)</th>
+          <td id="order-chest"><%= @order.dimension_chest %></td>
+        </tr>
+        <tr>
+          <th scope="row">Waist (cm)</th>
+          <td id="order-waist"><%= @order.dimension_waist %></td>
+        </tr>
+        <tr>
+          <th scope="row">Hips (cm)</th>
+          <td id="order-hips"><%= @order.dimension_hips %></td>
+        </tr>
+        <tr>
+          <th scope="row">Length (cm)</th>
+          <td id="order-length"><%= @order.dimension_length %></td>
         </tr>
         <tr>
           <th scope="row">Price</th>
@@ -49,10 +52,11 @@
   </div>
 
   <div class="msg-container">
-    <h3> Contact your dressmaker </h3>
+    <h3>Contact <%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
+    <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
 
     <%= form_for [@order, @message], html: {class: "form-group form-inline"} do |f| %>
-      <%= f.text_area :content, cols: 80, rows: 5, class: "form-control" %>
+      <%= f.text_area :content, cols: 95, rows: 5, class: "form-control" %>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
       <%= f.submit "Send", class: "form-control btn btn-primary msg-btn" %>
     <% end %>
@@ -62,7 +66,7 @@
       <% if message.user == current_user %>
         <div class="past-msg-right">
           <div class="msg-content">
-            <div class="msg-box"><%= message.content %></div>
+            <div class="msg-box"><%= message.content.html_safe %></div>
             <p><%= message.created_at %></p>
           </div>
           <%= cl_image_tag current_user.avatar_url, crop: :fill, class: "avatar-small" %>
