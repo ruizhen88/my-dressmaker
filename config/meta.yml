@@ -1,5 +1,5 @@
 meta_product_name: "My Dressmaker"
 meta_title: "My Dressmaker - Have your clothes custom made"
 meta_description: "Find the best dressmakers in the world and get unique clothes"
-meta_image: "homepage_banner.jpg" # should exist in `app/assets/images/`
+meta_image: "fb-cover.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
