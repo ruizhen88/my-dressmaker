@@ -4,8 +4,13 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  #Forcing SSL
+  config.force_ssl = true
+
   # Code is not reloaded between requests.
   config.cache_classes = true
+
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
