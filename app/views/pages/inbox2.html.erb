@@ -1,0 +1,25 @@
+<!-- Need a redirection and root -->
+<div class="container">
+  <h1 class="text-center banner_small">My Inbox</h1>
+  <%= link_to "Back to home", root_path %>
+  <% @orders.each do |order| %>
+    <div>
+      <% if current_user.dressmaker %>
+        <%= cl_image_tag order.user.avatar_url, crop: :fill, class: "avatar-large" %>
+      <% else %>
+        <%= cl_image_tag order.dressmaker.avatar_url, crop: :fill, class: "avatar-large" %>
+      <% end %>
+
+      <ul class="list-inline product-controls hidden-sm hidden-xs">
+        <li>
+          <strong>Message</strong>
+          <p><%= order.messages.last.content unless order.messages.last.nil? %></p>
+          <p><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %> ago</p>
+        </li>
+        <li>
+          <p><%= link_to "View", order_messages_path(order) %></p>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
