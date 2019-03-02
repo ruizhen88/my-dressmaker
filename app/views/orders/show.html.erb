@@ -76,7 +76,7 @@
         <%# end %>
       </button> -->
 
-      <button type="button" class="btn btn-primary" id="return">
+      <button type="button" class="btn btn-primary" id="return" style="border-radius: 5px; margin: 10px">
         <%= link_to "Return", order_messages_path(@order) %>
       </button>
 
@@ -97,7 +97,7 @@
             document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
           </script>
 
-          <button type="submit" class="btn btn-primary">Pay</button>
+          <button type="submit" class="btn btn-primary" style="margin: 10px">Pay</button>
 
         <% end %>
       <% end %>
