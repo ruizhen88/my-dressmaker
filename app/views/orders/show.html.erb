@@ -2,7 +2,7 @@
 <div class="main-form-container">
   <div class="form-container">
     <div class="form-titles">
-      <h1 class="text-center">
+      <h1 class="text-center main-title" style="background-size: 400px; width: 400px; padding: 10px 0;">
         <% if @order.status == "Pending" %>
           Order Request
         <% elsif @order.status == "Awaiting Payment" %>
@@ -12,7 +12,7 @@
         <% end %>
       </h1>
 
-      <p class="text-center">
+      <p class="text-center" style="width: 60%">
         <% if @order.status == "Pending" && !current_user.dressmaker %>
           <%= "Hi #{current_user.first_name}, please confirm the details of your request with #{@order.dressmaker.first_name} via our chat. Once confirmed the payment option will be available" %>
         <% elsif @order.status == "Pending" && current_user.dressmaker %>
@@ -28,12 +28,6 @@
     </div>
     <div class="form-details">
       <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" id="table-item">Item</th>
-            <th scope="col" id="table-value">Value</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <th scope="row">Status</th>

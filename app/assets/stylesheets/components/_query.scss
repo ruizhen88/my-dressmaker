@@ -1,6 +1,13 @@
 .modal-content {
-  width: 800px;
   display: flex;
+}
+.modal-content .main-title {
+  background-size: 400px 70px;
+  text-align: center;
+  width: 400px;
+}
+.modal-content .main-title h1 {
+  margin: 10px;
 }
 .modal-body {
   display: flex;
@@ -14,14 +21,28 @@
   flex-direction: column;
 }
 .dimension {
-  height: 300px;
+  margin-left: 10px;
+  height: 65%;
   align-items: center;
+  display: flex;
 }
-
+.form-titles p {
+  text-align: center;
+  margin: 10px auto;
+  width: 90%;
+}
 .form-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-
+form#new_order {
+  height: 860px;
+}
+.modal-content .btn-primary {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+}

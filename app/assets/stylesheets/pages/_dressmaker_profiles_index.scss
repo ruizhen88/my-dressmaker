@@ -5,6 +5,7 @@
 
 .list-container {
   flex: 1 0 auto;
+  padding-top: 20px;
 }
 .list-container form {
   display: flex;
@@ -28,6 +29,7 @@ select#dressmaker_profile_speciality_name {
   border-color: #fed9ca;
   text-align: center;
   color: black;
+  padding: 0px;
 }
 .dm-profile {
   display: flex;

@@ -1,6 +1,9 @@
 <div class="msg-page">
   <div class="msg-order-container">
-    <h4>Order Details <%= link_to @order.order_reference, order_path(@order) %></h4>
+    <div class="msg-order-details">
+      <h4>Order Details</h4>
+      <p><small><%= link_to @order.order_reference, order_path(@order) %></small></p>
+    </div>
     <div class="msg-order">
       <table class="table table-hover">
         <tbody>
@@ -42,9 +45,9 @@
 
     <!-- Add alert: Are you sure? -->
     <div class="msg-btn-group">
-      <button class="btn btn-danger msg-btn" id="edit">Edit</button>
-      <button class="btn btn-success msg-btn hidden" id="save" data-order-id="<%= @order.id %>">Save</button>
-      <%= button_to("Confirm", order_path(@order), params: { order_conf: true }, method: :get, :class => "btn btn-danger msg-btn") %>
+      <button class="btn btn-primary msg-btn" id="edit">Edit</button>
+      <button class="btn btn-danger msg-btn hidden" id="save" data-order-id="<%= @order.id %>">Save</button>
+      <%= button_to("Confirm", order_path(@order), params: { order_conf: true }, method: :get, :class => "btn btn-primary msg-btn") %>
     </div>
   </div>
 
