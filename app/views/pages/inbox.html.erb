@@ -2,18 +2,23 @@
 <div class="main-form-container">
   <div class="form-container">
     <div class="form-titles">
-      <h1 class="text-center">My Inbox</h1>
+      <h1 class="text-center main-title" style="width: 400px; padding: 10px 0";>My Inbox</h1>
     </div>
     <div class="form-details text-center">
       <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col" class="text-center" id="table-item"></th>
-            <th scope="col" class="text-center" id="table-value"></th>
-            <th scope="col" class="text-center" id="table-value"></th>
-            <th scope="col" class="text-center" id="table-value"></th>
-            <th scope="col" class="text-center" id="table-value"></th>
-            <th scope="col" class="text-center" id="table-value"></th>
+            <th scope="col" class="text-center" id="table-value">
+              <% if current_user.dressmaker %>
+                Customer
+              <% else %>
+                Dressmaker
+              <% end %>
+            </th>
+            <th scope="col" class="text-center" id="table-value">Message</th>
+            <th scope="col" class="text-center" id="table-value">Sent</th>
+            <th scope="col" class="text-center" id="table-value">Order Status</th>
           </tr>
         </thead>
         <tbody>

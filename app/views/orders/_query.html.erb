@@ -4,8 +4,10 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="form-details">
-          <h1>Start a new project</h1>
-          <p> <%= "Hi #{current_user.first_name}, please provide a few details to help the dressmaker" if user_signed_in? %></p>
+          <div class="form-titles">
+            <div class="main-title"><h1>Start a new project</h1></div>
+            <p><%= "Hi #{current_user.first_name}, please provide a few details to help the dressmaker let you have the perfect dress you want" if user_signed_in? %></p>
+          </div>
           <%= simple_form_for @order, validate: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :price, label: "My budget is:", validate: true %>
@@ -17,14 +19,12 @@
             <%= f.input :fabric, collection: @fabrics, label: "Choose your fabric:" %>
             <%= f.input :quantity, label: "Quantity" %>
             <%= f.input :order_details, label: "Description" %>
-            <%= f.submit "Create Order", class: "btn-primary" %>
+            <%= f.submit "Create Order", class: "btn btn-primary" %>
           <% end %>
           <div class="dimension">
             <%= image_tag "dress-dimension.png", class: "dimensions-img" %>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
   </div>
