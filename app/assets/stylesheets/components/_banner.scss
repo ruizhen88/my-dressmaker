@@ -29,3 +29,18 @@
   margin-top: 10px;
   text-shadow: 2px 2px 4px #777777;
 }
+
+
+@media(max-width: 992px) {
+  .banner {
+    background-position: center
+  }
+  .banner h1 {
+      font-size: 30px;
+    }
+  .banner p {
+      font-size: 18px;
+    }
+}
+
+
