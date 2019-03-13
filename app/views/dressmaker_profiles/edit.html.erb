@@ -1,25 +1,22 @@
 <div class="container">
-  <h1>Dressmaker Profile Creation</h1>
-
-  <p> <%= "Hi #{}, tell us about yourself..." %></p>
-
-  <%= simple_form_for @dressmaker do |f| %>
-    <%= f.error_notification %>
-
-    <%= f.input :bio, placeholder: "Tell us about yourself..." %>
-
-    <%= f.input :fb_url, label: "Facebook profile:" %>
-
-    <%= f.input :insta_url %>
-
-    <%= f.input :account_status, collection: ["Active", "Inactive"] %>
-
-
-    <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-
-
-  <% end %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="main-title" style="background-size: 550px">
+        <h1>Edit Your Dressmaker Profile</h1>
+      </div>
+      <p style="text-align: center"><%= "Hi #{current_user.email}, tell us about yourself..." %></p>
+      <br>
+      <%= simple_form_for @dressmaker do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :bio, placeholder: "Tell us about yourself..." %>
+        <%= f.input :fb_url, label: "Facebook profile" %>
+        <%= f.input :insta_url, label: "Instagram profile" %>
+        <%= f.input :account_status, collection: ["Active", "Inactive"] %>
+        <%= f.button :submit, "Update", class: "btn-primary" %>
+        <%= f.button :button, "Cancel", type: "reset" %>
+      <% end %>
+    </div><!-- col -->
+  </div><!-- row -->
 </div>
 
 
