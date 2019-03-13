@@ -7,8 +7,8 @@
       <div class="col-lg-12">
         <div class="form-inline" >
           <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
-            <%= submit_tag "Go!", class: "btn btn-primary btn-lg" %>
+            <%#= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
+            <%= submit_tag "Find a dressmaker", class: "btn btn-primary btn-lg", style: 'width: auto' %>
           <% end %>
           <!-- Replaced form with search function -->
         </div><!-- /.form-inline -->
@@ -65,13 +65,13 @@
       </div>
     </div>
   </div>
-  <div class="home-button">
+<!--   <div class="home-button">
     <div class="row">
       <div class="col-sm-12 text-center">
         <a href="/dressmaker_profiles" class="btn btn-primary btn-lg" style="width: auto"> Find a dressmaker </a>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 <!-- Meet our dressmakers -->

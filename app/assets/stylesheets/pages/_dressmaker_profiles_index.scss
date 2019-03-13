@@ -6,31 +6,36 @@
 .list-container {
   flex: 1 0 auto;
   padding-top: 20px;
+
+  form {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  input#query {
+    width: 360px;
+  }
+
+  .btn-primary {
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+    padding: 5px;
+    margin: 0px;
+  }
 }
-.list-container form {
-  display: flex;
-  margin-top: 30px;
-}
-.list-container input#query {
-  width: 360px;
-}
+
 select#dressmaker_profile_speciality_name {
   // display: none;
   background: transparent;
-  border: grey solid 1px;
+  border: gray solid 1px;
   width: 130px;
   height: 36px;
   font-size: 16px;
   margin: 0 10px;
 }
-.list-container .btn-primary {
-  border-radius: 5px;
-  width: 113px;
-  border-color: #fed9ca;
-  text-align: center;
-  color: black;
-  padding: 0px;
-}
+
 .dm-profile {
   display: flex;
   flex: 1 0 auto;
@@ -38,10 +43,10 @@ select#dressmaker_profile_speciality_name {
   width: 300px;
   height: 200px;
   position: relative;
-}
 
-.dm-profile p {
-  margin: 0px;
+  p {
+    margin: 0px;
+  }
 }
 
 .fav {
