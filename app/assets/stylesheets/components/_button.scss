@@ -13,3 +13,10 @@
 .btn-primary:hover {
   background-color: #ffb4ac;
 }
+
+@media(max-width: 992px) {
+  .btn-primary {
+    font-size: 15px !important;
+  }
+
+}

@@ -5,13 +5,7 @@
     <p> Custom made clothes from all over the world   </p>
     <div class="row">
       <div class="col-lg-12">
-        <div class="form-inline" >
-          <%= form_tag dressmaker_profiles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
-            <%= submit_tag "Go!", class: "btn btn-primary btn-lg" %>
-          <% end %>
-          <!-- Replaced form with search function -->
-        </div><!-- /.form-inline -->
+        <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Browse </a>
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row -->
 <!--  <a class="btn btn-danger btn-lg">Browse scooters</a> -->
@@ -27,43 +21,28 @@
 
       </div>
     </div>
+  </div>
+
   <div class="titles">
     <div class="row">
       <div class="col-sm-4 text-center">
         <h2> 1. Browse </h2>
-      </div>
-      <div class="col-sm-4 text-center">
-        <h2> 2. Get quotes </h2>
-      </div>
-      <div class="col-sm-4 text-center">
-        <h2> 3. Get dressed </h2>
-      </div>
-    </div>
-  </div>
-    <div class="row">
-      <div class="col-sm-4 text-center">
-        <%= image_tag "icons/search-icon.png", height: 60 %>
-      </div>
-      <div class="col-sm-4 text-center">
-        <%= image_tag "icons/pages-icon.png", height: 60 %>
-      </div>
-      <div class="col-sm-4 text-center">
-        <%= image_tag "icons/dress-icon.png", height: 60 %>
-      </div>
-    </div>
-  <div class="home-content">
-    <div class="row">
-      <div class="col-sm-4 text-center">
+        <%= image_tag "icons/search-icon.png", :class => "home-icone" %>
         <p> You have a special occasion or you want get the perfect dress ? Look for the dressmaker that will suit you needs. </p>
       </div>
       <div class="col-sm-4 text-center">
+        <h2> 2. Get quotes </h2>
+        <%= image_tag "icons/pages-icon.png", :class => "home-icone" %>
         <p> Share your project idea and criteria with one or many dressmakers. Receive quotes adapted to your requirements.</p>
       </div>
       <div class="col-sm-4 text-center">
+        <h2> 3. Get dressed </h2>
+         <%= image_tag "icons/dress-icon.png", :class => "home-icone" %>
         <p> Once the quote validated just wait for your order to come in ! <br> And voilà !</p>
       </div>
     </div>
   </div>
+
   <div class="home-button">
     <div class="row">
       <div class="col-sm-12 text-center">
@@ -74,166 +53,189 @@
 
 
 <!-- Meet our dressmakers -->
-  <div class="middlepage-title">
-    <div class="col-sm-12 main-title text-center" style="background-size: 500px 73px">
-      <h1> Featured dressmakers </h1>
+
+  <div class="container">
+    <div class="carousel-column hidden-xs ">
+      <div class="row">
+        <div class="main-title col-lg-12 text-center middlepage-title" style="background-size: 450px 73px">
+          <h1> Featured dressmakers </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="home-carousel">
+          <div class=" col-md-12 product ">
+            <div class="product-controls">
+              <div class="dm-profile list-inline">
+                <li>
+                  <div class="fav-and-av">
+                    <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
+                  </div>
+                </li>
+                <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
+              </div>
+              <div class="dm-portfolio">
+                <!-- Bootstrap Carousel -->
+                <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active ">
+                    <div class="col-xs-4">
+                      <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                  </div>
+                  <div class="item ">
+                    <div class="col-xs-4">
+                      <%= image_tag "home-profile/portfolio2.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                  </div>
+                   <div class="item ">
+                    <div class="col-xs-4">
+                      <%= image_tag "home-profile/portfolio3.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                  </div>
+                </div>
+                    <!-- Wrapper for slides -->
+                    <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <i class="glyphicon glyphicon-chevron-left"></i>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+                    <!-- Controls -->
+                </div>
+                  <!-- Bootstrap Carousel -->
+              </div>
+            </div>
+          </div><!-- /.product -->
+        </div>
+        <div class="row">
+          <div class="home-carousel">
+            <div class=" col-md-12 product ">
+              <div class="product-controls">
+                <div class="dm-profile list-inline">
+                  <li>
+                    <div class="fav-and-av">
+                      <%= image_tag "home-profile/profile2.jpg", crop: :fill, class: "avatar-large" %>
+                    </div>
+                  </li>
+                  <li><h3> Marie Blachere </h3><p> I'm 36, a mother of 2 boys and I love knitting. I spend most of my time knitting when I have free time. </p></li>
+                </div>
+                <div class="dm-portfolio">
+                  <!-- Bootstrap Carousel -->
+                  <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <div class="col-xs-4">
+                        <%= image_tag "home-profile/portfolio5.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-4">
+                        <%= image_tag "home-profile/portfolio6.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-4">
+                        <%= image_tag "home-profile/portfolio7.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                      </div>
+                    </div>
+                  </div>
+                      <!-- Wrapper for slides -->
+                      <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                  </a>
+                      <!-- Controls -->
+                  </div>
+                    <!-- Bootstrap Carousel -->
+                </div>
+              </div>
+            </div><!-- /.product -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- only appear on mobile phone -->
+
+    <div class="carousel-column hidden-sm hidden-md hidden-lg">
+
+ <!--  <div class="home-carousel">
+        <div class=" col-md-12 product ">
+          <div class="product-controls">
+            <div class="dm-profile list-inline">
+              <li>
+                <div class="fav-and-av">
+                  <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
+                </div>
+              </li>
+              <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
+            </div>
+            <div class="dm-portfolio-sm">
+              <div class="col-xs-4">
+                <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
 
-  <div class="product">
-    <div class="product-controls">
-      <div class="dm-profile list-inline">
-        <li>
-          <div class="fav-and-av">
-            <i class="fas fa-heart"></i><br>
-            <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
-          </div>
-        </li>
-        <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
-      </div>
-      <div class="dm-portfolio">
-        <!-- Bootstrap Carousel -->
-        <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
-            <!-- auto slider (data-ride) does not work, need to figure out -->
-            <!-- Indicators -->
-<!--           <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-          </ol> -->
-            <!-- Indicators -->
-            <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio2.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-           <div class="item">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio3.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-        </div>
-            <!-- Wrapper for slides -->
-            <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <i class="glyphicon glyphicon-chevron-left"></i>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <i class="glyphicon glyphicon-chevron-right"></i>
-        </a>
-            <!-- Controls -->
-        </div>
-          <!-- Bootstrap Carousel -->
-      </div>
-    </div>
-  </div><!-- /.product -->
-    <div class="product">
-    <div class="product-controls">
-      <div class="dm-profile list-inline">
-        <li>
-          <div class="fav-and-av">
-            <i class="fas fa-heart"></i><br>
-            <%= image_tag "home-profile/profile2.jpg", crop: :fill, class: "avatar-large" %>
-          </div>
-        </li>
-        <li><h3> Marie Blachere </h3><p> I'm 36, a mother of 2 boys and I love knitting. I spend most of my time knitting when I have free time. </p></li>
-      </div>
-      <div class="dm-portfolio">
-        <!-- Bootstrap Carousel -->
-        <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
-            <!-- auto slider (data-ride) does not work, need to figure out -->
-            <!-- Indicators -->
-<!--           <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-          </ol> -->
-            <!-- Indicators -->
-            <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio5.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio6.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-          <div class="item">
-            <div class="col-xs-4">
-              <%= image_tag "home-profile/portfolio7.jpg", class: "d-block w-100 carousel-image" %>
-            </div>
-          </div>
-        </div>
-            <!-- Wrapper for slides -->
-            <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <i class="glyphicon glyphicon-chevron-left"></i>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <i class="glyphicon glyphicon-chevron-right"></i>
-        </a>
-            <!-- Controls -->
-        </div>
-          <!-- Bootstrap Carousel -->
-      </div>
-    </div>
-  </div><!-- /.product -->
+
+
 <!-- End meet our dressmakers -->
 
 <!--  Get inspired  section -->
-  <div class="middlepage-title">
-    <div class="col-sm-12 main-title text-center" style="background-size: 400px 73px">
-      <h1> Get inspired </h1>
-    </div>
-  </div>
-  <div class="home-card">
-    <div class="col-xs-12 col-sm-4">
-       <div class="card" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)),url(<%= image_path('children_cat.jpg') %>);" >
-        <div class="card-description text-center">
-          <h2>Children</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
+  <div class="container">
+    <div class="middlepage-title">
+      <div class="col-sm-12 main-title text-center" style="background-size: 400px 73px">
+        <h1> Get inspired </h1>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4 ">
-       <div class="card" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)), url(<%= image_path('wedding_cat.jpg') %>);" >
-        <div class="card-description text-center">
-          <h2>Wedding</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 ">
-      <div class="card" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)), url(<%= image_path('party_cat.jpg') %>);" >
-        <div class="card-description text-center">
-          <h2>Party</h2>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <div class="home-button">
+    <div class="home-card">
       <div class="row">
-        <div class="col-sm-12 text-center">
-          <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Let's go ! </a>
+        <div class="col-xs-12 col-sm-4 col-lg-4 col-centered">
+           <div class="card img-responsive" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)),url(<%= image_path('children_cat.jpg') %>);" >
+            <div class="card-description text-center">
+              <h2>Children</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
         </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 col-centered">
+           <div class="card img-responsive" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)), url(<%= image_path('wedding_cat.jpg') %>);" >
+            <div class="card-description text-center">
+              <h2>Wedding</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 col-centered">
+          <div class="card img-responsive" style="background-image: linear-gradient(transparent,rgba(0,0,0,0.2)), url(<%= image_path('party_cat.jpg') %>);" >
+            <div class="card-description text-center">
+              <h2>Party</h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <div class="home-button">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Let's go ! </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
 <!--  End get inspired  section -->
+
 
 <!-- Review area -->
   <div class="middlepage-title">

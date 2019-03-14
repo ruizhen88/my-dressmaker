@@ -1,7 +1,6 @@
 .main-title {
  margin-top: 20px;
  margin-bottom: 20px;
- background-size: 300px 100px;
  background-repeat: no-repeat;
  background-position: center;
  background-image: image-url("tache5.png");
@@ -16,8 +15,16 @@
 .titles h2 {
   font-size: 24px;
   font-weight: bold;
-  padding: 30px;
+  padding: 15px;
 
+
+}
+
+.titles p {
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 30px;
+  margin-bottom: 30px;;
 }
 
 .middlepage-title{
@@ -25,10 +32,30 @@
   margin-bottom: 20px;
 }
 
+.home-icone {
+  height: 60px;
+}
 
 @media(max-width: 992px) {
-  .main-title h1 {
-  font-size: 25px;
+  .main-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
 
   }
+  .main-title h1 {
+    font-size: 20px;
+    padding: 5px;
+  }
+  .titles h2 {
+    font-size: 15px;
+    padding: 0px;
+  }
+  .titles p {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  .home-icone {
+    height: 40px;
+}
 }
