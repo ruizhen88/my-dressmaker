@@ -29,21 +29,10 @@
               <li>
                 <div class="fav-and-av">
                   <i class="fas fa-heart"></i><br>
-                  <% if dressmaker.user.avatar_url.nil? %>
-                    <%= image_tag "avatars/default.png", class: "avatar-large" %>
-                  <% else %>
-                    <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
-                  <% end %>
+                  <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
                 </div>
               </li>
-              <li>
-                <h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3>
-                <% if dressmaker.bio.nil? %>
-                  <p>no bio yet</p>
-                <% else %>
-                  <p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p>
-                <% end %>
-              </li>
+              <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
             </div>
             <div class="dm-portfolio">
               <!-- Bootstrap Carousel -->
@@ -60,29 +49,17 @@
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">
                     <div class="col-xs-4">
-                      <% if dressmaker.photos.present? %>
-                        <%= cl_image_tag dressmaker.photos.last.url, class: "d-block w-100 carousel-image" %>
-                      <% else %>
-                        <%= image_tag "avatars/default.png", class: "d-block w-100 carousel-image" %>
-                      <% end %>
+                      <%= cl_image_tag dressmaker.photos.last.url, class: "d-block w-100 carousel-image" %>
                     </div>
                   </div>
-                  <% if dressmaker.photos.present? %>
-                    <% dressmaker.photos.first(2).each do |photo| %>
-                      <div class="item">
-                        <div class="col-xs-4">
-                          <%= cl_image_tag photo.url, class: "d-block w-100 carousel-image" %>
-                        </div>
-                      </div>
-                    <% end %><!-- end of photo loop -->
-                  <% else %>
+                  <% dressmaker.photos.first(2).each do |photo| %>
                     <div class="item">
                       <div class="col-xs-4">
-                        <%= image_tag "avatars/default.png", class: "d-block w-100 carousel-image" %>
+                        <%= cl_image_tag photo.url, class: "d-block w-100 carousel-image" %>
                       </div>
                     </div>
-                  <% end %><!-- end of if/else -->
-                </div><!-- .carousel-inner -->
+                  <% end %>
+                </div>
                 <!-- Wrapper for slides -->
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
