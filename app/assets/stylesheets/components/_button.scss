@@ -19,3 +19,10 @@
   border-radius: 5px;
   width: 100px;
 }
+
+@media(max-width: 992px) {
+  .btn-primary {
+    font-size: 15px !important;
+  }
+
+}

@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 
-.container{
-  width: 1200px;
+.home-container {
   overflow: hidden;
   padding-top: 50px;
 
@@ -25,3 +24,39 @@
   margin-bottom: 100px;
   margin-top: 20px;
 }
+
+
+
+
+@media(max-width: 992px) {
+  .home-container {
+   padding-top: 0px;
+  }
+  .home-carousel h3 {
+    font-size: 14px;
+  }
+  .home-carousel p {
+    font-size: 10px;
+  }
+
+  .home-carousel .product {
+    padding: 0px 20px 0px 20px;
+  }
+  .home-carousel .dm-profile {
+    height: 120px;
+  }
+  .review-home {
+    font-size: 14px;
+    text-align: center;
+  }
+  .review-home .reviewer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .review-home .avatar-small {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+}
+

@@ -33,6 +33,11 @@
       height: 200px;
       border-radius: 5px;
     }
+    .carousel-image-home  {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
   }
   .carousel-control {
     &.left, &.right {
@@ -41,3 +46,4 @@
   }
 
 }
+
