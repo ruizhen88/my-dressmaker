@@ -46,8 +46,7 @@ const editOrder = () => {
         method: 'PATCH',
         headers: {
           "Content-Type": "application/json",
-          // authenticity token
-          'X-CSRF-Token': Rails.csrfToken()
+          'X-CSRF-Token': Rails.csrfToken() // authenticity token
         },
         body: JSON.stringify(order)
       }).then(response => response.json())
@@ -55,14 +54,11 @@ const editOrder = () => {
           if(data.status === 'ok') {
             alert('Your change is successfully saved!')
             location.reload();
-            // create a fake HTML message box with new change
           }
         });
     };
-
     patchOrder(order);
-  });
-  // end of save.click
+  }); // end of save.click
 };
 
 export { editOrder };
