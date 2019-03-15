@@ -40,8 +40,7 @@
                   <% end %>
                 </td>
                 <td id="inbox-message" class="text-center inbox-align">
-                    <p><%= truncate order.messages.last.content, length: 100, separator: /\w+/ unless order.messages.last.nil? %></p>
-                    <%#= truncate dressmaker.bio, length: 100, separator: /\w+/ %>
+                    <p><%= truncate order.messages.last.content, length: 100, separator: /\w+/, escape: false unless order.messages.last.nil? %></p>
                 </td>
                 <td class="text-center inbox-align"><small><%= time_ago_in_words(order.messages.last.created_at) unless order.messages.last.nil? %> ago</small></td>
                 <td class="text-center inbox-align"><%= order.status %></td>
