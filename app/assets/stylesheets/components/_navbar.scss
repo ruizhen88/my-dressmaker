@@ -84,3 +84,9 @@
   border-top: 1px solid #E6E6E6;
 }
 
+@media(max-width: 992px) {
+  .navbar-wagon-brand img {
+  height: 40px;
+  }
+}
+
