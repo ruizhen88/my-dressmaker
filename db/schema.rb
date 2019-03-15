@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_074723) do
+ActiveRecord::Schema.define(version: 2019_03_14_032126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_074723) do
   end
 
   create_table "dressmaker_profiles", force: :cascade do |t|
-    t.string "bio"
+    t.text "bio"
     t.string "account_status"
     t.string "insta_url"
     t.string "fb_url"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_074723) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.integer "rating"
     t.bigint "order_id"
     t.datetime "created_at", null: false

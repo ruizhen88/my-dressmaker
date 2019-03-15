@@ -2,7 +2,7 @@
 <div class="main-form-container">
   <div class="form-container">
     <div class="form-titles">
-      <h1 class="text-center main-title" style="background-size: 400px; width: 400px; padding: 10px 0;">
+      <h1 class="text-center main-title" style="background-size: 500px; width: 500px; padding: 10px 0;">
         <% if @order.status == "Pending" %>
           Order Request
         <% elsif @order.status == "Awaiting Payment" %>
@@ -77,7 +77,7 @@
       </button> -->
 
       <button type="button" class="btn btn-primary" id="return" style="border-radius: 5px; margin: 10px">
-        <%= link_to "Return", order_messages_path(@order) %>
+        <%= link_to "Return", orders_path %>
       </button>
 
       <% if !current_user.dressmaker && @order.status == 'Awaiting Payment' %>

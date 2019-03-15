@@ -3,12 +3,22 @@
   <div class="banner-content">
     <h1>FIND YOUR DRESSMAKER</h1>
     <p> Custom made clothes from all over the world   </p>
-    <div class="row">
-      <div class="col-lg-12">
+    <!-- <div class="row"> -->
+      <!-- <div class="col-lg-12"> -->
+
+<!-- Search function -->
+
+        <!-- <div class="form-inline" > -->
+          <%#= form_tag dressmaker_profiles_path, #method: :get do %>
+            <%#= text_field_tag :query, params[:query], class: "form-control  input-lg", placeholder: "Birthday dress..."  %>
+            <%#= submit_tag {}"Find a dressmaker", class: "btn btn-primary btn-lg", style: 'width: auto' %>
+          <%#end%>
+         <!-- </div>/.form-inline -->
+
+<!-- Search function
+ -->
         <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Browse </a>
-      </div><!-- /.col-lg-12 -->
-    </div><!-- /.row -->
-<!--  <a class="btn btn-danger btn-lg">Browse scooters</a> -->
+    <!-- </div>/.row -->
   </div>
 </div>
 
@@ -43,13 +53,15 @@
     </div>
   </div>
 
-  <div class="home-button">
+
+<!--   <div class="home-button">
+
     <div class="row">
       <div class="col-sm-12 text-center">
-        <a href="/dressmaker_profiles"class="btn btn-primary btn-lg"> Find a dressmaker </a>
+        <a href="/dressmaker_profiles" class="btn btn-primary btn-lg" style="width: auto"> Find a dressmaker </a>
       </div>
     </div>
-  </div>
+  </div>  -->
 
 
 <!-- Meet our dressmakers -->
@@ -173,6 +185,7 @@
                 </div>
               </li>
               <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
+>>>>>>> master
             </div>
             <div class="dm-portfolio-sm">
               <div class="col-xs-4">

@@ -1,17 +1,23 @@
 .btn-primary {
   padding: 10px;
+  margin: 5px;
   border-radius: 5px;
-  width: auto;
+  width: 100px;
   border-color:  $flamingo;
   text-align: center;
   color: black;
     a {
       color: #7d7d7d;
     }
+    :hover {
+      background-color: #ffb4ac;
+    }
 }
-
-.btn-primary:hover {
-  background-color: #ffb4ac;
+.btn {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 100px;
 }
 
 @media(max-width: 992px) {

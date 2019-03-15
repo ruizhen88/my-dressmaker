@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
+  height: 70px;
+  padding: 0px 30px;
   color: rgba(0,0,0,0.3);
   flex-shrink: 0;
 }
@@ -24,6 +24,7 @@
 }
 .footer .fa-heart {
   color: #D23333;
+  font-size: 20px;
 }
 .content {
   min-height: calc(100vh - 70px);

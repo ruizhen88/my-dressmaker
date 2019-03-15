@@ -5,11 +5,14 @@
       <div class="modal-body">
         <!-- <button type="button" class="close" data-dismiss="modal">x</button> -->
         <div class="form-details">
-          <h1>Leave a review</h1>
+          <div class="form-titles">
+            <div class="main-title"><h1>Leave a review</h1></div>
+            <p><%= "Hi #{current_user.first_name}, please leave a review for your dressmaker" if user_signed_in? %></p>
+          </div>
           <%= simple_form_for [order, Review.new], validate: true, remote: true do |f| %>
             <%= f.error_notification %>
-            <%= f.input :content, label: "Review" %>
-            <%= f.input :rating, label: "Rating" %>
+            <%= f.input :content, label: "Review", input_html: {cols: 30, rows: 7} %>
+            <%= f.input :rating, label: "Rating", collection: 1..5 %>
             <%= f.submit "Submit", class: "btn-primary" %>
           <% end %>
         </div>
