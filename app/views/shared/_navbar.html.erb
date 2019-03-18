@@ -65,6 +65,13 @@
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
+            <%= link_to "Inbox", inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+          </li>
+          <li>
+            <%= link_to "Orders", orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+          <li>
             <%= link_to  do %>
               <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
@@ -79,6 +86,7 @@
               <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
+
         </ul>
       </div>
     <% else %>
