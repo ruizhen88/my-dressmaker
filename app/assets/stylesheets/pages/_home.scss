@@ -28,15 +28,20 @@
 
 
 
+
 @media(max-width: 992px) {
   .home-container {
    padding-top: 0px;
   }
   .home-carousel h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
   .home-carousel p {
     font-size: 10px;
+  }
+
+  msg-profile-txt h3, p {
+    margin: 0 0px;
   }
 
   .home-carousel .product {
@@ -44,6 +49,7 @@
   }
   .home-carousel .dm-profile {
     height: 120px;
+
   }
   .review-home {
     font-size: 14px;
@@ -58,5 +64,9 @@
     margin-top: 20px;
     margin-bottom: 0px;
   }
+
+
+
+
 }
 

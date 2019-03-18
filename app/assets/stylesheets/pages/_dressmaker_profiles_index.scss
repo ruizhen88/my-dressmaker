@@ -49,6 +49,23 @@ select#dressmaker_profile_speciality_name {
   }
 }
 
+.dm-profile-sm {
+  font-size: 12px;
+  align-items: center;
+  position: relative;
+  display: flex;
+
+}
+
+.list-inline li {
+  padding: 10px;
+}
+
+.carousel-slide {
+  padding: 10px;
+}
+
+
 .fav {
   position: absolute;
   top: 10px;
