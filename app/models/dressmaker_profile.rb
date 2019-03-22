@@ -4,10 +4,10 @@ class DressmakerProfile < ApplicationRecord
   has_many :specialities, through: :user_specialities
   has_many :photos
 
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :avatar, PhotoUploader
   # after_create :send_welcome_email
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }
-  # validates :photo, presence: true
+  # validates :avatar, presence: true
 
   include PgSearch
   pg_search_scope :global_search,
