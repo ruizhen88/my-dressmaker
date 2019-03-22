@@ -9,6 +9,8 @@
       <%= simple_form_for @dressmaker do |f| %>
         <%= f.error_notification %>
         <%= f.input :bio, placeholder: "Tell us about yourself...", input_html: {cols: 30, rows: 5} %>
+        <%= f.input :avatar %>
+        <%= f.input :avatar_cache, as: :hidden %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>

@@ -7,6 +7,7 @@ class DressmakerProfile < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   # after_create :send_welcome_email
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }
+  # validates :photo, presence: true
 
   include PgSearch
   pg_search_scope :global_search,
