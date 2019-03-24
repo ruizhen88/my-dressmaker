@@ -75,10 +75,10 @@
 
         <div class="photos">
           <div class="row">
-            <% if @dressmaker.portfolios.present? %>
-              <% @dressmaker.portfolios.each do |portfolio| %>
+            <% if @dressmaker.photos.present? %>
+              <% @dressmaker.photos.each do |photo| %>
                 <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                  <%= cl_image_tag portfolio.url, class: "portfolio-photo"%>
+                  <%= cl_image_tag photo.url, class: "portfolio-photo"%>
                 </div>
               <% end %>
             <% else %>

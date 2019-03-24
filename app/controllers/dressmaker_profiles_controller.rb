@@ -69,7 +69,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, portfolios: [])
+    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url)
   end
 
   def set_dressmaker

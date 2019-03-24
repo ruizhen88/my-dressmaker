@@ -14,21 +14,21 @@
         <%= f.input :avatar_cache, as: :hidden %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
+        <%# if @dressmaker.portfolios.present? %>
+          <%# @dressmaker.portfolios.each do |portfolio| %>
+            <%#= cl_image_tag portfolio.url, width: 100, style: "margin-top: 10px" %>
+          <%# end %>
+        <%# end %>
+        <%#= f.check_box :remove_portfolios %><!-- <label>delete</label> -->
         <br>
-        <label>My Portfolio</label><br>
-        <%= f.file_field :portfolios, multiple: true, accept: "image/jpedg, image/jpg, image/png" %>
-        <% if @dressmaker.portfolios.present? %>
-          <% @dressmaker.portfolios.each do |portfolio| %>
-            <%= cl_image_tag portfolio.url, width: 100, style: "margin-top: 10px" %>
-          <% end %>
-        <% end %>
-        <br><%= f.check_box :remove_portfolios %>
-        <label>delete</label>
-        <br><br>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
         <%= f.button :submit, "Update", class: "btn-primary" %>
         <%= f.button :button, "Cancel", type: "reset" %>
       <% end %>
+
+      <%= simple_form_for @photo %>
+        <label>Add portfolio</label>
+        <%= f.file_field :portfolios, multiple: true, accept: "image/jpedg, image/jpg, image/png" %>
 
     </div><!-- col -->
   </div><!-- row -->
