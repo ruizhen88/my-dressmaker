@@ -16,6 +16,8 @@
         <%#= cl_image_tag(@dressmaker.user.avatar_url, :width=>150, :height=>150, :radius=>"max", :crop=>"crop", :gravity=>"face")
         %>
         <%#= cl_image_tag(@dressmaker.user.avatar_url, width: 150, height: 150, crop: "crop", gravity: "face") %>
+      <% elsif @dressmaker.avatar.present? %>
+        <%= cl_image_tag @dressmaker.avatar, class: "avatar-profile" %>
       <% end %>
     </div>
 
@@ -56,28 +58,37 @@
 
 
       <div>
-        <% if user_signed_in? %>
-            <%#= link_to "Message", new_order_path(dressmaker_id: @dressmaker.id) %>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              Message
-            </button>
-          <% else %>
-            <%= link_to "Sign in to send message", new_user_session_path %>
-          <% end %>
+        <% if user_signed_in? && current_user.id == @dressmaker.user.id %>
+          <%= link_to "Edit Profile", edit_dressmaker_profile_path(@dressmaker), class: "btn btn-primary" %>
+        <% elsif user_signed_in? %>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Message
+          </button>
+        <% else %>
+          <%= link_to "Sign in to send message", new_user_session_path %>
+        <% end %>
       </div>
     </div>
 
     <div class="portfolio">
 
         <div class="photos">
-            <div class="row">
-          <% @photos.each do |photo| %>
-              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                <%= cl_image_tag photo.url, class: "portfolio-photo"%>
-              </div>
-          <% end %>
-            </div>
+          <div class="row">
+            <% if @dressmaker.portfolios.present? %>
+              <% @dressmaker.portfolios.each do |portfolio| %>
+                <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                  <%= cl_image_tag portfolio.url, class: "portfolio-photo"%>
+                </div>
+              <% end %>
+            <% else %>
+              <% @photos.each do |photo| %>
+                <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                  <%= cl_image_tag photo.url, class: "portfolio-photo"%>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
 
         <div class="reviews">

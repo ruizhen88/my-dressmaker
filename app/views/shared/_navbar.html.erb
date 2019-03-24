@@ -27,7 +27,7 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.dressmaker_profile.avatar %>
-            <%= cl_image_tag current_user.dressmaker_profile.avatar, gravity: :faces, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= cl_image_tag current_user.dressmaker_profile.avatar, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>

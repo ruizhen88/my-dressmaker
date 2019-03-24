@@ -6,19 +6,30 @@
       </div>
       <p style="text-align: center"><%= "Hi #{current_user.email}, tell us about yourself..." %></p>
       <br>
-      <%= simple_form_for @dressmaker do |f| %>
+      <%= simple_form_for @dressmaker, html: {multipart: true} do |f| %>
         <%= f.error_notification %>
         <%= f.input :bio, placeholder: "Tell us about yourself...", input_html: {cols: 30, rows: 5} %>
         <%= f.input :avatar %>
+        <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
         <%= f.input :avatar_cache, as: :hidden %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
+        <br>
+        <label>My Portfolio</label><br>
+        <%= f.file_field :portfolios, multiple: true, accept: "image/jpedg, image/jpg, image/png" %>
+        <% if @dressmaker.portfolios.present? %>
+          <% @dressmaker.portfolios.each do |portfolio| %>
+            <%= cl_image_tag portfolio.url, width: 100, style: "margin-top: 10px" %>
+          <% end %>
+        <% end %>
+        <br><%= f.check_box :remove_portfolios %>
+        <label>delete</label>
+        <br><br>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
         <%= f.button :submit, "Update", class: "btn-primary" %>
         <%= f.button :button, "Cancel", type: "reset" %>
       <% end %>
 
-      <%= simple_form_for @dressmaker.photo %>
     </div><!-- col -->
   </div><!-- row -->
 </div>
