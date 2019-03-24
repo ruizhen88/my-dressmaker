@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
     # authorize @orders
   end
 
-
   def show
     @order = Order.find(params[:id])
 
