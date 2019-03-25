@@ -31,6 +31,14 @@ class DressmakerProfilesController < ApplicationController
     @reviews = Review.all
     @fabrics = ["Linen", "Cotton", "Silk"]
     @photos = Photo.all # need to change so that only pictures associated to a dressmaker profile are shown
+
+    # if params[:url].nil?
+    #   @photo = Photo.new
+    # else
+    #   @photo = Photo.create(url: params[:url])
+    # end
+    # @photo.dressmaker_profile = current_user.dressmaker_profile
+
     skip_authorization
   end
 
@@ -69,7 +77,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :fb_url, :insta_url)
+    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, {portfolios: []})
   end
 
   def set_dressmaker

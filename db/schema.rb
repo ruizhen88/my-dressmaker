@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_032126) do
+ActiveRecord::Schema.define(version: 2019_03_24_091306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_032126) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["user_id"], name: "index_buyer_profiles_on_user_id"
   end
 
@@ -32,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_032126) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
+    t.json "portfolios"
     t.index ["user_id"], name: "index_dressmaker_profiles_on_user_id"
   end
 
@@ -57,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_032126) do
 
   create_table "orders", force: :cascade do |t|
     t.date "completion_date"
-    t.integer "quantity"
     t.string "order_details"
     t.string "status"
     t.jsonb "payment"
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_032126) do
     t.string "avatar_url"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
