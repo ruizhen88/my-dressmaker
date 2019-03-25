@@ -67,7 +67,7 @@
 <!-- Meet our dressmakers -->
 
   <div class="container">
-    <div class="carousel-column hidden-xs ">
+    <div class="carousel-column hidden-xs">
       <div class="row">
         <div class="main-title col-lg-12 text-center middlepage-title" style="background-size: 450px 73px">
           <h1> Featured dressmakers </h1>
@@ -78,7 +78,7 @@
           <div class=" col-md-12 product ">
             <div class="product-controls">
               <div class="dm-profile list-inline">
-                <li>
+                <li class="product-li-avatar">
                   <div class="fav-and-av">
                     <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
                   </div>
@@ -87,7 +87,7 @@
               </div>
               <div class="dm-portfolio">
                 <!-- Bootstrap Carousel -->
-                <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+                <div id="carousel-first" class="carousel slide multi-item-carousel" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                   <div class="item active ">
                     <div class="col-xs-4">
@@ -107,10 +107,10 @@
                 </div>
                     <!-- Wrapper for slides -->
                     <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#carousel-first" role="button" data-slide="prev">
                   <i class="glyphicon glyphicon-chevron-left"></i>
                 </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <a class="right carousel-control" href="#carousel-first" role="button" data-slide="next">
                   <i class="glyphicon glyphicon-chevron-right"></i>
                 </a>
                     <!-- Controls -->
@@ -125,7 +125,7 @@
             <div class=" col-md-12 product ">
               <div class="product-controls">
                 <div class="dm-profile list-inline">
-                  <li>
+                  <li class="product-li-avatar">
                     <div class="fav-and-av">
                       <%= image_tag "home-profile/profile2.jpg", crop: :fill, class: "avatar-large" %>
                     </div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="dm-portfolio">
                   <!-- Bootstrap Carousel -->
-                  <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
+                  <div id="carousel-second" class="carousel slide multi-item-carousel" data-ride="carousel">
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
                       <div class="col-xs-4">
@@ -154,10 +154,10 @@
                   </div>
                       <!-- Wrapper for slides -->
                       <!-- Controls -->
-                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <a class="left carousel-control" href="#carousel-second" role="button" data-slide="prev">
                     <i class="glyphicon glyphicon-chevron-left"></i>
                   </a>
-                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <a class="right carousel-control" href="#carousel-second" role="button" data-slide="next">
                     <i class="glyphicon glyphicon-chevron-right"></i>
                   </a>
                       <!-- Controls -->
@@ -171,30 +171,98 @@
       </div>
     </div>
 
-  <!-- only appear on mobile phone -->
+<!-- only appear on mobile phone -->
 
     <div class="carousel-column hidden-sm hidden-md hidden-lg">
 
- <!--  <div class="home-carousel">
-        <div class=" col-md-12 product ">
-          <div class="product-controls">
-            <div class="dm-profile list-inline">
-              <li>
-                <div class="fav-and-av">
-                  <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
-                </div>
-              </li>
-              <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
->>>>>>> master
-            </div>
-            <div class="dm-portfolio-sm">
-              <div class="col-xs-4">
-                <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+      <div class="row">
+        <div class="main-title col-lg-12 text-center middlepage-title" style="background-size: 450px 73px">
+          <h1> Featured dressmakers </h1>
+        </div>
+      </div>
+<!-- first carousel mobile -->
+      <div class="row">
+        <div class="home-carousel">
+          <div class=" col-md-12 product ">
+            <div class="product-controls">
+              <div class="dm-profile list-inline">
+                <li class="product-li-avatar">
+                  <div class="fav-and-av">
+                    <%= image_tag "home-profile/profile1.jpg", crop: :fill, class: "avatar-large" %>
+                  </div>
+                </li>
+                <li><h3> Stéphanie Roman </h3><p> I'm 27 and passionate about sewing. I have thousand of fabrics at home and love to make clothes for my friends. </p></li>
+              </div>
+              <div class="dm-portfolio-sm">
+                <div id="carousel-first" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <%= image_tag "home-profile/portfolio1.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                    <div class="item">
+                      <%= image_tag "home-profile/portfolio2.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                    <div class="item">
+                      <%= image_tag "home-profile/portfolio3.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                  </div><!-- Wrapper for slides -->
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-first" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-first" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a><!-- Controls -->
+                </div><!-- Bootstrap Carousel -->
               </div>
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
+<!-- second carousel mobile -->
+      <div class="row">
+        <div class="home-carousel">
+          <div class=" col-md-12 product ">
+            <div class="product-controls">
+              <div class="dm-profile list-inline">
+                <li class="product-li-avatar">
+                  <div class="fav-and-av">
+                    <%= image_tag "home-profile/profile2.jpg", crop: :fill, class: "avatar-large" %>
+                  </div>
+                </li>
+                  <li><h3> Marie Blachere </h3><p> I'm 36, a mother of 2 boys and I love knitting. I spend most of my time knitting when I have free time. </p></li>
+              </div>
+              <div class="dm-portfolio-sm">
+                <div id="carousel-second" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                      <%= image_tag "home-profile/portfolio4.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                    <div class="item">
+                      <%= image_tag "home-profile/portfolio5.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                    <div class="item">
+                      <%= image_tag "home-profile/portfolio6.jpg", class: "d-block w-100 carousel-image-home img-responsive" %>
+                    </div>
+                  </div><!-- Wrapper for slides -->
+                        <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-second" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-second" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a><!-- Controls -->
+                </div><!-- Bootstrap Carousel -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- mobile carousel ends -->
     </div>
   </div>
 

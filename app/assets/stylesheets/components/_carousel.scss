@@ -44,6 +44,21 @@
       background-image: none;
     }
   }
-
 }
 
+@media(max-width: 992px) {
+  .carousel-image-home {
+    width: 200px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  .carousel-control {
+    &.left, &.right {
+      background-image: none;
+      margin: 0 10px;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+}
