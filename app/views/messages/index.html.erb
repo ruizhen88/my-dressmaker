@@ -42,7 +42,6 @@
         </tbody>
       </table>
     </div>
-
     <!-- Add alert: Are you sure? -->
     <div class="msg-btn-group">
       <button class="btn btn-primary msg-btn" id="edit">Edit</button>
@@ -52,13 +51,23 @@
   </div>
 
   <div class="msg-container">
-    <div class="msg-profile">
-      <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
-      <div class="msg-profile-txt">
-        <p>Contact your dressmaker</p>
-        <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3><button class="btn-xs btn-default", style= "margin-left:15px; margin-top: 10px" >Video call</button>
+    <% if current_user.dressmaker? %>
+      <div class="msg-profile">
+        <%= cl_image_tag @order.user.avatar_url, crop: :fill, class: "avatar-small" %>
+        <div class="msg-profile-txt">
+          <p>Contact your customer</p>
+          <h3><%= @order.user.first_name %> <%= @order.user.last_name %></h3><button class="btn-xs btn-default", style= "margin-left:15px; margin-top: 10px" >Video call</button>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div class="msg-profile">
+        <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
+        <div class="msg-profile-txt">
+          <p>Contact your dressmaker</p>
+          <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3><button class="btn-xs btn-default", style= "margin-left:15px; margin-top: 10px" >Video call</button>
+        </div>
+      </div>
+    <% end %>
 
     <%= form_for [@order, @message], html: {class: "form-group form-inline"} do |f| %>
       <%= f.text_area :content, cols: 95, rows: 5, class: "form-control" %>
@@ -78,8 +87,12 @@
         </div>
       <% else %>
         <div class="past-msg">
-          <!-- should change depeding on user/dm -->
-          <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
+          <!-- avatar depeding on user/dm -->
+          <% if current_user.dressmaker? %>
+            <%= cl_image_tag @order.user.avatar_url, crop: :fill, class: "avatar-small" %>
+          <% else %>
+            <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
+          <% end %>
           <div class="msg-content">
             <div class="msg-box"><%= message.content.html_safe %></div>
             <p><%= message.created_at %></p>
