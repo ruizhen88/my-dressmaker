@@ -17,68 +17,122 @@
           <%= collection_select :dressmaker_profile, :speciality_name, Speciality.all, :name, :name, {:prompt => 'Speciality'}, class: "dropdown" %>
           <%= submit_tag "Search", class: "btn btn-primary btn-sm" %>
         <% end %>
-      </div><!-- /.col-lg-12 -->
-    </div><!-- /.row -->
+      </div><!-- /.col-xs-12 -->
+    </div><!-- search bar row -->
 
-    <!-- card list -->
-    <% @dressmakers.each_with_index do |dressmaker, index| %>
-      <%= link_to dressmaker_profile_path(dressmaker) do %>
-        <div class="product">
-          <div class="product-controls">
-            <div class="dm-profile list-inline">
-              <li>
-                <div class="fav-and-av">
-                  <i class="fas fa-heart"></i><br>
-                  <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
-                </div>
-              </li>
-              <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
-            </div>
-            <div class="dm-portfolio">
-              <!-- Bootstrap Carousel -->
-              <div id="carousel-example-generic" class="carousel slide multi-item-carousel" data-ride="carousel">
-                <!-- auto slider (data-ride) does not work, need to figure out -->
-                <!-- Indicators disabled -->
-<!--                 <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="<%#= index %>" class="<%#= index == 0 ? 'active' : '' %>"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="<%#= index %>"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="<%#= index %>"></li>
-                </ol> -->
-                <!-- Indicators -->
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <div class="col-xs-4">
-                      <%= cl_image_tag dressmaker.photos.last.url, class: "d-block w-100 carousel-image" %>
+    <div class="row">
+      <!-- card list md -->
+      <div class="carousel-column hidden-xs">
+        <% @dressmakers.each_with_index do |dressmaker, index| %>
+          <%= link_to dressmaker_profile_path(dressmaker) do %>
+            <div class="product">
+              <div class="product-controls">
+                <div class="dm-profile list-inline">
+                  <li class="product-li-avatar">
+                    <div class="fav-and-av">
+                      <i class="fas fa-heart"></i><br>
+                      <% if dressmaker.avatar.present? %>
+                        <%= cl_image_tag dressmaker.avatar, crop: :fill, class: "avatar-large" %>
+                      <% else %>
+                        <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
+                      <% end %>
                     </div>
-                  </div>
-                  <% dressmaker.photos.first(2).each do |photo| %>
-                    <div class="item">
-                      <div class="col-xs-4">
-                        <%= cl_image_tag photo.url, class: "d-block w-100 carousel-image" %>
+                  </li>
+                  <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
+                </div>
+                <% if dressmaker.photos.present? %>
+                  <div class="dm-portfolio">
+                    <!-- Bootstrap Carousel -->
+                    <div id="carousel-<%= index %>" class="carousel slide multi-item-carousel" data-ride="carousel">
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                          <div class="col-xs-4">
+                            <%= cl_image_tag dressmaker.photos.last.url, class: "d-block w-100 carousel-image" %>
+                          </div>
+                        </div>
+                        <% dressmaker.photos.first(2).each do |photo| %>
+                          <div class="item">
+                            <div class="col-xs-4">
+                              <%= cl_image_tag photo.url, class: "d-block w-100 carousel-image" %>
+                            </div>
+                          </div>
+                        <% end %>
                       </div>
+                      <!-- Wrapper for slides -->
+                      <!-- Controls -->
+                      <a class="left carousel-control" href="#carousel-<%= index %>" role="button" data-slide="prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                      </a>
+                      <a class="right carousel-control" href="#carousel-<%= index %>" role="button" data-slide="next">
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                      </a>
+                      <!-- Controls -->
                     </div>
-                  <% end %>
-                </div>
-                <!-- Wrapper for slides -->
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <i class="glyphicon glyphicon-chevron-left"></i>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                </a>
-                <!-- Controls -->
+                    <!-- Bootstrap Carousel -->
+                  </div><!-- dm-portfolio -->
+                <% end %>
               </div>
-              <!-- Bootstrap Carousel -->
-            </div>
-          </div>
-        </div><!-- /.product -->
-      <% end %>
-    <% end %>
+            </div><!-- /.product -->
+          <% end %>
+        <% end %>
+      </div><!-- card list md -->
+      <!-- card list mobile -->
+      <div class="carousel-column hidden-sm hidden-md hidden-lg">
+        <% @dressmakers.each_with_index do |dressmaker, index| %>
+          <%= link_to dressmaker_profile_path(dressmaker) do %>
+            <div class="product">
+              <div class="product-controls">
+                <div class="dm-profile list-inline">
+                  <li class="product-li-avatar">
+                    <div class="fav-and-av">
+                      <i class="fas fa-heart"></i><br>
+                      <% if dressmaker.avatar.present? %>
+                        <%= cl_image_tag dressmaker.avatar, crop: :fill, class: "avatar-large" %>
+                      <% else %>
+                        <%= cl_image_tag dressmaker.user.avatar_url, crop: :fill, class: "avatar-large" %>
+                      <% end %>
+                    </div>
+                  </li>
+                  <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
+                </div>
+                <% if dressmaker.photos.present? %>
+                  <div class="dm-portfolio">
+                    <!-- Bootstrap Carousel -->
+                    <div id="carousel-<%= index %>" class="carousel slide" data-ride="carousel">
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                          <%= cl_image_tag dressmaker.photos.last.url, class: "d-block w-100 carousel-image-home img-responsive" %>
+                        </div>
+                        <% dressmaker.photos.first(2).each do |photo| %>
+                          <div class="item">
+                            <%= cl_image_tag photo.url, class: "d-block w-100 carousel-image-home img-responsive" %>
+                          </div>
+                        <% end %>
+                      </div>
+                      <!-- Wrapper for slides -->
+                      <!-- Controls -->
+                      <a class="left carousel-control" href="#carousel-<%= index %>" role="button" data-slide="prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                      </a>
+                      <a class="right carousel-control" href="#carousel-<%= index %>" role="button" data-slide="next">
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                      </a>
+                      <!-- Controls -->
+                    </div>
+                    <!-- Bootstrap Carousel -->
+                  </div><!-- dm-portfolio -->
+                <% end %>
+              </div>
+            </div><!-- /.product -->
+          <% end %>
+        <% end %>
+      </div><!-- card list mobile -->
+    </div><!-- profile card row -->
   </div><!-- /.list-container -->
 
-  <div class="map-container">
+  <div class="map-container hidden-xs">
     <div
       id="map"
       data-markers="<%= @markers.to_json %>"

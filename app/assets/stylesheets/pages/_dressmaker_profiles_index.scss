@@ -64,3 +64,9 @@ select#dressmaker_profile_speciality_name {
   flex-direction: column;
   align-items: center;
 }
+
+@media(max-width: 763px) {
+  .dm-profile {
+    width: 60vw;
+  }
+}

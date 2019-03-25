@@ -7,9 +7,11 @@
   border-right: 2px solid rgba(220,224,244,0.4);
   border-bottom: 2px solid rgba(220,224,244,0.4);
   background-color: white;
-  margin: 15px;
+  margin: 20px;
 }
-
+.product-li-avatar {
+  flex: 1 0 auto;
+}
 /* Controls design */
 .product-controls {
   display: flex;
