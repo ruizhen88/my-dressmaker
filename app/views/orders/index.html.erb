@@ -42,16 +42,12 @@
               <td class="text-center inbox-align"><%= order.status %></td>
 
               <td class="text-center inbox-align">
-                <% @reviews.select do |review| %>
-                  <% review.order == order %>
-                  <% raise %>
-                  <% if order.status == 'Paid' && review.nil? %>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myReviewModal">
-                      Review
-                    </button>
-                    <!-- Modal -->
-                    <%= render 'reviews/new', order: order %>
-                  <% end %>
+                <% if order.status == 'Paid' && order.user == current_user && order.review.nil? %>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myReviewModal">
+                    Review
+                  </button>
+                  <!-- Modal -->
+                  <%= render 'reviews/new', order: order %>
                 <% end %>
                 <%= link_to "View", order_path(order), class: "btn btn-primary" %>
               </td>
