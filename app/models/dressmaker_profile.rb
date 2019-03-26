@@ -5,7 +5,6 @@ class DressmakerProfile < ApplicationRecord
   has_many :photos
 
   mount_uploader :avatar, AvatarUploader
-  mount_uploaders :portfolios, PortfolioUploader
   # after_create :send_welcome_email
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }
   # validates :avatar, presence: true
