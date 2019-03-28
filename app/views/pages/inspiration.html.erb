@@ -1,0 +1,15 @@
+<h1>Inspo!</h1>
+
+
+<div class="portfolio">
+  <div class="photos">
+    <div class="row">
+      <%  %>
+      <% @photos.each do |photo| %>
+        <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+          <%= cl_image_tag photo.url, class: "portfolio-photo"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
