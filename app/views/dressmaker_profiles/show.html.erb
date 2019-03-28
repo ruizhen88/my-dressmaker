@@ -4,11 +4,6 @@
     <div>
       <h1><%= "#{@dressmaker.user.first_name.capitalize}'s Profile" %></h1>
     </div>
-    <%# if current_user == @dressmaker.user %>
-      <!-- <div class="btn-primary">
-        <a><%#= link_to 'Edit', edit_dressmaker_profile_path(@dressmaker) %></a>
-      </div>
-    <%# end %> -->
 
     <div>
       <% if @dressmaker.user.avatar_url.present? %>
@@ -22,20 +17,14 @@
     </div>
 
     <div class="rating">
-      <!-- to uncomment after demo day -->
-      <%# @review_total = 0 %>
-      <%# @reviews.each do |review| %>
-        <%# @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
-      <%# end %>
+      <% @review_total = 0 %>
+      <% @reviews.each do |review| %>
+        <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
+      <% end %>
 
-      <%# if @review_total > 0 %>
-        <%# (@review_total / @reviews.count).times do %><!-- <i class="fas fa-star"></i> --><%# end %>
-        <%#= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>
-      <%# end %>
-
-      <!-- delete after demo day -->
-      <% 5.times do %>
-        <i class="fas fa-star"></i>
+      <% if @review_total > 0 %>
+        <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+        <%#= @avg_rating = (@review_total / @reviews.count.to_f).round %>
       <% end %>
     </div>
 
@@ -54,9 +43,6 @@
 
     <div class="bio text-center" style="padding-bottom: 40px">
       <p><small><%= @dressmaker.bio %> <br></small></p>
-
-
-
       <div>
         <% if user_signed_in? && current_user.id == @dressmaker.user.id %>
           <%= link_to "Edit Profile", edit_dressmaker_profile_path(@dressmaker), class: "btn btn-primary" %>
@@ -72,91 +58,48 @@
     </div>
 
     <div class="portfolio">
-
-        <div class="photos">
-          <div class="row">
-            <% if @dressmaker.portfolios.present? %>
-              <% @dressmaker.portfolios.each do |portfolio| %>
-                <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                  <%= cl_image_tag portfolio.url, class: "portfolio-photo"%>
-                </div>
-              <% end %>
-            <% else %>
-              <% @photos.each do |photo| %>
-                <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                  <%= cl_image_tag photo.url, class: "portfolio-photo"%>
-                </div>
-              <% end %>
+      <div class="photos">
+        <div class="row">
+          <% if @dressmaker.portfolios.present? %>
+            <% @dressmaker.portfolios.each do |portfolio| %>
+              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                <%= cl_image_tag portfolio.url, class: "portfolio-photo"%>
+              </div>
             <% end %>
-          </div>
+          <% else %>
+            <% @photos.each do |photo| %>
+              <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+                <%= cl_image_tag photo.url, class: "portfolio-photo"%>
+              </div>
+            <% end %>
+          <% end %>
         </div>
+      </div>
 
-        <div class="reviews">
-          <!-- Uncomment after demo day as this is working code
-          <%# @reviews.each do |review| %>
-            <%# if review.order.dressmaker == @dressmaker.user %>
+      <div class="reviews">
+        <% if @reviews == nil %>
+          <p>Looks like there are no reviews yet :(</p>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <% if review.order.dressmaker == @dressmaker.user %>
               <div class="review">
                 <div class="reviewer">
-                  <%#= image_tag "eli.png", class: "avatar-small"%>
-                  <p><strong><%#= review.order.user.first_name %></strong></p>
-                  <%# review.rating.times do %>
+                  <%= image_tag "eli.png", class: "avatar-small"%>
+                  <p><strong><%= review.order.user.first_name %></strong></p>
+                  <% review.rating.times do %>
                     <i class="fas fa-star"></i>
-                  <%# end %>
+                  <% end %>
                 </div>
 
-                <p><%#= review.content %></p>
+                <p><%= review.content %></p>
 
-                <button class="btn btn-link myBtn"><small>Read more</small></button>
+                <!-- <button class="btn btn-link myBtn"><small>Read more</small></button> -->
               </div>
-            <%# end %>
-          <%# end %> -->
-
-          <div class="review">
-            <div class="reviewer">
-              <%= image_tag "avatars/1.png", class: "avatar-small"%>
-              <p><strong>Amy</strong></p>
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
-            <p><small>The dress was amazing. So happy with the outcome</small></p>
-          </div>
-
-          <div class="review">
-            <div class="reviewer">
-              <%= image_tag "avatars/2.png", class: "avatar-small"%>
-              <p><strong>Laura</strong></p>
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
-            <p><small>Love my dress so much. Amazing job.</small></p>
-          </div>
-
-          <div class="review">
-            <div class="reviewer">
-              <%= image_tag "avatars/4.png", class: "avatar-small"%>
-              <p><strong>Natasha</strong></p>
-              <% 4.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
-            <p><small>Dress is beautiful. Thank you!</small></p>
-          </div>
-
-        <div class="review">
-          <div class="reviewer">
-            <%= image_tag "avatars/5.png", class: "avatar-small"%>
-            <p><strong>Francesca</strong></p>
-            <% 5.times do %>
-              <i class="fas fa-star"></i>
             <% end %>
-          </div>
-          <p><small>Highly recommend. Thank you so much!</small></p>
-        </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-
-  </div>
 
 
 </div>

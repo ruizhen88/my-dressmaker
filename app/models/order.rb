@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user, dependent: :destroy
+  has_one :review
   belongs_to :dressmaker, class_name: "User", dependent: :destroy
   has_many :messages
 
