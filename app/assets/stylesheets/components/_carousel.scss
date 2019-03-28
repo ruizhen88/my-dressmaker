@@ -62,3 +62,11 @@
     max-width: 100%;
   }
 }
+
+@media(max-width: 768px) {
+  .carousel-image-home {
+    width: 150px;
+    border-radius: 5px;
+    margin: 0px;
+  }
+}
