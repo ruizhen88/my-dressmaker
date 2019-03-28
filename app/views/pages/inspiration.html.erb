@@ -1,15 +1,13 @@
-<h1>Inspo!</h1>
-
-
-<div class="portfolio">
-  <div class="photos">
-    <div class="row">
-      <%  %>
-      <% @photos.each do |photo| %>
-        <div class="photo-container col-xs-12 col-sm-6 col-md-4">
+<div class="container">
+  <div class="row">
+    <% @photos.each do |photo| %>
+      <div class="inspo-container col-xs-12 col-sm-6 col-md-4">
+        <%= link_to dressmaker_profile_path(photo.dressmaker_profile) do %>
+        <%= cl_image_tag photo.dressmaker_profile.user.avatar_url, crop: :fill, class: "avatar-small-portfolio" %>
           <%= cl_image_tag photo.url, class: "portfolio-photo"%>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
+
