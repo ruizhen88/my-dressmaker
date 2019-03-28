@@ -80,10 +80,13 @@
         <div class="row">
           <!-- photo upload form -->
           <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-            <%= simple_form_for [@dressmaker, @photo] do |f| %>
-              <%= f.input :url, label: 'Upload a new picture to your portfolio' %>
-              <%= f.input :url_cache, as: :hidden %>
-              <%= f.submit "Upload", class: "btn" %>
+            <%= form_for @dressmaker do |f| %>
+              <%= f.fields_for :photos, Photo.new do |ff| %>
+                <%= ff.file_field :url, label: 'Upload a new picture to your portfolio' %>
+                <%= ff.submit "Upload", class: "btn" %>
+                <%#= ff.input :url_cache, as: :hidden %>
+                <%= f.input  %>
+              <% end %>
             <% end %>
           </div><!-- photo upload form -->
         </div><!-- .row -->

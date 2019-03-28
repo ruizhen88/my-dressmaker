@@ -3,12 +3,14 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new(dressmaker_profile: @dressmaker)
+
+    authorize @photo
   end
 
   def create
     @photo = Photo.new(dressmaker_profile: @dressmaker)
     @photo.dressmaker_profile = @dressmaker
-
+    authorize @photo
     redirect_to dressmaker_profile_path(@dressmaker) if @photo.save
   end
 
