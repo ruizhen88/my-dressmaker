@@ -30,8 +30,6 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-
-
 }
 .card-description h2 {
   font-size: 40px;
@@ -57,7 +55,6 @@
 }
 
 
-
 @media(max-width: 992px) {
   .card-description h2 {
    font-size: 26px;
@@ -69,8 +66,4 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-
 }
-
-

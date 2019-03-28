@@ -46,9 +46,9 @@
   }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 768px) {
   .carousel-image-home {
-    width: 200px;
+    width: 150px;
     border-radius: 5px;
     margin: 10px;
   }
@@ -60,13 +60,5 @@
   }
   img {
     max-width: 100%;
-  }
-}
-
-@media(max-width: 768px) {
-  .carousel-image-home {
-    width: 150px;
-    border-radius: 5px;
-    margin: 0px;
   }
 }
