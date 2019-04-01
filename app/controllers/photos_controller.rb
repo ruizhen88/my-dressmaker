@@ -3,7 +3,6 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new(dressmaker_profile: @dressmaker)
-
     authorize @photo
   end
 

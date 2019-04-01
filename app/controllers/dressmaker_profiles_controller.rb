@@ -22,7 +22,6 @@ class DressmakerProfilesController < ApplicationController
       pin_markers(@dressmakers_users)
     end
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
-    # @dressmakers = DressmakerProfile.all
   end
 
   def show
@@ -31,16 +30,24 @@ class DressmakerProfilesController < ApplicationController
     @reviews = Review.all
     @fabrics = ["Linen", "Cotton", "Silk"]
     @photos = @dressmaker.photos
-    @photo = Photo.new(dressmaker_profile: @dressmaker)
 
     skip_authorization
   end
 
   def edit
+    @photo = Photo.new
+
     authorize @dressmaker
   end
 
   def update
+    @photo = Photo.new(dressmaker_profile: @dressmaker)
+    @photo.dressmaker_profile = @dressmaker
+    # if !params[:photo][:url].nil?
+    #   params[:photo][:url]  .each do |url|
+    #     url.dressmaker_profile = @dressmaker
+    #   end
+    # end
     authorize @dressmaker
     if @dressmaker.update(dressmaker_params)
       redirect_to dressmaker_profile_path
@@ -71,7 +78,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url)
+    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, photos_attributes: [:url])
   end
 
   def set_dressmaker
