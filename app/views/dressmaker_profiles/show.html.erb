@@ -77,27 +77,68 @@
       </div>
 
       <div class="reviews">
-        <% if @reviews == nil %>
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/1.png", class: "avatar-small"%>
+            <p><strong>Amy</strong></p>
+            <% 5.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>The dress was amazing. So happy with the outcome</small></p>
+        </div>
+
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/2.png", class: "avatar-small"%>
+            <p><strong>Laura</strong></p>
+            <% 5.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>Love my dress so much. Amazing job.</small></p>
+        </div>
+
+        <div class="review">
+          <div class="reviewer">
+            <%= image_tag "avatars/4.png", class: "avatar-small"%>
+            <p><strong>Natasha</strong></p>
+            <% 4.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <p><small>Dress is beautiful. Thank you!</small></p>
+        </div>
+
+      <div class="review">
+        <div class="reviewer">
+          <%= image_tag "avatars/5.png", class: "avatar-small"%>
+          <p><strong>Francesca</strong></p>
+          <% 5.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+        <p><small>Highly recommend. Thank you so much!</small></p>
+      </div>
+     <!--    <%# if @reviews.empty? %>
           <p>Looks like there are no reviews yet :(</p>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <% if review.order.dressmaker == @dressmaker.user %>
+        <%# else %>
+          <%# @reviews.each do |review| %>
+            <%# if review.order.dressmaker == @dressmaker.user %>
               <div class="review">
                 <div class="reviewer">
-                  <%= image_tag "eli.png", class: "avatar-small"%>
-                  <p><strong><%= review.order.user.first_name %></strong></p>
-                  <% review.rating.times do %>
+                  <%#= image_tag "eli.png", class: "avatar-small"%>
+                  <p><strong><%#= review.order.user.first_name %></strong></p>
+                  <%# review.rating.times do %>
                     <i class="fas fa-star"></i>
-                  <% end %>
+                  <%# end %>
                 </div>
-
-                <p><%= review.content %></p>
-
-                <!-- <button class="btn btn-link myBtn"><small>Read more</small></button> -->
+                <p><%#= review.content %></p>
+                <button class="btn btn-link myBtn"><small>Read more</small></button>
               </div>
-            <% end %>
-          <% end %>
-        <% end %>
+            <%# end %>
+          <%# end %>
+        <%# end %> -->
       </div>
     </div>
 
