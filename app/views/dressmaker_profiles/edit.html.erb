@@ -12,9 +12,10 @@
         <%= f.input :avatar %>
         <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
         <%= f.input :avatar_cache, as: :hidden %>
-        <br><b>Upload a new picture to your portfolio:</b>
-          <%= f.fields_for :photos, Photo.new do |ff| %>
-            <%= ff.file_field :url %>
+        <br>
+          <%= f.fields_for :photos do |ff| %>
+            <%= ff.label :url, "Upload new images for portfolio" %>
+            <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
           <% end %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
