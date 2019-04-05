@@ -30,6 +30,7 @@ class DressmakerProfilesController < ApplicationController
     @reviews = Review.all
     @fabrics = ["Linen", "Cotton", "Silk"]
     @photos = @dressmaker.photos.all
+    @specialities = @dressmaker.specialities
 
     skip_authorization
   end
@@ -43,16 +44,27 @@ class DressmakerProfilesController < ApplicationController
   def update
     authorize @dressmaker
 
-    # respond_to do |format|
-      if @dressmaker.update(dressmaker_params)
+    if @dressmaker.update(dressmaker_params)
+      # handle photo upload
+      if params[:photos].present?
         params[:photos]['url'].each do |url|
           @photo = @dressmaker.photos.create!(url: url, dressmaker_profile_id: @dressmaker.id)
         end
-        redirect_to dressmaker_profile_path
-      else
-        render 'edit'
       end
-    # end
+      # handle speciality selection
+      params[:dressmaker_profile][:speciality_ids].each do |speciality_id|
+        unless speciality_id == ""
+          UserSpeciality.create!(
+            speciality: Speciality.find(speciality_id),
+            dressmaker_profile: @dressmaker
+          )
+        end
+      end
+
+      redirect_to dressmaker_profile_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -77,7 +89,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, photos_attributes: [:id, :dressmaker_profile_id, :url])
+    params.require(:dressmaker_profile).permit(:bio, :avatar, :speciality_ids, :fb_url, :insta_url, photos_attributes: [:id, :dressmaker_profile_id, :url])
   end
 
   def set_dressmaker

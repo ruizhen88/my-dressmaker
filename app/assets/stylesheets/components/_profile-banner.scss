@@ -1,7 +1,7 @@
 .profile-banner {
   color: white;
   text-align: center;
-  height: 46vh;
+  height: 50vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   // display: flex;
@@ -45,15 +45,14 @@
     }
 }
 
-.specialites {
+.specialities {
   align-self: center;
-  // position: absolute;
-  // bottom: 10px;
-  // left: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.specialites-image {
-  // height: 50px;
+.specialities-image {
+  height: 30px;
   margin: 10px;
   width: 30px;
 }

@@ -4,7 +4,7 @@
     <% @photos.each do |photo| %>
       <div class="inspo-container col-xs-12 col-sm-6 col-md-4">
         <%= link_to dressmaker_profile_path(photo.dressmaker_profile) do %>
-        <%= cl_image_tag photo.dressmaker_profile.user.avatar_url, crop: :fill, class: "avatar-small-portfolio" %>
+        <%= cl_image_tag photo.dressmaker_profile.user.avatar_url, crop: :fill, class: "avatar-small-portfolio avatar-inspo" %>
           <%= cl_image_tag photo.url, class: "portfolio-photo"%>
         <% end %>
       </div>

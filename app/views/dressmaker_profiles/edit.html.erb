@@ -20,6 +20,7 @@
             <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
           <% end %>
         <br>
+        <%= f.association :specialities, as: :check_boxes %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
