@@ -2,12 +2,14 @@ class ReviewsController < ApplicationController
   before_action :set_order
 
   def new
+    # authorize @review
     @review = Review.new
     @review.order = @order
     skip_authorization
   end
 
   def create
+    # authorize @review
     @review = Review.new(review_params)
     @review.order = @order
     @review.save

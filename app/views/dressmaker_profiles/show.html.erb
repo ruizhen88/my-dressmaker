@@ -17,20 +17,14 @@
     </div><!-- avatar -->
 
     <div class="rating">
-      <!-- to uncomment after demo day -->
-      <%# @review_total = 0 %>
-      <%# @reviews.each do |review| %>
-        <%# @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
-      <%# end %>
+      <% @review_total = 0 %>
+      <% @reviews.each do |review| %>
+        <% @review_total += review.rating if review.order.dressmaker == @dressmaker.user %>
+      <% end %>
 
-      <%# if @review_total > 0 %>
-        <%# (@review_total / @reviews.count).times do %><!-- <i class="fas fa-star"></i> --><%# end %>
-        <%#= @avg_rating = (@review_total / @reviews.count.to_f).round(1) %>
-      <%# end %>
-
-      <!-- delete after demo day -->
-      <% 5.times do %>
-        <i class="fas fa-star"></i>
+      <% if @review_total > 0 %>
+        <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
+        <%#= @avg_rating = (@review_total / @reviews.count.to_f).round %>
       <% end %>
     </div><!-- rating -->
   </div><!-- profile-banner-content -->
@@ -63,10 +57,10 @@
     <div class="portfolio">
       <div class="photos">
         <div class="row">
-          <% if @dressmaker.photos.present? %>
-            <% @dressmaker.photos.each do |photo| %>
+          <% if @dressmaker.portfolios.present? %>
+            <% @dressmaker.portfolios.each do |portfolio| %>
               <div class="photo-container col-xs-12 col-sm-6 col-md-4">
-                <%= cl_image_tag photo.url, class: "portfolio-photo"%>
+                <%= cl_image_tag portfolio.url, class: "portfolio-photo"%>
               </div>
             <% end %>
           <% else %>
@@ -80,25 +74,6 @@
       </div><!-- .photos -->
 
       <div class="reviews">
-        <!-- Uncomment after demo day as this is working code
-        <%# @reviews.each do |review| %>
-          <%# if review.order.dressmaker == @dressmaker.user %>
-            <div class="review">
-              <div class="reviewer">
-                <%#= image_tag "eli.png", class: "avatar-small"%>
-                <p><strong><%#= review.order.user.first_name %></strong></p>
-                <%# review.rating.times do %>
-                  <i class="fas fa-star"></i>
-                <%# end %>
-              </div>
-
-              <p><%#= review.content %></p>
-
-              <button class="btn btn-link myBtn"><small>Read more</small></button>
-            </div>
-          <%# end %>
-        <%# end %> -->
-
         <div class="review">
           <div class="reviewer">
             <%= image_tag "avatars/1.png", class: "avatar-small"%>
@@ -132,20 +107,38 @@
           <p><small>Dress is beautiful. Thank you!</small></p>
         </div>
 
-        <div class="review">
-          <div class="reviewer">
-            <%= image_tag "avatars/5.png", class: "avatar-small"%>
-            <p><strong>Francesca</strong></p>
-            <% 5.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </div>
-          <p><small>Highly recommend. Thank you so much!</small></p>
+      <div class="review">
+        <div class="reviewer">
+          <%= image_tag "avatars/5.png", class: "avatar-small"%>
+          <p><strong>Francesca</strong></p>
+          <% 5.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
         </div>
-      </div><!-- .reviews -->
-    </div><!-- .portfolio -->
-  </div><!-- .container -->
-</div><!-- .dm-container -->
+        <p><small>Highly recommend. Thank you so much!</small></p>
+      </div>
+     <!--    <%# if @reviews.empty? %>
+          <p>Looks like there are no reviews yet :(</p>
+        <%# else %>
+          <%# @reviews.each do |review| %>
+            <%# if review.order.dressmaker == @dressmaker.user %>
+              <div class="review">
+                <div class="reviewer">
+                  <%#= image_tag "eli.png", class: "avatar-small"%>
+                  <p><strong><%#= review.order.user.first_name %></strong></p>
+                  <%# review.rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <%# end %>
+                </div>
+                <p><%#= review.content %></p>
+                <button class="btn btn-link myBtn"><small>Read more</small></button>
+              </div>
+            <%# end %>
+          <%# end %>
+        <%# end %> -->
+      </div>
+    </div>
+</div>
 
 <!-- Modal -->
 <%= render 'orders/query' %>

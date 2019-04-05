@@ -65,8 +65,35 @@ select#dressmaker_profile_speciality_name {
   align-items: center;
 }
 
-@media(max-width: 763px) {
+@media(max-width: 992px) {
   .dm-profile {
-    width: 60vw;
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    position: relative;
+
+    p {
+      margin: 0px;
+    }
+  }
+}
+
+@media(max-width: 490px) {
+  .dm-profile {
+    display: flex;
+    flex: 0 0 190px;
+    align-items: center;
+    position: relative;
+  }
+  .dm-profile p {
+    position: absolute;
+    left: 0px;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .dm-portfolio-sm {
+    flex: 0 0 80px;
   }
 }
