@@ -24,6 +24,8 @@
       <!-- card list md -->
       <div class="carousel-column hidden-xs">
         <% @dressmakers.each_with_index do |dressmaker, index| %>
+        <!-- only show dm with portfolio -->
+        <% if dressmaker.photos.present? %>
           <%= link_to dressmaker_profile_path(dressmaker) do %>
             <div class="product">
               <div class="product-controls">
@@ -40,7 +42,6 @@
                   </li>
                   <li><h3><%= dressmaker.user.first_name %> <%= dressmaker.user.last_name %></h3><p><%= truncate dressmaker.bio, length: 100, separator: /\w+/ %></p></li>
                 </div>
-                <% if dressmaker.photos.present? %>
                   <div class="dm-portfolio">
                     <!-- Bootstrap Carousel -->
                     <div id="carousel-<%= index %>" class="carousel slide multi-item-carousel" data-ride="carousel">
@@ -71,11 +72,11 @@
                     </div>
                     <!-- Bootstrap Carousel -->
                   </div><!-- dm-portfolio -->
-                <% end %>
               </div>
             </div><!-- /.product -->
-          <% end %>
-        <% end %>
+          <% end %><!-- link -->
+          <% end %><!-- if dm photo present -->
+        <% end %><!-- each -->
       </div><!-- card list md -->
       <!-- card list mobile -->
       <div class="carousel-column hidden-sm hidden-md hidden-lg">

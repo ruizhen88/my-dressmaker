@@ -10,13 +10,16 @@
         <%= f.error_notification %>
         <%= f.input :bio, placeholder: "Tell us about yourself...", input_html: {cols: 30, rows: 5} %>
         <%= f.input :avatar %>
-        <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
+        <% if @dressmaker.avatar.present? %>
+          <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
+        <% end %>
         <%= f.input :avatar_cache, as: :hidden %>
         <br>
           <%= f.fields_for :photos do |ff| %>
-            <%= ff.label :url, "Upload new images for portfolio" %>
+            <%= ff.label :url, "Portfolio" %>
             <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
           <% end %>
+        <br>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>

@@ -29,6 +29,8 @@
           <% if current_user.dressmaker? %>
             <% if current_user.dressmaker_profile.avatar.present? %>
               <%= cl_image_tag current_user.dressmaker_profile.avatar, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+              <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <% end %>
           <% else %>
             <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>

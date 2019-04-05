@@ -43,16 +43,16 @@ class DressmakerProfilesController < ApplicationController
   def update
     authorize @dressmaker
 
-    respond_to do |format|
+    # respond_to do |format|
       if @dressmaker.update(dressmaker_params)
         params[:photos]['url'].each do |url|
-          @photo = @dressmaker.photos.create!(:url => url, :dressmaker_profile_id => @dressmaker.id)
+          @photo = @dressmaker.photos.create!(url: url, dressmaker_profile_id: @dressmaker.id)
         end
         redirect_to dressmaker_profile_path
       else
         render 'edit'
       end
-    end
+    # end
   end
 
   def destroy
