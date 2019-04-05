@@ -26,11 +26,23 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+
+          <% if current_user.dressmaker? %>
+            <% if current_user.dressmaker_profile.avatar.present? %>
+              <%= cl_image_tag current_user.dressmaker_profile.avatar, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+              <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% end %>
+          <% else %>
+            <%= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+
           <%# if current_user.dressmaker_profile.avatar.present? || current_user.buyer_profile.avatar.present? %>
             <%#= cl_image_tag current_user.dressmaker_profile.avatar, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <%# else %>
             <%#= image_tag "eli.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <%# end %>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if current_user.dressmaker? %>

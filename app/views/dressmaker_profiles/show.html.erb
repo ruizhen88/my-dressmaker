@@ -5,7 +5,7 @@
       <h1><%= "#{@dressmaker.user.first_name.capitalize}'s Profile" %></h1>
     </div>
 
-    <div>
+    <div><!-- avatar -->
       <% if @dressmaker.user.avatar_url.present? %>
         <%= image_tag @dressmaker.user.avatar_url, class: "avatar-profile"%>
         <%#= cl_image_tag(@dressmaker.user.avatar_url, :width=>150, :height=>150, :radius=>"max", :crop=>"crop", :gravity=>"face")
@@ -14,7 +14,7 @@
       <% elsif @dressmaker.avatar.present? %>
         <%= cl_image_tag @dressmaker.avatar, class: "avatar-profile" %>
       <% end %>
-    </div>
+    </div><!-- avatar -->
 
     <div class="rating">
       <% @review_total = 0 %>
@@ -26,25 +26,22 @@
         <% (@review_total / @reviews.count).times do %><i class="fas fa-star"></i><% end %>
         <%#= @avg_rating = (@review_total / @reviews.count.to_f).round %>
       <% end %>
-    </div>
-
-  </div>
-
-
-</div>
+    </div><!-- rating -->
+  </div><!-- profile-banner-content -->
+</div><!-- profile-banner -->
 
 <div class="dm-container">
   <div class="container">
-    <div class="specialites" >
+    <div class="specialites">
       <%= image_tag 'icons/embroidery.svg', class: "specialites-image"%>
       <%= image_tag 'icons/knitting.svg', class: "specialites-image"%>
       <%= image_tag 'icons/icones3.svg', class: "specialites-image"%>
-    </div>
+    </div><!-- specialites -->
 
     <div class="bio text-center" style="padding-bottom: 40px">
-      <p><small><%= @dressmaker.bio %> <br></small></p>
-      <div>
-        <% if user_signed_in? && current_user.id == @dressmaker.user.id %>
+      <p><small><%= @dressmaker.bio %><br></small></p>
+      <div><!-- button -->
+        <% if current_user == @dressmaker.user %>
           <%= link_to "Edit Profile", edit_dressmaker_profile_path(@dressmaker), class: "btn btn-primary" %>
         <% elsif user_signed_in? %>
           <!-- Button trigger modal -->
@@ -54,8 +51,8 @@
         <% else %>
           <%= link_to "Sign in to send message", new_user_session_path %>
         <% end %>
-      </div>
-    </div>
+      </div><!-- button -->
+    </div><!-- bio -->
 
     <div class="portfolio">
       <div class="photos">
@@ -73,8 +70,8 @@
               </div>
             <% end %>
           <% end %>
-        </div>
-      </div>
+        </div><!-- .row -->
+      </div><!-- .photos -->
 
       <div class="reviews">
         <div class="review">
@@ -141,8 +138,6 @@
         <%# end %> -->
       </div>
     </div>
-
-
 </div>
 
 <!-- Modal -->

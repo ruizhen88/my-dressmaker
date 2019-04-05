@@ -3,9 +3,8 @@ class DressmakerProfile < ApplicationRecord
   has_many :user_specialities
   has_many :specialities, through: :user_specialities
   has_many :photos
-
+  accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   mount_uploader :avatar, AvatarUploader
-  mount_uploaders :portfolios, PortfolioUploader
   # after_create :send_welcome_email
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }
   # validates :avatar, presence: true

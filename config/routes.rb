@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :buyer_profiles
   resources :dressmaker_profiles do
-    resources :portfolios, only: [:create, :destroy]
+    resources :photos, only: [:new, :create, :destroy]
   end
 
   get 'inbox', to: 'pages#inbox', as: 'inbox'

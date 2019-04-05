@@ -22,7 +22,6 @@ class DressmakerProfilesController < ApplicationController
       pin_markers(@dressmakers_users)
     end
     # dressmakers = policy_scope(DressmakerProfile).order(created_at: :desc) eventually order by review ratings?
-    # @dressmakers = DressmakerProfile.all
   end
 
   def show
@@ -30,29 +29,30 @@ class DressmakerProfilesController < ApplicationController
     @order = Order.new
     @reviews = Review.all
     @fabrics = ["Linen", "Cotton", "Silk"]
-    @photos = Photo.all # need to change so that only pictures associated to a dressmaker profile are shown
-
-    # if params[:url].nil?
-    #   @photo = Photo.new
-    # else
-    #   @photo = Photo.create(url: params[:url])
-    # end
-    # @photo.dressmaker_profile = current_user.dressmaker_profile
+    @photos = @dressmaker.photos.all
 
     skip_authorization
   end
 
   def edit
+    @photo = @dressmaker.photos.build
+
     authorize @dressmaker
   end
 
   def update
     authorize @dressmaker
-    if @dressmaker.update(dressmaker_params)
-      redirect_to dressmaker_profile_path
-    else
-      render 'edit'
-    end
+
+    # respond_to do |format|
+      if @dressmaker.update(dressmaker_params)
+        params[:photos]['url'].each do |url|
+          @photo = @dressmaker.photos.create!(url: url, dressmaker_profile_id: @dressmaker.id)
+        end
+        redirect_to dressmaker_profile_path
+      else
+        render 'edit'
+      end
+    # end
   end
 
   def destroy
@@ -77,7 +77,7 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, {portfolios: []})
+    params.require(:dressmaker_profile).permit(:bio, :avatar, :fb_url, :insta_url, photos_attributes: [:id, :dressmaker_profile_id, :url])
   end
 
   def set_dressmaker

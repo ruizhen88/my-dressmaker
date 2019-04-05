@@ -10,21 +10,18 @@
         <%= f.error_notification %>
         <%= f.input :bio, placeholder: "Tell us about yourself...", input_html: {cols: 30, rows: 5} %>
         <%= f.input :avatar %>
-        <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
+        <% if @dressmaker.avatar.present? %>
+          <%= cl_image_tag @dressmaker.avatar, class: "avatar-large" %>
+        <% end %>
         <%= f.input :avatar_cache, as: :hidden %>
+        <br>
+          <%= f.fields_for :photos do |ff| %>
+            <%= ff.label :url, "Portfolio" %>
+            <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
+          <% end %>
+        <br>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
-        <br>
-        <label>My Portfolio</label><br>
-        <% if @dressmaker.portfolios.present? %>
-          <% @dressmaker.portfolios.each_with_index do |portfolio, index| %>
-            <%= cl_image_tag portfolio.url, width: 100, style: "margin: 10px" %>
-            <%= link_to "delete", dressmaker_profile_portfolio_path(@dressmaker, index), data: {confirm: "Are you sure?"} %>
-          <% end %>
-        <% end %>
-        <br>
-        <%= f.file_field :portfolios, multiple: true %>
-        <br><br>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
         <%= f.button :submit, "Update", class: "btn-primary" %>
         <%= f.button :button, "Cancel", type: "reset" %>
