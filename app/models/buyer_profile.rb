@@ -1,6 +1,6 @@
 class BuyerProfile < ApplicationRecord
   belongs_to :user, dependent: :destroy
-  mount_uploader :avatar, PhotoUploader
+  # mount_uploader :avatar, PhotoUploader
   # after_create :send_welcome_email
   # validates :size, :style, presence: true
 
