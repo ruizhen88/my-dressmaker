@@ -40,7 +40,15 @@
         <%= image_tag "specialities/#{speciality.name.downcase}.png", class: "specialities-image" %>
         <%#= speciality.name %>
       <% end %>
-    </div><!-- specialities -->
+    </div>
+
+    <div>
+      <p>Clothing Types:</p>
+      <% @clothing_types.each do |clothing_type| %>
+        <p> <%= clothing_type.name %> </p>
+      <% end %>
+    </div>
+
     <div class="bio text-center" style="padding-bottom: 40px">
       <p><small><%= @dressmaker.bio %><br></small></p>
       <div><!-- button -->

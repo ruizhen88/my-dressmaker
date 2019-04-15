@@ -31,6 +31,7 @@ class DressmakerProfilesController < ApplicationController
     @fabrics = ["Linen", "Cotton", "Silk"]
     @photos = @dressmaker.photos.all
     @specialities = @dressmaker.specialities
+    @clothing_types = @dressmaker.clothing_types
 
     skip_authorization
   end

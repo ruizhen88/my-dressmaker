@@ -21,6 +21,7 @@
           <% end %>
         <br>
         <%= f.association :specialities, as: :check_boxes %>
+        <%= f.association :clothing_types, as: :check_boxes %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
