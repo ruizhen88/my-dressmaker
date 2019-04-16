@@ -8,9 +8,6 @@
     <div><!-- avatar -->
       <% if @dressmaker.user.avatar_url.present? %>
         <%= image_tag @dressmaker.user.avatar_url, class: "avatar-profile"%>
-        <%#= cl_image_tag(@dressmaker.user.avatar_url, :width=>150, :height=>150, :radius=>"max", :crop=>"crop", :gravity=>"face")
-        %>
-        <%#= cl_image_tag(@dressmaker.user.avatar_url, width: 150, height: 150, crop: "crop", gravity: "face") %>
       <% elsif @dressmaker.avatar.present? %>
         <%= cl_image_tag @dressmaker.avatar, class: "avatar-profile" %>
       <% end %>
@@ -33,12 +30,8 @@
 <div class="dm-container">
   <div class="container">
     <div class="specialities">
-      <%#= image_tag 'icons/embroidery.svg', class: "specialities-image"%>
-      <%#= image_tag 'icons/knitting.svg', class: "specialities-image"%>
-      <%#= image_tag 'icons/icones3.svg', class: "specialities-image"%>
       <% @specialities.each do |speciality| %>
         <%= image_tag "specialities/#{speciality.name.downcase}.png", class: "specialities-image" %>
-        <%#= speciality.name %>
       <% end %>
     </div><!-- specialities -->
     <div class="bio text-center" style="padding-bottom: 40px">
@@ -63,6 +56,9 @@
           <% @photos.each do |photo| %>
             <div class="photo-container col-xs-12 col-sm-6 col-md-4">
               <%= cl_image_tag photo.url, crop: :fill, class: "portfolio-photo"%>
+              <% if current_user == @dressmaker.user %>
+                <%= link_to '<i class="fas fa-minus-circle"></i>'.html_safe, [@dressmaker, photo], method: :delete, "data-confirm" => "Do you really want to delete?" %>
+              <% end %>
             </div>
           <% end %>
         </div><!-- .row -->

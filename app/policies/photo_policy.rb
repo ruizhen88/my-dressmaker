@@ -12,4 +12,8 @@ class PhotoPolicy < ApplicationPolicy
   def create?
     record.dressmaker_profile == user.dressmaker_profile
   end
+
+  def destroy?
+    record.dressmaker_profile == user.dressmaker_profile
+  end
 end

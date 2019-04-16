@@ -21,7 +21,15 @@
 
 .photos {
   width: 75vw;
-  // background-color: green;
+  i {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    color: darkred;
+    font-size: 25px;
+    background-color: white;
+    border-radius: 20px;
+  }
 }
 
 .row {
