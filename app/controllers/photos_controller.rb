@@ -14,8 +14,14 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    # flash[:error] = "Failed deleting image" unless @photo.save
-    # redirect_to :back
+    @photo = Photo.find(params[:id])
+    authorize @photo
+    if @photo.destroy
+      flash[:success] = "Image successfully deleted!"
+    else
+      flash[:error] = "Failed deleting image" unless @photo.save
+    end
+    redirect_to dressmaker_profile_path(@dressmaker)
   end
 
   private
