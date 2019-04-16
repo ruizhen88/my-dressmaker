@@ -84,14 +84,6 @@ CSV.foreach(filepath, csv_options) do |row|
     remote_url_url: "#{row['portfolio_url_3']}",
     dressmaker_profile: new_dm
     )
-
-  3.times do
-    num = rand(1..5)
-    UserClothingType.create!(
-      clothing_type: ClothingType.find(num),
-      dressmaker_profile: new_dm
-    )
-  end
 end
 
 puts 'Finished!'

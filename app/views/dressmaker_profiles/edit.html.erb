@@ -1,9 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="main-title">
-        <h1>My Profile</h1>
-      </div>
+      <div class="main-title"><h1>My Profile</h1></div>
+
       <p style="text-align: center"><%= "Hi #{current_user.email}, tell us about yourself..." %></p>
       <br>
       <%= simple_form_for @dressmaker, html: {multipart: true} do |f| %>
@@ -15,21 +14,21 @@
         <% end %>
         <%= f.input :avatar_cache, as: :hidden %>
         <br>
-          <%= f.fields_for :photos do |ff| %>
-            <%= ff.label :url, "Portfolio" %>
-            <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
-          <% end %>
+        <%= f.fields_for :photos do |ff| %>
+          <%= ff.label :url, "Portfolio" %>
+          <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>
+        <% end %>
         <br>
         <%= f.association :specialities, as: :check_boxes %>
-        <%= f.association :clothing_types, as: :check_boxes %>
+        <%= f.association :clothing_types, as: :check_boxes, :include_hidden => false %>
         <%= f.input :fb_url, label: "Facebook profile" %>
         <%= f.input :insta_url, label: "Instagram profile" %>
         <%= f.input :account_status, collection: ["Active", "Inactive"] %>
         <%= f.button :submit, "Update", class: "btn-primary" %>
         <%= f.button :button, "Cancel", type: "reset" %>
       <% end %>
-    </div><!-- col -->
-  </div><!-- row -->
+    </div>
+  </div>
 </div>
 
 
