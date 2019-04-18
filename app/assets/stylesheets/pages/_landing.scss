@@ -14,7 +14,7 @@
   background: #FFFFFF
 }
 
-  .main-landing-text {
+.main-landing-text {
 
   img {
     height: 50px;
@@ -46,26 +46,49 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 40px;
     color: #C4C4C4;
   }
 
   .btn-landing {
     position: absolute;
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: bold;
     width: 171px;
     height: 54px;
     left: 64px;
     top: 570px;
     margin: 5px 0px;
+    background-color: $dark-flamingo;
+    color: #FFFFFF;
   }
 
 }
 
 
-
-
-
-.main-landing-pic{
-
+.main-landing-pic {
+  position: absolute;
 }
+
+
+.main-landing-pic {
+
+  img {
+      width: 1240px;
+      height: auto;
+      margin: 0px 0 0 -154px;
+  }
+}
+
+.crop {
+      width: 720px;
+      height: 805px;
+      left: 720px;
+      top: 0px;
+      overflow: hidden;
+}
+
+
+
