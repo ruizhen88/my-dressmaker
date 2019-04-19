@@ -3,6 +3,7 @@
   position: relative;
   width: 1440px;
   height: 3275px;
+  display: flex;
 }
 
 .main-landing-text {
@@ -70,25 +71,26 @@
 
 .main-landing-pic {
   position: absolute;
+  width: 720px;
+  height: 805px;
+  left: 720px;
+  top: 0px;
+
 }
 
 
-.main-landing-pic {
 
-  img {
-      width: 1240px;
-      height: auto;
-      margin: 0px 0 0 -154px;
-  }
-}
 
-.crop {
-      width: 720px;
-      height: 805px;
-      left: 720px;
-      top: 0px;
-      overflow: hidden;
-}
+// }
+
+// .crop {
+//       width: 720px;
+//       height: 805px;
+//       left: 720px;
+//       top: 0px;
+//       overflow: hidden;
+// }
+
 
 
 
