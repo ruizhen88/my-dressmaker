@@ -16,12 +16,18 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     authorize @photo
+
     if @photo.destroy
-      flash[:success] = "Image successfully deleted!"
+      respond_to do |format|
+        format.html { redirect_to dressmaker_profile_path(@dressmaker), notice: "Image successfully deleted!" }
+        format.json { head :no_content }
+        format.js
+      end
     else
-      flash[:error] = "Failed deleting image" unless @photo.save
+      flash[:error] = "Failed deleting image"
+      redirect_to dressmaker_profile_path(@dressmaker)
     end
-    redirect_to dressmaker_profile_path(@dressmaker)
+
   end
 
   private
