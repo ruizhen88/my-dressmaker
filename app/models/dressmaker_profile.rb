@@ -2,8 +2,11 @@ class DressmakerProfile < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :user_specialities
   has_many :specialities, through: :user_specialities
+  has_many :user_clothing_types
+  has_many :clothing_types, through: :user_clothing_types
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :clothing_types
   mount_uploader :avatar, AvatarUploader
   # after_create :send_welcome_email
   # validates :bio, presence: true, length: { minimum: 100, maximum: 500 }

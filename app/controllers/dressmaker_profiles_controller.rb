@@ -31,12 +31,14 @@ class DressmakerProfilesController < ApplicationController
     @fabrics = ["Linen", "Cotton", "Silk"]
     @photos = @dressmaker.photos.all
     @specialities = @dressmaker.specialities
-
+    # @clothing_types = UserClothingType.where(:dressmaker_profile => @dressmaker)
+    @clothing_types = @dressmaker.clothing_types
     skip_authorization
   end
 
   def edit
     @photo = @dressmaker.photos.build
+    @clothing_types = ClothingType.all
 
     authorize @dressmaker
   end
@@ -51,11 +53,33 @@ class DressmakerProfilesController < ApplicationController
           @photo = @dressmaker.photos.create!(url: url, dressmaker_profile_id: @dressmaker.id)
         end
       end
+
       # handle speciality selection
-      params[:dressmaker_profile][:speciality_ids].each do |speciality_id|
-        unless speciality_id == ""
-          UserSpeciality.create!(
-            speciality: Speciality.find(speciality_id),
+      if params[:speciality_ids].present?
+        params[:dressmaker_profile][:speciality_ids].each do |speciality_id|
+          unless speciality_id == ""
+            UserSpeciality.create!(
+              speciality: Speciality.find(speciality_id),
+              dressmaker_profile: @dressmaker
+            )
+          end
+        end
+      end
+
+      # handle clothing types
+      params_arr = params[:dressmaker_profile][:clothing_type_ids].map(&:to_i)
+      current_clothing_types_arr = @dressmaker.user_clothing_types.ids
+      remove_clothing_type_arr = current_clothing_types_arr - params_arr
+
+      remove_clothing_type_arr.each do |clothing_type_id|
+        # raise
+        UserClothingType.delete(clothing_type_id)
+      end
+
+      params_arr.each do |clothing_type|
+        if !current_clothing_types_arr.include?(clothing_type.to_i)
+          UserClothingType.create!(
+            clothing_type: ClothingType.find(clothing_type),
             dressmaker_profile: @dressmaker
           )
         end
