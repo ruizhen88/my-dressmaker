@@ -1,35 +1,21 @@
 
-.main-landing {
-  position: relative;
-  width: 1440px;
-  height: 3275px;
-  display: flex;
+.main-text {
+  background-color: white;
+  background-size: cover;
+  height: 100vh;
+  padding: 0px;
 }
 
-.main-landing-text {
-  position: absolute;
-  width: 720px;
-  height: 805px;
-  left: 0px;
-  top: 0px;
-  background: #FFFFFF
-}
 
-.main-landing-text {
-
+.main-text {
   img {
+    position: relative;
     height: 50px;
-    position: absolute;
     left: 48px;
     top: 47px;
   }
-
-  h1 {
-    position: absolute;
-    width: 656px;
-    height: 165px;
-    left: 64px;
-    top: 225px;
+  h1{
+    margin: 180px 48px 0px 48px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
@@ -39,57 +25,40 @@
   }
 
   h2 {
-    position: absolute;
-    width: 656px;
-    height: 73px;
-    left: 64px;
-    top: 421px;
+    margin-left: 48px;
+    margin-right: 48px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
     line-height: 40px;
     color: #C4C4C4;
-  }
+    }
 
-  .btn-landing {
-    position: absolute;
+   .btn-landing {
     font-family: Roboto;
-    font-weight: 500;
-    font-style: bold;
-    width: 171px;
-    height: 54px;
-    left: 64px;
-    top: 570px;
-    margin: 5px 0px;
+    font-weight: 900;
+    font-style: normal;
+    margin: 35px 0px 48px 48px;
     background-color: $dark-flamingo;
     color: #FFFFFF;
+    }
+}
+
+.main-pic {
+  padding: 0px;
+  height: 100vh;
+  background-size: cover;
+
+}
+
+.main-pic {
+  img {
+    max-height: 100vh;
+    width: 100%;
   }
-
 }
 
-
-.main-landing-pic {
-  position: absolute;
-  width: 720px;
-  height: 805px;
-  left: 720px;
-  top: 0px;
-
-}
-
-
-
-
-// }
-
-// .crop {
-//       width: 720px;
-//       height: 805px;
-//       left: 720px;
-//       top: 0px;
-//       overflow: hidden;
-// }
 
 
 
