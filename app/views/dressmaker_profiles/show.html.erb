@@ -35,7 +35,14 @@
           <%= image_tag "specialities/#{speciality.name.downcase}.png", class: "specialities-image" %>
         </span>
       <% end %>
-    </div><!-- specialities -->
+
+    </div>
+
+    <div class="text-center">
+      <% @clothing_types.each do |clothing_type| %>
+        <p class="badge"> <%= clothing_type.name %> </p>
+      <% end %>
+    </div>
 
     <div class="bio text-center" style="padding-bottom: 40px">
       <p><small><%= @dressmaker.bio %><br></small></p>
@@ -60,7 +67,7 @@
             <div class="photo-container col-xs-12 col-sm-6 col-md-4">
               <%= cl_image_tag photo.url, crop: :fill, class: "portfolio-photo"%>
               <% if current_user == @dressmaker.user %>
-                <%= link_to '<i class="fas fa-minus-circle"></i>'.html_safe, [@dressmaker, photo], method: :delete, "data-confirm" => "Do you really want to delete?" %>
+                <%= link_to '<i class="fas fa-minus-circle"></i>'.html_safe, dressmaker_profile_photo_path(@dressmaker, photo), method: :delete, data: { confirm: "Do you really want to delete?" } %>
               <% end %>
             </div>
           <% end %>
