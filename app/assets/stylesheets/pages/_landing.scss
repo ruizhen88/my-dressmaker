@@ -1,4 +1,6 @@
 
+/* Main features */
+
  .landing-container{
    h1{
       font-family: Roboto;
@@ -30,7 +32,26 @@
       margin-left: 48px;
       margin-right: 48px;
       }
+
+    .btn-landing {
+      font-family: Roboto;
+      font-weight: 900;
+      font-style: normal;
+      margin: 35px 0px 48px 48px;
+      background-color: $dark-flamingo;
+      color: #FFFFFF;
+
+      }
+
+    .floating-button {
+        position: absolute;
+        top: 0px;
+        right: 50px;
+      }
+
  }
+
+/* Heading */
 
 
 .main-text {
@@ -49,15 +70,6 @@
     top: 47px;
   }
 
-
-   .btn-landing {
-    font-family: Roboto;
-    font-weight: 900;
-    font-style: normal;
-    margin: 35px 0px 48px 48px;
-    background-color: $dark-flamingo;
-    color: #FFFFFF;
-    }
 }
 
 .main-pic {
@@ -66,32 +78,79 @@
   overflow: hidden;
 }
 
+/* Benefits */
 
 .container-benefit {
   .benefit{
     height: 400px;
     padding: 0px;
     background-color: #FFFFFF;
+    overflow: hidden;
   }
+
   h2 {
     margin-top: 70px;
+  }
+  img {
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12),
+            0 2px 4px 0 rgba(0,0,0,0.08);
+  }
+}
+
+#carousel-pic img {
+    width: 90%;
+    margin-top: 121px;
+
+}
+
+#map-pic img {
+    width: 70%;
+    margin-top: 48px;
+}
+
+#quote-pic img {
+    width: 70%;
+    margin-top: 48px;
+}
+
+/* Tagline */
+
+.tagline {
+  height: 400px;
+  padding: 0px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+
+  h2 {
+    margin-right: 48px;
+  }
+  .btn-landing {
+    margin: 0px;
   }
 }
 
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 33px;
-    line-height: 58px;
-  }
+  .landing-container{
+    h1 {
+      font-size: 33px;
+      line-height: 58px;
+    }
 
-  h3 {
-    font-size: 15px;
-    line-height: 26px;
+    h2 {
+      font-size: 26px;
+      line-height:46px;
+    }
+
+    h3 {
+      font-size: 14px;
+      line-height: 26px;
+    }
   }
 
   .main-text {
-    height: 65vh;
+    height: 70vh;
     padding: 0px;
   }
 
@@ -105,14 +164,44 @@
     }
     .btn-landing {
       margin: 15px 0px 30px 40px;
-      background-color: $dark-flamingo;
-      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+  }
+  .main-pic {
+    height: 80vh;
+  }
+
+  .container-benefit {
+    .benefit{
+      height: 200px;
+    }
+    h2 {
+      margin-top: 30px;
+    }
+
+    h3 {
+      margin-top: 15px;
     }
   }
 
-  .main-pic img {
-    height: auto;
+  #carousel-pic img {
+    margin-top: 50px;
+  }
+
+  #map-pic img {
+    margin-top: 20px;
+  }
+
+  #quote-pic img {
+    margin-top: 20px;
+  }
+
+  .tagline .btn-landing {
+    margin: 0;
   }
 }
+
+
+
 
 
