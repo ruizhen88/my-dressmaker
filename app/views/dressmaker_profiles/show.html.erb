@@ -31,8 +31,11 @@
   <div class="container">
     <div class="specialities">
       <% @specialities.each do |speciality| %>
-        <%= image_tag "specialities/#{speciality.name.downcase}.png", class: "specialities-image" %>
+        <span class="tooltip-wrapper" data-tooltip=<%= speciality.name %>>
+          <%= image_tag "specialities/#{speciality.name.downcase}.png", class: "specialities-image" %>
+        </span>
       <% end %>
+
     </div>
 
     <div class="text-center">
