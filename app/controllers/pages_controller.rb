@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home inspo]
+  skip_before_action :authenticate_user!, only: %i[home inspo landing-eng]
 
   def home
     @messages = Message.where(read: false)
@@ -18,4 +18,5 @@ class PagesController < ApplicationController
 
     render template: "pages/inspiration"
   end
+
 end

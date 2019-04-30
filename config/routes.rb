@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'inbox', to: 'pages#inbox', as: 'inbox'
   get 'inspiration', to: 'pages#inspo'
+  get 'landing-eng', to: 'pages#landing-eng'
 
   resources :favourites, only: [ :new, :create, :destroy ]
 end
