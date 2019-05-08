@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   resources :buyer_profiles
   resources :dressmaker_profiles do
     resources :photos, only: [:new, :create, :destroy]
+    resources :clothing_types, only: [ :create, :destroy ]
   end
 
   get 'inbox', to: 'pages#inbox', as: 'inbox'
   get 'inspiration', to: 'pages#inspo'
+  get 'landing-eng', to: 'pages#landing-eng'
 
   resources :favourites, only: [ :new, :create, :destroy ]
 end

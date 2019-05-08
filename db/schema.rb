@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2019_04_22_074134) do
     t.index ["user_id"], name: "index_buyer_profiles_on_user_id"
   end
 
+  create_table "clothing_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clothing_types_dressmaker_profiles", id: false, force: :cascade do |t|
+    t.bigint "dressmaker_profile_id", null: false
+    t.bigint "clothing_type_id", null: false
+  end
+
   create_table "dressmaker_profiles", force: :cascade do |t|
     t.text "bio"
     t.string "account_status"
@@ -105,6 +116,15 @@ ActiveRecord::Schema.define(version: 2019_04_22_074134) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_clothing_types", force: :cascade do |t|
+    t.bigint "dressmaker_profile_id"
+    t.bigint "clothing_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothing_type_id"], name: "index_user_clothing_types_on_clothing_type_id"
+    t.index ["dressmaker_profile_id"], name: "index_user_clothing_types_on_dressmaker_profile_id"
+  end
+
   create_table "user_specialities", force: :cascade do |t|
     t.bigint "dressmaker_profile_id"
     t.bigint "speciality_id"
@@ -146,6 +166,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_074134) do
   add_foreign_key "orders", "users", column: "dressmaker_id"
   add_foreign_key "photos", "dressmaker_profiles"
   add_foreign_key "reviews", "orders"
+  add_foreign_key "user_clothing_types", "clothing_types"
+  add_foreign_key "user_clothing_types", "dressmaker_profiles"
   add_foreign_key "user_specialities", "dressmaker_profiles"
   add_foreign_key "user_specialities", "specialities"
 end
