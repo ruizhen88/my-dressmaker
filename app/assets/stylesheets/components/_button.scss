@@ -3,14 +3,13 @@
   margin: 5px;
   border-radius: 5px;
   width: auto;
-  border-color:  $flamingo;
   text-align: center;
   color: black;
     a {
       color: #7d7d7d;
     }
     :hover {
-      background-color: #ffb4ac;
+      background-color: $dark-flamingo;
     }
 }
 .btn {
@@ -18,6 +17,7 @@
   margin: 5px;
   border-radius: 5px;
   width: auto;
+  border: 0;
 }
 
 @media(max-width: 992px) {

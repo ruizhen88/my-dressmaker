@@ -34,12 +34,16 @@
 
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <% unless action_name == "landing-eng" %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+    <% end %>
     <div class="content">
       <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
+    <% unless action_name == "landing-eng" %>
+      <%= render 'shared/footer' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
