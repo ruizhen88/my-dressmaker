@@ -7,6 +7,7 @@
       <br>
       <%= simple_form_for @dressmaker, html: {multipart: true} do |f| %>
         <%= f.error_notification %>
+        <%= f.input :username %>
         <%= f.input :bio, placeholder: "Tell us about yourself...", input_html: {cols: 30, rows: 5} %>
         <%= f.input :avatar %>
         <% if @dressmaker.avatar.present? %>
@@ -14,6 +15,12 @@
         <% end %>
         <%= f.input :avatar_cache, as: :hidden %>
         <br>
+        <%= f.fields_for :user, @dressmaker.user do |ff| %>
+          <%= ff.input :street_address %>
+          <%= ff.input :street_address_2 %>
+          <%= ff.input :country %>
+          <%= ff.input :post_code %>
+        <% end %>
         <%= f.fields_for :photos, @photo do |ff| %>
           <%= ff.label :url, "Portfolio" %>
           <%= ff.file_field :url, multiple: true, name: "photos[url][]"  %>

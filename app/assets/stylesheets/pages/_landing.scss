@@ -39,15 +39,31 @@
       font-style: normal;
       margin: 35px 0px 48px 48px;
       background-color: $dark-flamingo;
-      color: #FFFFFF;
-
-      }
+      color: white;
+    }
 
     .floating-button {
         position: absolute;
         top: 0px;
         right: 50px;
       }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .join{
+      a {
+        color: white;
+      }
+      :hover {
+          text-decoration: none;
+          background-color: $flamingo;
+        }
+    }
+
 
  }
 

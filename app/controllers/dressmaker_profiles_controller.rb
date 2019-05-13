@@ -113,7 +113,11 @@ class DressmakerProfilesController < ApplicationController
   end
 
   def dressmaker_params
-    params.require(:dressmaker_profile).permit(:bio, :avatar, :speciality_ids, :fb_url, :insta_url, photos_attributes: [:id, :dressmaker_profile_id, :url])
+    params.require(:dressmaker_profile).permit(
+      :username, :bio, :avatar, :speciality_ids, :fb_url, :insta_url,
+      :street_address, :street_address_2, :country, :post_code,
+      photos_attributes: [:id, :dressmaker_profile_id, :url]
+    )
   end
 
   def set_dressmaker
