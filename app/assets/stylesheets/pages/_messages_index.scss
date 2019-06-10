@@ -44,8 +44,15 @@
   align-items: center;
   margin-bottom: 15px;
 }
-.msg-profile-txt h3, p {
-  margin: 0 15px;
+.msg-profile-txt {
+  h3, p {
+    margin: 0 15px;
+  }
+  .call-btn {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 0px;
+  }
 }
 .msg-btn {
   margin: 10px;

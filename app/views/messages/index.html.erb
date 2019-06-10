@@ -56,7 +56,9 @@
         <%= cl_image_tag @order.user.avatar_url, crop: :fill, class: "avatar-small" %>
         <div class="msg-profile-txt">
           <p>Contact your customer</p>
-          <h3><%= @order.user.first_name %> <%= @order.user.last_name %></h3><button class="btn-xs btn-default", style= "margin-left:15px; margin-top: 10px" >Video call</button>
+          <h3><%= @order.user.first_name %> <%= @order.user.last_name %></h3>
+          <a href="https://appear.in/mydressmaker"class="call-btn btn btn-default btn-xs" target="_blank"> Join video call </a>
+          <p class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="To join a video call with your customer : make sure you have a camera and microphone working. Agree on timing with your contact. Simply click on the button and you are live !"></p>
         </div>
       </div>
     <% else %>
@@ -64,7 +66,11 @@
         <%= cl_image_tag @order.dressmaker.avatar_url, crop: :fill, class: "avatar-small" %>
         <div class="msg-profile-txt">
           <p>Contact your dressmaker</p>
-          <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3><button class="btn-xs btn-default", style= "margin-left:15px; margin-top: 10px" >Video call</button>
+          <h3><%= @order.dressmaker.first_name %> <%= @order.dressmaker.last_name %></h3>
+          <a href="https://appear.in/mydressmaker" class="call-btn btn btn-default btn-xs" target="_blank"> Join video call </a>
+
+          <p class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="To join a video call with your customer : make sure you have a camera and microphone working. Agree on timing with your contact. Simply click on the button and you are live !"></p>
+
         </div>
       </div>
     <% end %>
