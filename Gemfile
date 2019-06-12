@@ -27,6 +27,7 @@ gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'money-rails'
 gem 'stripe'
+gem 'country_select', '~> 4.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

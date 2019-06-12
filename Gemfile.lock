@@ -81,6 +81,13 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crass (1.0.4)
     debug_inspector (0.0.3)
     devise (4.6.1)
@@ -109,6 +116,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -232,6 +240,9 @@ GEM
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sixarm_ruby_unaccent (1.2.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -257,6 +268,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -285,6 +297,7 @@ DEPENDENCIES
   client_side_validations
   client_side_validations-simple_form
   cloudinary (~> 1.9.1)
+  country_select (~> 4.0)
   devise
   dotenv-rails
   font-awesome-sass (~> 5.5.0)
